@@ -117,35 +117,37 @@ Note that the system doesn't send hints to student right away. Hints are only se
 \section{Statistical Study of the Effectiveness of hints}
 %The hint system has recorded all the student attempts and the timestamps of each attempt. This allows us to extract useful features, including the number of attempts on each problem, time spent on each problem, etc. These features are used to study what effects hints make on students behavior.
 
-We used a controlled study to quantify the effectiveness of our hint system. For each assignment, we randomly split the students into case and control with 50/50 chance. Case students will be able to receive hints on problems in the assignment, while control students will not receive any hint in the assignment.
+We used a controlled study to quantify the effectiveness of our hint system. For each assignment, we randomly split the students into case and control with 50/50 chance. Case students will be able to receive hints on problems in the assignment, while control students will not receive any hint in the assignment. However, for control students, we recorded student attempts that would trigger a hint so that we can evaluate whether the hints are helpful.
+
+Note that when a hint is assigned to a case student, one can choose whether or not to see the hint using the "Show Hint" button. Also, when a case student's attempt doesn't satisfy any hint rule, no hint will be sent. Therefore, for each problem in the assignment, we filter out case students who received hints but didn't click 'Show Hint' and case students who received no hint because none of the hint conditions is satisfied. We only focus on case students who actually received and saw the hint content.
+
+Also, we want to compare case students who have received hints with control students who would have received hints. Therefore, for each problem, we only look at control students whose attempts would trigger adaptive hints.
+
 
 \subsection{Effect on Problems with Hint}
-We first look at problems with hint. These problems have at least one hint sent out to at least one student. We want to measure the effect of the adaptive hints on the problems with hints.
+We first look at problems that have at least one hint sent out to at least one student. We want to measure the effect of the adaptive hints on the problems where hints are seen.
 
-Note that when a hint is assigned to a case student, one can choose whether or not to see the hint using the "Show Hint" button. Also, when a case student's attempt doesn't satisfy any hint rule, no hint will be sent. Therefore, for each problem in the assignment, we further filter out case students who received hints but didn't click 'Show Hint' and case students who received no hint because none of the hint conditions is satisfied. We only focus on case students who actually received and saw the hint content. In other words, problems in each assignment will share the same group of control students but each problem will have a unique group of case students, which would be a subset of the case students of the assignment.
+We first extract the number of attempts each student spent. We calculate the number of attempts average over case students and also the average attempts of control students. We compare these two averages for each problem and found that the effectiveness of hints is undetectable. See the left graph in Fig. \ref{fig:tries_times_analysis}.
 
-For each of the problem, we extract the number of attempts each student spent. We calculate the number of attempts average over case students and also the number of attempts average over control students. We compare these two numbers for each problem and found that control students spent fewer attempts on a problem compared to case students. See the left graph in Fig. \ref{fig:tries_times_analysis}. This shows that case students who clicked 'Show Hints' are the students who struggle with these problems and therefore spent more tries on the problems.
-
-We also extract the time students spent on each problem. First we measured the time differences between each attempt and filtered those that are longer than 10 minutes. Time gaps larger than 10 minutes are considered to be a break time instead of time spent on homework. Then we sum all the time spent on a problem as the total time a student spent. We again compare average time spent of case students with control students, see the graph on the right of Fig. \ref{fig:tries_times_analysis}. The graph shows that the case students spent more time working on problems than the control students. This is consistent with the number of attempts analysis that case students who clicked 'Show Hint' are the students who need help.
+We also extract the time students spent on each problem. We measure the time differences between each attempt and filter time gaps that are longer than 10 minutes. Time gaps larger than 10 minutes are considered as break instead of time spent on homework. Then we sum up all the time gaps between attempts as the total time a student spenton the problem. We again compare average time spent of case students with control students, see the graph on the right of Fig. \ref{fig:tries_times_analysis}. The graph of number of attempts is consistent with the graph of time spent. We can't detect the effectiveness of hints on the problems where students receive and read hints and try to do the short questions in hints. Note that students who received hints are likely to spend more time on these problems because all our hints are short questions designed for students to answer. Students will likely to spend time to read and do the hint questions.
 
 \begin{figure}[ht]
 \centering
 \caption{On the left, the graph shows number of attempts for each problem average over control students vs case students. These problems are problems that at least one student received hints on. It shows that case students who ask for hints spent more attempts on these problems than the control students. On the right is the graph of time spent on each problem average over control students vs case students. Case students again spend more time on problems than the control students. Both graphs produce consistent results.}
    \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/tries_analysis.png} &
-		\includegraphics[width=0.5\textwidth]{image/times_analysis.png}
+		\includegraphics[width=0.5\textwidth]{image/new_tries_analysis.png} &
+		\includegraphics[width=0.5\textwidth]{image/new_times_analysis.png}
 	\end{tabular}
     \label{fig:tries_times_analysis}
 \end{figure}
 
-Furthermore, we want to examine whether these two groups of students are significantly different. We perform a two-tailed t-test for both the average number of attempts and the average time spent on each problem. Our null hypothesis is that case students and control students have no difference on the average number of attempts and average time spent. We found that case students spent on average 16 more attempts than control students with a p-value $2.48*10^{-41}$. And case students spent on average 28 minutes more than control students with a p-value $6.63*10^{-36}$. We reject the hypothesis and conclude that control students and case students are significantly different. Case students who ask for hints are students who struggle with their homework. They spend more time and more attempts on these problems compared to control students.
+%Furthermore, we want to examine whether these two groups of students are significantly different. We perform a two-tailed t-test for both the average number of attempts and the average time spent on each problem. Our null hypothesis is that case students and control students have no difference on the average number of attempts and average time spent. We found that case students spent on average 16 more attempts than control students with a p-value $2.48*10^{-41}$. And case students spent on average 28 minutes more than control students with a p-value $6.63*10^{-36}$. We reject the hypothesis and conclude that control students and case students are significantly different. Case students who ask for hints are students who struggle with their homework. They spend more time and more attempts on these problems compared to control students.
 
-Note that students who received hints are likely to spend more time on these problems because all our hints are short questions designed for students to answer. Students will likely to spend time to read and do the hint questions.
 
 \subsection{Effect on Problems without Hint}
-We then look at problems without hints. These are problems that neither case students nor control students receive any hints on. Our goal is to examine whether adaptive hints help students learn to solve similar problems when no hint is present.
+We then look at problems that neither case students nor control students receive any hints on. Our goal is to examine whether adaptive hints help students learn to solve similar problems when no hint is present. We want to study the long term effect of the adaptive hints.
 
-For control students, we calculate average number of tries for each problem. Then, for each case student, we select problems that the student finished after receiving at least one hint. We filter out problems that the student finished before the first hint in each homework assignment and only look at problems that the student solved after seeing at least a hint. For example, the student solved an assignment of 9 problems in the following order $\{ 1, 4, 3, 2, 6, 5, 7, 8, 9\}$. This student received at least one hint on problem $\{3, 5, 7\}$. Therefore, we will only look at problem $\{2, 6, 8, 9\}$ in this assignment. See Figure. \ref{fig:pro_no_hint}. Then we compare the number of tries this case student spent with the average number of tries control students spent. Finally, we aggregate the differences of these four problems and consider it the difference of number of tries for this assignment between this case student and the control students. We repeat this process for every case student and at the end take the average of all case students.
+First we calculate average number of tries for each problem for control students. Then, for each case student, we select problems that the student finished after receiving at least one hint. We filter out problems that the student finished before the first hint in each homework assignment and only look at problems that the student solved after seeing at least a hint. For example, the student solved an assignment of 9 problems in the following order $\{ 1, 4, 3, 2, 6, 5, 7, 8, 9\}$. This student received at least one hint on problem $\{3, 5, 7\}$. Therefore, we will only look at problem $\{2, 6, 8, 9\}$ in this assignment. See Figure. \ref{fig:pro_no_hint}. Then we compare the number of tries this case student spent with the average number of tries control students spent. Finally, we aggregate the differences of these four problems and consider it the difference of number of tries for this assignment between this case student and the control students. We repeat this process for every case student and at the end take the average of all case students.
 
 \begin{figure}[ht]
    \centering
@@ -155,7 +157,7 @@ For control students, we calculate average number of tries for each problem. The
 \end{figure}
 
 
-Our data shows that case students spend an average of 14.409 fewer attempts than the control students over all assignments. See Table \ref{tab:no_hint}. We again perform a two-tailed t-test. Our null hypothesis of our t-test is that case students have similar sum of attempts with control students. The p-value of our t-test is $2.9\%$. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
+Our data shows that case students spend an average of 48.199 fewer attempts than the control students over all assignments. See Table \ref{tab:no_hint}. We again perform a two-tailed t-test. Our null hypothesis of our t-test is that case students have similar sum of attempts with control students. The p-value of our t-test is $6.43 * 10^{-9}$. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
 
 \begin{table}
 \caption{The table listed the extra number of attempts that control students spent comparing to case students. We first compare the attempts for each assignment, then we look at all assignments at the end. We also perform a two tailed t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
@@ -164,21 +166,23 @@ Our data shows that case students spend an average of 14.409 fewer attempts than
   \hline
    Week & Average tries of & P-Value \\
       & control minus case  & \\ \hline
-	4 & -1.051 & 0.829 \\
-	5 & 14.559 & 0.00032 \\
-	6 & 5.528 & 0.104 \\
-	7 & 14.597 & 0.030 \\
-	8 & -1.526 & 0.609 \\ \hline
-    All Assignments & 14.409 & 0.029 \\ 
+	4 & 18.258 & 0.00146 \\
+	5 & 42.598 & $3.087 * 10^{-15}$ \\
+	6 & 24.406 & $4.324 * 10^{-8}$ \\
+	7 & 59.130 & $2.731 * 10^{-11}$ \\
+	8 & -38.860 & $1.022 * 10^{-26} $\\ \hline
+    All Assignments & 48.199 & $6.434 * 10^{-9}$ \\ 
     \hline
   \end{tabular}
   \label{tab:no_hint}
   \end{center}
 \end{table}
 
-Table \ref{tab:no_hint} shows the differences of tries for each assignment. Assignment of week 4 and week 8 with very high p-value give negative results, but the results from week 5, 6, and 7 with very small p-value give positive results which lead to the positive result for all assignment. Further looking at week 4 data, we found that out of a total of 9 problems in week 4 assignment, problem 5 has 549 hints received and problem 9 has 96 hints received. The rest of the problems all have less than 50 hints received by students. This may cause the data to be too biased and therefore lead to a very large p-value. Also, Week 4 is the first week we send hints to students and students were in the process of learning how to request hints and how to learn from hints. Looking at week 8 in detail, we found that there are only 176 hints sent. Therefore, the data we collected for week 8 may not be enough for us to detect the difference between two groups of students.
+Table \ref{tab:no_hint} shows the differences of tries for each assignment. Assignment of week 8 shows the hints hurt while the results from week 4, 5, 6, and 7 with very small p-value give positive results which lead to the positive result for all assignment. Further looking at week 8, we found that there are only 176 hints sent out of total 3621 hints. Also, there is only one problem in week 8 that we sent hints. Therefore, the data we collected for week 8 may not be representative.
 
-We do similar analysis on the time students spend on problems. See Table \ref{tab:no_hint_time}. The results are consistent with our results of number of attempts. We have very consistent statistics that assignment 4 and assignment 8 have very high p-value comparing to the other assignments. The average of all assignments shows control students spent about 26 minutes more on each problem than case students.
+%Table \ref{tab:no_hint} shows the differences of tries for each assignment. Assignment of week 4 and week 8 with very high p-value give negative results, but the results from week 5, 6, and 7 with very small p-value give positive results which lead to the positive result for all assignment. Further looking at week 4 data, we found that out of a total of 9 problems in week 4 assignment, problem 5 has 549 hints received and problem 9 has 96 hints received. The rest of the problems all have less than 50 hints received by students. This may cause the data to be too biased and therefore lead to a very large p-value. Also, Week 4 is the first week we send hints to students and students were in the process of learning how to request hints and how to learn from hints. Looking at week 8 in detail, we found that there are only 176 hints sent. Therefore, the data we collected for week 8 may not be enough for us to detect the difference between two groups of students.
+
+We do similar analysis on the time students spend on problems. See Table \ref{tab:no_hint_time}. The results are consistent with our results of number of attempts. Similarly, we have week 8 which suggests that the hints hurt student performance. However, with only one problem in week 8, the result could be very biased. The average of all assignments shows control students spent about 2 hours more on each problem than case students.
 
 \begin{table}
 \caption{The table listed the extra seconds that control spent comparing to case. We first compare the time spent for each assignment, then we look at all assignments at the end. We perform a two tailed t-test with the null hypothesis that control students spent the same amount of time on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
@@ -187,12 +191,12 @@ We do similar analysis on the time students spend on problems. See Table \ref{ta
   \hline
    Week & Average seconds of & P-Value \\
       & control minus case  & \\ \hline
-	4 & -531.851 & 0.342 \\
-	5 & 1116.101 & 0.00024 \\
-	6 & 908.756 & 0.012 \\
-	7 & 2324.41 & 0.006 \\
-	8 & -208.903 & 0.507 \\ \hline
-    All Assignments & 1573.682 & 0.012 \\ 
+	4 & 2394.366 & 0.000466 \\
+	5 & 3778.289 & $1.839*10^{-17}$ \\
+	6 & 3451.454 & $6.382*10^{-12} $\\
+	7 & 10858.322 & $1.070*10^{-17}$ \\
+	8 & -2163.428 & $5.055*10^{-10}$ \\ \hline
+    All Assignments & 7456.791 & $6.966 * 10^{-16}$ \\ 
     \hline
   \end{tabular}
   \label{tab:no_hint_time}
