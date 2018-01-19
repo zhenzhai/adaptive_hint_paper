@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  18 JAN 2018 00:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  19 JAN 2018 08:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -398,216 +398,221 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 21.
 
 
-LaTeX Warning: Citation `Anderson1995' on page 1 undefined on input line 34.
+LaTeX Warning: Citation `Anderson1995' on page 1 undefined on input line 43.
 
 
-LaTeX Warning: Citation `Vanlehn2011' on page 1 undefined on input line 34.
+LaTeX Warning: Citation `Vanlehn2011' on page 1 undefined on input line 43.
 
 
-LaTeX Warning: Citation `Koedinger1997' on page 1 undefined on input line 34.
+LaTeX Warning: Citation `Koedinger1997' on page 1 undefined on input line 43.
 
 
-LaTeX Warning: Citation `John2014' on page 1 undefined on input line 34.
+LaTeX Warning: Citation `John2014' on page 1 undefined on input line 43.
 
 
-LaTeX Warning: Citation `Azevedo1995' on page 1 undefined on input line 36.
-
-
-LaTeX Warning: Citation `Bangert-Drowns1991' on page 1 undefined on input line 
-36.
-
-
-LaTeX Warning: Citation `Shute2008' on page 1 undefined on input line 36.
-
-
-LaTeX Warning: Citation `Shute2008' on page 1 undefined on input line 36.
-
-
-LaTeX Warning: Citation `Mason2001' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Azevedo1995' on page 1 undefined on input line 45.
 
 
 LaTeX Warning: Citation `Bangert-Drowns1991' on page 1 undefined on input line 
-36.
+45.
 
 
-LaTeX Warning: Citation `Kulhavy1972' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Shute2008' on page 1 undefined on input line 45.
 
 
-LaTeX Warning: Citation `Razzaq2010' on page 1 undefined on input line 36.
+LaTeX Warning: Citation `Shute2008' on page 1 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Mason2001' on page 1 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Bangert-Drowns1991' on page 1 undefined on input line 
+45.
+
+
+LaTeX Warning: Citation `Kulhavy1972' on page 1 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Razzaq2010' on page 1 undefined on input line 45.
+
+
+LaTeX Warning: Citation `Cooper2006' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `MestHartRath2002' on page 1 undefined on input line 47
+.
+
+
+LaTeX Warning: Citation `Vanlehn2005' on page 1 undefined on input line 47.
+
+
+LaTeX Warning: Citation `MestHartRath2002' on page 1 undefined on input line 47
+.
+
+
+LaTeX Warning: Citation `Vanlehn2005' on page 1 undefined on input line 47.
 
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: Citation `Cooper2006' on page 2 undefined on input line 38.
-
-
-LaTeX Warning: Citation `MestHartRath2002' on page 2 undefined on input line 38
-.
-
-
-LaTeX Warning: Citation `Vanlehn2005' on page 2 undefined on input line 38.
-
-
-LaTeX Warning: Citation `MestHartRath2002' on page 2 undefined on input line 38
-.
-
-
-LaTeX Warning: Citation `Vanlehn2005' on page 2 undefined on input line 38.
-
-
-LaTeX Warning: Citation `ElkherjFreund14' on page 2 undefined on input line 40.
+LaTeX Warning: Citation `ElkherjFreund14' on page 2 undefined on input line 49.
 
 
 
-LaTeX Warning: Citation `Baker2004' on page 2 undefined on input line 42.
+LaTeX Warning: Citation `Baker2004' on page 2 undefined on input line 51.
 
 
-LaTeX Warning: Citation `Baker2005' on page 2 undefined on input line 42.
+LaTeX Warning: Citation `Baker2005' on page 2 undefined on input line 51.
 
 
-LaTeX Warning: Citation `Baker2004Off-task' on page 2 undefined on input line 4
-2.
+LaTeX Warning: Citation `Baker2004Off-task' on page 2 undefined on input line 5
+1.
 
 
-LaTeX Warning: Citation `Atkinson2000' on page 2 undefined on input line 42.
+LaTeX Warning: Citation `Atkinson2000' on page 2 undefined on input line 51.
 
 
-LaTeX Warning: Citation `McLaren2006' on page 2 undefined on input line 42.
+LaTeX Warning: Citation `McLaren2006' on page 2 undefined on input line 51.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-[3]
-
-LaTeX Warning: Reference `fig:parse_tree' on page 4 undefined on input line 72.
-
-
-<image/Parse_Trees.png, id=32, 408.52625pt x 389.455pt>
-File: image/Parse_Trees.png Graphic file (type png)
-
-<use image/Parse_Trees.png>
-Package pdftex.def Info: image/Parse_Trees.png used on input line 76.
-(pdftex.def)             Requested size: 173.56177pt x 165.45972pt.
-
+[2] [3]
 
 LaTeX Warning: Reference `fig:parse_tree' on page 4 undefined on input line 81.
 
 
-[4]
+<image/Parse_Trees.png, id=33, 408.52625pt x 389.455pt>
+File: image/Parse_Trees.png Graphic file (type png)
 
-LaTeX Warning: Reference `fig:eval_tree' on page 5 undefined on input line 83.
+<use image/Parse_Trees.png>
+Package pdftex.def Info: image/Parse_Trees.png used on input line 85.
+(pdftex.def)             Requested size: 173.56177pt x 165.45972pt.
 
-<image/Eval_Trees.png, id=42, 823.075pt x 431.6125pt>
+
+LaTeX Warning: Reference `fig:parse_tree' on page 4 undefined on input line 90.
+
+
+
+LaTeX Warning: Reference `fig:eval_tree' on page 4 undefined on input line 92.
+
+<image/Eval_Trees.png, id=34, 823.075pt x 431.6125pt>
 File: image/Eval_Trees.png Graphic file (type png)
 
 <use image/Eval_Trees.png>
-Package pdftex.def Info: image/Eval_Trees.png used on input line 88.
+Package pdftex.def Info: image/Eval_Trees.png used on input line 97.
 (pdftex.def)             Requested size: 277.69987pt x 145.62012pt.
+ [4]
+
+LaTeX Warning: Reference `fig:parse_tree' on page 5 undefined on input line 105
+.
 
 
-LaTeX Warning: Reference `fig:parse_tree' on page 5 undefined on input line 96.
+LaTeX Warning: Citation `Kulhavy1972' on page 5 undefined on input line 107.
+
+
+LaTeX Warning: Citation `Razzaq2010' on page 5 undefined on input line 107.
+
+
+LaTeX Warning: Reference `fig:show_hint' on page 5 undefined on input line 107.
 
 
 [5 <./image/Parse_Trees.png (PNG copy)>]
-
-LaTeX Warning: Citation `Kulhavy1972' on page 6 undefined on input line 98.
-
-
-LaTeX Warning: Citation `Razzaq2010' on page 6 undefined on input line 98.
-
-
-LaTeX Warning: Reference `fig:show_hint' on page 6 undefined on input line 98.
-
 <image/Show_Hint.png, id=49, 660.4675pt x 508.90125pt>
 File: image/Show_Hint.png Graphic file (type png)
 
 <use image/Show_Hint.png>
-Package pdftex.def Info: image/Show_Hint.png used on input line 103.
+Package pdftex.def Info: image/Show_Hint.png used on input line 112.
 (pdftex.def)             Requested size: 242.98541pt x 187.22668pt.
  [6 <./image/Eval_Trees.png (PNG copy)>]
 
 LaTeX Warning: Reference `fig:tries_times_analysis' on page 7 undefined on inpu
-t line 121.
+t line 130.
 
 
 LaTeX Warning: Reference `fig:tries_times_analysis' on page 7 undefined on inpu
-t line 123.
+t line 132.
 
-[7 <./image/Show_Hint.png (PNG copy)>]
-<image/new_tries_analysis.png, id=63, 625.33624pt x 392.46625pt>
+<image/new_tries_analysis.png, id=56, 625.33624pt x 392.46625pt>
 File: image/new_tries_analysis.png Graphic file (type png)
 
 <use image/new_tries_analysis.png>
-Package pdftex.def Info: image/new_tries_analysis.png used on input line 129.
+Package pdftex.def Info: image/new_tries_analysis.png used on input line 138.
 (pdftex.def)             Requested size: 173.56177pt x 108.92563pt.
 
-<image/new_times_analysis.png, id=65, 629.35126pt x 392.46625pt>
+<image/new_times_analysis.png, id=58, 629.35126pt x 392.46625pt>
 File: image/new_times_analysis.png Graphic file (type png)
 
 <use image/new_times_analysis.png>
-Package pdftex.def Info: image/new_times_analysis.png used on input line 130.
+Package pdftex.def Info: image/new_times_analysis.png used on input line 139.
 (pdftex.def)             Requested size: 173.56177pt x 108.23096pt.
 
-Overfull \hbox (5.59998pt too wide) in paragraph at lines 128--133
+Overfull \hbox (5.59998pt too wide) in paragraph at lines 137--142
  [][] 
  []
 
 
-LaTeX Warning: Reference `fig:pro_no_hint' on page 8 undefined on input line 14
-1.
+Underfull \vbox (badness 1694) has occurred while \output is active []
 
-[8 <./image/new_tries_analysis.png> <./image/new_times_analysis.png>]
-<image/Filter_problems.png, id=74, 961.5925pt x 525.965pt>
+ [7 <./image/Show_Hint.png (PNG copy)>]
+
+LaTeX Warning: Reference `fig:pro_no_hint' on page 8 undefined on input line 15
+0.
+
+<image/Filter_problems.png, id=66, 961.5925pt x 525.965pt>
 File: image/Filter_problems.png Graphic file (type png)
 
 <use image/Filter_problems.png>
-Package pdftex.def Info: image/Filter_problems.png used on input line 146.
+Package pdftex.def Info: image/Filter_problems.png used on input line 155.
 (pdftex.def)             Requested size: 277.69987pt x 151.8919pt.
 
 
-LaTeX Warning: Reference `tab:no_hint' on page 9 undefined on input line 151.
+LaTeX Warning: Reference `tab:no_hint' on page 8 undefined on input line 160.
 
 
-LaTeX Warning: Reference `tab:no_hint' on page 9 undefined on input line 172.
+Overfull \hbox (22.76006pt too wide) in paragraph at lines 165--178
+ [] 
+ []
 
+
+LaTeX Warning: Reference `tab:no_hint' on page 8 undefined on input line 181.
+
+[8 <./image/new_tries_analysis.png> <./image/new_times_analysis.png>]
 
 LaTeX Warning: Reference `tab:no_hint_time' on page 9 undefined on input line 1
-76.
+85.
 
 
-Underfull \vbox (badness 3547) has occurred while \output is active []
-
- [9 <./image/Filter_problems.png (PNG copy)>] [10]
-
-LaTeX Warning: Reference `tab:map' on page 11 undefined on input line 202.
+Overfull \hbox (57.1959pt too wide) in paragraph at lines 190--203
+ [] 
+ []
 
 
-LaTeX Warning: Reference `fig:final_compare_all' on page 11 undefined on input 
-line 220.
-
-<image/final_compare.png, id=89, 722.7pt x 361.35pt>
-File: image/final_compare.png Graphic file (type png)
-
-<use image/final_compare.png>
-Package pdftex.def Info: image/final_compare.png used on input line 225.
-(pdftex.def)             Requested size: 277.69449pt x 142.26578pt.
+LaTeX Warning: Reference `tab:map' on page 9 undefined on input line 211.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11] [12 <./image/final_compare.png>] (./main.bbl
+
+LaTeX Warning: Reference `fig:final_compare_all' on page 9 undefined on input l
+ine 229.
+
+<image/final_compare.png, id=75, 722.7pt x 361.35pt>
+File: image/final_compare.png Graphic file (type png)
+
+<use image/final_compare.png>
+Package pdftex.def Info: image/final_compare.png used on input line 234.
+(pdftex.def)             Requested size: 277.69449pt x 142.26578pt.
+ [9 <./image/Filter_problems.png (PNG copy)>]
+[10] [11 <./image/final_compare.png>] [12] (./main.bbl
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no “ in font cmr9!
  [13])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 250.
  [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 250.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 250.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 250.
 
 
 Package rerunfilecheck Warning: File `main.out' has changed.
@@ -623,12 +628,12 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 241.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 250.
  ) 
 Here is how much of TeX's memory you used:
  7469 strings out of 492995
  113333 string characters out of 6132704
- 222492 words of memory out of 5000000
+ 227492 words of memory out of 5000000
  10911 multiletter control sequences out of 15000+600000
  7801 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -649,7 +654,7 @@ e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2017/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (14 pages, 384964 bytes).
+Output written on main.pdf (14 pages, 387369 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  154 compressed objects within 2 object streams
