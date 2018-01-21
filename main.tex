@@ -224,7 +224,7 @@ given. If you were comparing one problem at a time, then a
 two-population t-test can be used. But you are using something like
 the total number of attempts for all of the problems in the
 assignment... not sure how you are doing that. What are you summing?
-{\bf Zhen:} You are right. I am not summing over an assignment. I only sum over parts for each problem. And as you mentioned, each problem we will have two sets of numbers. I calculate the difference between case and control for each problem, then take the average within each assignment, which is the data on the second column of Table 1 and Table 2.
+{\bf Zhen:} I included the detail here https://www.overleaf.com/13310110vzkywdhhmcxd
 
 We compute the number of attempts (or the length of time)
 
@@ -246,19 +246,17 @@ and at the end take the average of all case students.
 Our data shows that case students spend an average of 48.199 fewer attempts than the control students over all assignments. See Table \ref{tab:no_hint}. We again perform a two-tailed t-test. Our null hypothesis of our t-test is that case students have similar sum of attempts with control students. The p-value of our t-test is $6.43 * 10^{-9}$. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
 
 \begin{table}[th]
-\caption{The table listed the extra number of attempts that control students spent comparing to case students. We first compare the attempts for each assignment, then we look at all assignments at the end. We also perform a two tailed t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
+\caption{The table listed the extra number of attempts that control students spent comparing to case students. For the each of the four weeks, the control students spent more attempts than the case students. We also perform a one sample t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the one sample t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
-  \begin{tabular}{| c | c | c | c | c |}
+  \begin{tabular}{| c | c | c | c | c | c |}
   \hline
-   Week & Average tries of & P-Value & Control & Case\\
-      & control minus case  & &size/mean/std & size/mean/std\\ \hline
-	4 & 19.381 & 0.000408 & 53/70.947/28.672 & 53/51.566/25.341\\
-	5 & 43.173 & $2.098 * 10^{-15}$ & 92/77.695/38.860 & 92/34.521/27.151\\
-	6 & 21.964 & $0.000345$ & 73/68.731/34.329 & 73/46.767/37.498 \\
-	7 & 89.524 & $1.558 * 10^{-20}$ & 65/183.601/52.651 & 65/94.076/37.030\\
-	8 & -29.941 & $0.013 $ & 2/23.558/0.0 & 2/53.5/3.5\\ \hline
-    All Assignments & 64.508 & $7.733 * 10^{-11}$ &167/167.106/101.104 & 167/102.598/71.106\\ 
-    \hline
+   Week & Size of Case & Mean of Case & Std of Case &  P-Value & Average Difference\\
+      & & & & & Control Subtract Case  \\ \hline
+	4 & 43 & 47.674 & 23.125 & $1.846 * 10^{-7}$ & 22.235\\
+	5 & 81 & 32.691 & 25.924 & $9.349 * 10 ^{-25}$ & 43.128\\
+	6 & 64 & 47.438 & 37.967 & $9.422 * 10^{-5}$ & 19.956 \\
+	7 & 55 & 93.636 & 37.451 & $2.279 * 10^{-23}$ & 86.785\\
+	\hline
   \end{tabular}
   \label{tab:no_hint}
   \end{center}
@@ -269,19 +267,17 @@ Table \ref{tab:no_hint} shows the differences of tries for each assignment. Assi
 We do similar analysis on the time students spend on problems. See Table \ref{tab:no_hint_time}. The results are consistent with our results of number of attempts. Similarly, we have week 8 which suggests that the hints hurt student performance. However, with only one problem in week 8, the result could be very biased. The average of all assignments shows control students spent about 2 hours more on each problem than case students.
 
 \begin{table}
-\caption{The table listed the extra seconds that control spent comparing to case. We first compare the time spent for each assignment, then we look at all assignments at the end. We perform a two tailed t-test with the null hypothesis that control students spent the same amount of time on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
+\caption{The table listed the extra minutes that control spent comparing to case. We first compare the time spent for each assignment, then we look at all assignments at the end. We perform a two tailed t-test with the null hypothesis that control students spent the same amount of time on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
-  \begin{tabular}{| c | c | c | c | c |}
-  \hline
-   Week & Average seconds of & P-Value & Control & Case\\
-      & control minus case  & &size/mean/std & size/mean/std \\ \hline
-	4 & 2592.595 & 0.000132 & 53/7641.331/3233.338 & 53/5048.735/3420.946\\
-	5 & 3943.913 & $5.124*10^{-18}$ & 92/5675.815/3157.908 & 92/1731.902/2295.719\\
-	6 & 3503.592 & $1.591*10^{-6} $ & 73/7404.565/3588.576 & 73/3900.972/4729.942\\
-	7 & 12477.605 & $1.792*10^{-21}$ & 65/20540.467/6115.489 & 65/8062.861/6153.741\\
-	8 & 1295.569 & $0.169$ & 2/2974.069/0.0 & 2/1678.5/613.5\\ \hline
-    All Assignments & 8818.439 & $2.522 * 10^{-15}$ & 167/16819.026/10996.603 & 167/8000.586/8131.866\\ 
+  \begin{tabular}{| c | c | c | c | c | c |}
     \hline
+   Week & Size of Case & Mean of Case & Std of Case &  P-Value & Average Difference \\
+      & & & & & Control Subtract Case  \\ \hline
+	4 & 41 & 81.141 & 48.998 & 0.081 & 13.885\\
+	5 & 62 & 32.155 & 32.006 & $3.063 * 10^{-11}$ & 33.158\\
+	6 & 58 & 73.519 & 77.389 & 0.027 & 23.281 \\
+	7 & 53 & 140.654 & 97.816 & $1.592 * 10^{-8}$ & 90.636 \\
+	\hline
   \end{tabular}
   \label{tab:no_hint_time}
   \end{center}
