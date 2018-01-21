@@ -41,7 +41,7 @@ We describe the system and the experimental design. Analysis of the
 results demonstrate that hints improve learning. Specifically {\em a
   studet that recieves a hint when attempting to answer an assignment
   question will solve following quesions in the same assignment more
-  quickly that a student that did not recieve the hint.}  On the other
+  quickly than a student that did not recieve the hint.}  On the other
 hand, there was no significant correlation between the reception of
 hints and the performance of the students in the final exam.
 
@@ -56,14 +56,14 @@ Research has suggested that well-designed feedback is essential to improving the
 
 Homework is an essential part of students' learning process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
 
-In~\cite{ElkherjFreund14} we described a system for delivering hints in the context of a web-based homework system. In the work presented here, we describe a controlled experiment that we have done in the context of an undergraduate course in probability and statistics. Our statical analysis provides new evidence that adaptive hints are effective.
+\cite{ElkherjFreund14} described a system for delivering hints in the context of a web-based homework system. In the work presented here, we describe a controlled experiment that we have done in the context of an undergraduate course in probability and statistics. Our statical analysis provides new evidence that adaptive hints are effective.
 
 There is a common concern about students gaming the system, especially on harmful gaming, where gaming the system leads to poor learning outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students game the system by tricking the tutoring systems into giving out correct answers\cite{Baker2004Off-task}. As a result, students succeed in homework but fail on learning. We don't have this concern because our hints don't contain correct answers in any form. The adaptive hint system generates short simple questions as hints instead of worked-examples, which is commonly used among human tutors\cite{Atkinson2000}. In fact, it is suggested that worked examples have no significant effects on learning in a web-based intelligent tutoring environment\cite{McLaren2006}. Therefore, we replaced worked examples with short questions that are designed to promote thinking and guide student's learning process. This resolve the concern of students gaming the system because our system gives students hints on how to learn instead of how to answer a specific question. The only way for a student to obtain correct answers is by learning how to solve the problem. Therefore, we not only prevent any system gaming, but our hints also help students in long term. Furthermore, our hint system targets mathematic problems, which require students to type in mathematic expressions. Therefore, unlike multiple choice problems, it would be nearly impossible to guess the answer by looking at hints. There is infinity many ways one can type in a mathematic expression and it is very hard for students to simply guess it correctly with the help of hints. Therefore, we don't have the concern of students gaming the system.
 
 \subsection*{Contribution}
 We built and implemented an adaptive hint system to provide hints to students at the time they are struggling with homework. The adaptive hint system first studies a student's incorrect answer to identify the student's confusion. We target mathematics problems that require students to type in an expression, therefore the system generates a message to point out the incorrect subexpression in a student's answer. Then, based on the identified confusion, the system explains the identified confusion with a short sentence followed by a short question for the student to solve. This short question is specifically designed to target the student's confusion and it is simple enough that a student can easily understand and answer. Our goal is to let the student solve the smaller task before moving on to solve the bigger task. The goal of the adaptive hint system is to guides students in their learning process from understanding their confusions to resolve their confusions.
 
-The system is adopted in a probability and statistic class of around 300 students and 245 students participated in this research. Each week we assign one assignment to students and we sent hints from the fourth week to the eighth week of the quarter. There are a total of 26 problems and each problem has between 1 to 10 questions. According to our record, students have received a total of 3621 hints during these five weeks. Our statistical result shows that students, with the help of the adaptive hints, learn to solve the problem and can solve similar problems more efficiently afterward. Our analysis demonstrates with statistical significant $p=0.029$ and $p=0.012$ that students who view the hints spent on average 14 fewer attempts and 26 minutes less on later problems in the same assignment compared to students who didn't see the hints.
+The system is adopted in a probability and statistic class of around 300 students and 245 students participated in this research. Each week we assign one assignment to students and we sent hints from the fourth week to the eighth week of the quarter. There are a total of 26 problems and each problem has between 1 to 10 questions. According to our record, students have received a total of 3621 hints during these five weeks. Our statistical result shows that students, with the help of the adaptive hints, learn to solve the problem and can solve similar problems more efficiently afterward. Our analysis demonstrates with statistical significant less than $1\%$ that students who receive a hint spent fewer attempts and also less amount of time on later problems in the same assignment compared to students who didn't receive a hint.
 
 
 \section{The Adaptive Hint System}
@@ -236,14 +236,9 @@ the total number of attempts for all of the problems in the
 assignment... not sure how you are doing that. What are you summing?
 {\bf Zhen:} I included the detail here https://www.overleaf.com/13310110vzkywdhhmcxd
 
-We compute the number of attempts (or the length of time)
+For each student in case, we compute the number of attempts (or the length of time) for all downstream problems and aggregate the measurement for each assignment. On the other hand, we sum the average number of attempts( or the length of time) of control group for these same downstream problems. As a result, we have a sum of attempts (or time) and also an average of attemtps(or time) for each case student in each assignment. We compare the average of attemtps (or the length of time) on each assignment between control students and case students. See Fig \ref{fig:downstream_analysis}, both graphs show that students in the case group spent less attempts and also less amount of time on homework problems comparing to control students.
 
-this case student spent with the
-average number of tries control students spent. Finally, we aggregate
-the differences of these four problems and consider it the difference
-of number of tries for this assignment between this case student and
-the control students. We repeat this process for every case student
-and at the end take the average of all case students.
+We then perform a one sample t-test with null hypothesis that the mean of the sum of attempts is the same as the average of attemtps. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment for both analysis of attempts and time. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
 
 \begin{figure}[ht]
    \centering
@@ -251,9 +246,6 @@ and at the end take the average of all case students.
    \includegraphics[width=0.8\textwidth]{image/Filter_problems.png}
    \label{fig:pro_no_hint}
 \end{figure}
-
-
-Our data shows that case students spend an average of 48.199 fewer attempts than the control students over all assignments. See Table \ref{tab:no_hint}. We again perform a two-tailed t-test. Our null hypothesis of our t-test is that case students have similar sum of attempts with control students. The p-value of our t-test is $6.43 * 10^{-9}$. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
 
 \begin{table}[th]
 \caption{The table listed the extra number of attempts that control students spent comparing to case students. For the each of the four weeks, the control students spent more attempts than the case students. We also perform a one sample t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the one sample t-test for all assignments is small enough that we can reject the null hypothesis.}
@@ -272,10 +264,6 @@ Our data shows that case students spend an average of 48.199 fewer attempts than
   \end{center}
 \end{table}
 
-Table \ref{tab:no_hint} shows the differences of tries for each assignment. Assignment of week 8 shows the hints hurt while the results from week 4, 5, 6, and 7 with very small p-value give positive results which lead to the positive result for all assignment. Further looking at week 8, we found that there are only 176 hints sent out of total 3621 hints. Also, there is only one problem in week 8 that we sent hints. Therefore, the data we collected for week 8 may not be representative.
-
-We do similar analysis on the time students spend on problems. See Table \ref{tab:no_hint_time}. The results are consistent with our results of number of attempts. Similarly, we have week 8 which suggests that the hints hurt student performance. However, with only one problem in week 8, the result could be very biased. The average of all assignments shows control students spent about 2 hours more on each problem than case students.
-
 \begin{table}
 \caption{The table listed the extra minutes that control spent comparing to case. We first compare the time spent for each assignment, then we look at all assignments at the end. We perform a two tailed t-test with the null hypothesis that control students spent the same amount of time on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
@@ -293,7 +281,18 @@ We do similar analysis on the time students spend on problems. See Table \ref{ta
   \end{center}
 \end{table}
 
-The statistics show us that the adaptive hints help students learn to solve problems and as a result improve students' performance in homework. Students who learn from hints perform better on similar problems comparing to students without hints.
+\begin{figure}[ht]
+\centering
+   \begin{tabular}{c c}
+		\includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png} &
+		\includegraphics[width=0.5\textwidth]{image/assignment_time_downstream.png}
+	\end{tabular}
+\caption{On the left, the graph shows number of attempts for both control students and case student. The control students spent more attempts on each assignment comparing to the case students. On the right is the graph of time spent on each problem of control students and case students. Control students again spend more time on each assignment than the control students. Both graphs produce consistent results that adaptive hints improve students' homework performance.}
+    \label{fig:downstream_analysis}
+\end{figure}
+
+
+
 
 \subsection{Long term effect}
 Final scores play an important role as to evaluate the learning outcome of students. We examine whether hints have effect on students' final score.
@@ -329,7 +328,7 @@ We can't tell which group of students perform better than the other. The p-value
 
 
 \section{Conclusion}
-We built an adaptive hint system for mathematics problems that can be embedded on any web-based homework platform. The system provides students with on-demand formative feedback to guide their learning process to achieve better learning outcome. Although we can't detect an improved learning outcome in the final exam, our statistics show an improvement of students' performance on homework. We show that students with the help of the adaptive hints spent less time and less try on homework problems compared to students without the help of hints.
+We built an adaptive hint system for mathematics problems that can be embedded on any web-based homework platform. The system provides students with on-demand formative feedback to guide their learning process to achieve better learning outcome. Although we can't detect an improved in the final exam, our statistics show an improvement of students' performance on homework. We show that students with the help of the adaptive hints spent less time and less attempts on homework problems compared to students without the help of hints.
 
 \newpage
 \bibliographystyle{splncs}
