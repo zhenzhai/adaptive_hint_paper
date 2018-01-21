@@ -10,7 +10,7 @@
 \usepackage{csquotes}
 
 
-\title{A Statistical Analysis of Adaptive Hints}
+\title{On the long term impact of Adaptive Hints}
 
 \author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
 \institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
@@ -32,33 +32,127 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-We study the performance of an adaptive hint system we developed for
-sending just-in-time feedback to students as they are working on
-mathematical homework assignments.
+  We study the impact of an adaptive hint system we designed to help
+  students as they are working on online assignments for a probability
+  and statistics course.
 
-
-We describe the system and the experimental design. Analysis of the
-results demonstrate that hints improve learning. Specifically {\em a
-  studet that recieves a hint when attempting to answer an assignment
-  question will solve following quesions in the same assignment more
-  quickly than a student that did not recieve the hint.}  On the other
-hand, there was no significant correlation between the reception of
-hints and the performance of the students in the final exam.
+We describe the process of constructing and sending hints. We then
+describe a controlled experiment we performed to test whether
+recieving hints improves student performance. We conclude with the
+experimental results. Our main conclusion is that students the recieve
+a hint for a problem in an assignment take significantly shorter time
+to solve problems they attempt later. We found no statistically
+significant change in the amount of time students take to solve the
+problem on which the hint was given. We also don't find a significant
+effect on performance in the final exam.
 
 \end{abstract}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-Intelligent tutoring systems (ITS)\cite{Anderson1995} attempt to replicate the interaction between a human tutor and a student. The goal is to detect and classify student errors and to provide instantaneous feedback to help students correct their error, but without "feeding" them the correct answer. Previous research suggests that a computer tutor can nearly be as effective as a human tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been developed and introduced into classrooms. A few well developed ITS designed for algebra curriculum in middle school and high school mathematics has already been proven to be effective\cite{Koedinger1997,John2014}.
 
-Research has suggested that well-designed feedback is essential to improving the learning process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback is feedback that aims to improve students learning and is presented in the form of a response to student incorrect answers\cite{Shute2008}. According to Shute~\cite{Shute2008}, formative feedback needs to be specific, clear and timely. Furthermore, formative feedback should provide learners with both verification and elaboration\cite{Mason2001}\cite{Bangert-Drowns1991}. Verification is to provide feedback to learners as to whether the answer is correct or not. Elaboration is to provide a short elaboration on the topic or discuss the learner's incorrect answer. The timing of the feedback is important as well, Kulhavy and Anderson suggest that delayed feedback is better than instance feedback\cite{Kulhavy1972}. The adaptive hint system delay hints by only providing hints to students who have spent a certain amount time on the problem without solving it. This allows the hints only go to students who are struggling with a problem. Finally, studies show that hint-on-demand allow students to learn more as compared to proactive hints\cite{Razzaq2010}. Therefore, the adaptive hint system is designed that a student will only see a hint if they click the 'Show Hint' button.
+\cite{ElkherjFreund14} described a system for delivering hints in the
+context of a web-based homework system. In the work presented here, we
+describe a controlled experiment that we have done in the context of
+an undergraduate course in probability and statistics. Our statical
+analysis provides new evidence that adaptive hints are effective.
 
-Homework is an essential part of students' learning process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
 
-\cite{ElkherjFreund14} described a system for delivering hints in the context of a web-based homework system. In the work presented here, we describe a controlled experiment that we have done in the context of an undergraduate course in probability and statistics. Our statical analysis provides new evidence that adaptive hints are effective.
+\secton{Background}
+The goal of Intelligent tutoring systems (ITS)\cite{Anderson1995} is
+to immitate a human tutor.  ITS systems detect and classify student
+errors and provide instantaneous feedback intended to help students
+understand and correct correct their error. The goal is to improve
+student's understanding and improve their performance on {\em future}
+problems, rather than ``feeding'' them the answer to the current
+pproblem.  Previous research suggests that a computer tutor can nearly
+be as effective as a human tutor\cite{Vanlehn2011}. Hence, many
+intelligent tutors have been developed and introduced into
+classrooms. A few well developed ITS designed for algebra curriculum
+in middle school and high school mathematics has already been proven
+to be effective\cite{Koedinger1997,John2014}.
 
-There is a common concern about students gaming the system, especially on harmful gaming, where gaming the system leads to poor learning outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students game the system by tricking the tutoring systems into giving out correct answers\cite{Baker2004Off-task}. As a result, students succeed in homework but fail on learning. We don't have this concern because our hints don't contain correct answers in any form. The adaptive hint system generates short simple questions as hints instead of worked-examples, which is commonly used among human tutors\cite{Atkinson2000}. In fact, it is suggested that worked examples have no significant effects on learning in a web-based intelligent tutoring environment\cite{McLaren2006}. Therefore, we replaced worked examples with short questions that are designed to promote thinking and guide student's learning process. This resolve the concern of students gaming the system because our system gives students hints on how to learn instead of how to answer a specific question. The only way for a student to obtain correct answers is by learning how to solve the problem. Therefore, we not only prevent any system gaming, but our hints also help students in long term. Furthermore, our hint system targets mathematic problems, which require students to type in mathematic expressions. Therefore, unlike multiple choice problems, it would be nearly impossible to guess the answer by looking at hints. There is infinity many ways one can type in a mathematic expression and it is very hard for students to simply guess it correctly with the help of hints. Therefore, we don't have the concern of students gaming the system.
+Research has suggested that ``Formative'' feedback is essential to
+improving the learning
+process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback
+is feedback that aims to improve students learning and is presented in
+the form of a response to student incorrect
+answers\cite{Shute2008}. According to Shute~\cite{Shute2008},
+formative feedback needs to be specific, clear and
+timely. Furthermore, formative feedback should provide learners with
+both verification and
+elaboration\cite{Mason2001}\cite{Bangert-Drowns1991}. Verification is
+to provide feedback to learners as to whether the answer is correct or
+not. Elaboration is to provide a short elaboration on the topic or
+discuss the learner's incorrect answer. The timing of the feedback is
+important as well, Kulhavy and Anderson suggest that delayed feedback
+is better than instance feedback\cite{Kulhavy1972}. The adaptive hint
+system delay hints by only providing hints to students who have spent
+a certain amount time on the problem without solving it. This allows
+the hints only go to students who are struggling with a
+problem. Finally, studies show that hint-on-demand allow students to
+learn more as compared to proactive hints\cite{Razzaq2010}. Therefore,
+the adaptive hint system is designed that a student will only see a
+hint if they click the 'Show Hint' button.
+
+Homework is an essential part of students' learning
+process\cite{Cooper2006}. It gives students a chance to practice. Even
+more importantly, it allows them to identify their confusions and
+resolve them. There are many popular web-based homework systems for
+college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to
+help instructors to have a better management of a large enrollment
+class. These homework systems often provide feedback to students and
+provide analysis of student performance to instructors. Research has
+proven the web-based homework(WBH) systems to be helpful in
+learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies,
+the WBH systems, OWL and Andes, provide students with immediate
+feedback and hints following an incorrect
+attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and
+hints are the essential part of a WBH system, which is what our study
+focuses on.
+
+\section{Gaming the hint system}
+
+There is a common concern about students gaming the system, especially
+on harmful gaming, where gaming the system leads to poor learning
+outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students
+game the system by tricking the tutoring systems into giving out
+correct answers\cite{Baker2004Off-task}. As a result, students succeed
+in homework but fail on learning. Another popular type of hint is a
+worked-out-examples~\cite{Atkinson2000}.  However,work by
+Mclaren~\cite{McLaren2006} finds no no significant effects of
+worked-ut-examples on learning in a web-based intelligent tutoring
+environment
+
+We avoid the gaming issue in by combining three design principles.
+First, the number of possible answers to each question is very large
+(more than 1000). Second, the information in the hint explains only
+why the current answer is incorrect, it does not identify the correct
+answer. Third, the hint contains a simple question designed to
+highlight the mistake made by the student, so that by correctly
+answering the hint the student would realize the error in their
+thinking and be able to apply that knowedge to the original questin.
+
+\iffalse
+our hints don't contain correct answers in any form. The adaptive hint
+system generates short simple questions as hints instead of
+ Therefore, we
+replaced worked examples with short questions that are designed to
+promote thinking and guide student's learning process. This resolve
+the concern of students gaming the system because our system gives
+students hints on how to learn instead of how to answer a specific
+question. The only way for a student to obtain correct answers is by
+learning how to solve the problem. Therefore, we not only prevent any
+system gaming, but our hints also help students in long
+term. Furthermore, our hint system targets mathematic problems, which
+require students to type in mathematic expressions. Therefore, unlike
+multiple choice problems, it would be nearly impossible to guess the
+answer by looking at hints. There is infinity many ways one can type
+in a mathematic expression and it is very hard for students to simply
+guess it correctly with the help of hints. Therefore, we don't have
+the concern of students gaming the system.
+\fi
 
 \subsection*{Contribution}
 We built and implemented an adaptive hint system to provide hints to students at the time they are struggling with homework. The adaptive hint system first studies a student's incorrect answer to identify the student's confusion. We target mathematics problems that require students to type in an expression, therefore the system generates a message to point out the incorrect subexpression in a student's answer. Then, based on the identified confusion, the system explains the identified confusion with a short sentence followed by a short question for the student to solve. This short question is specifically designed to target the student's confusion and it is simple enough that a student can easily understand and answer. Our goal is to let the student solve the smaller task before moving on to solve the bigger task. The goal of the adaptive hint system is to guides students in their learning process from understanding their confusions to resolve their confusions.
