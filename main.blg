@@ -1,53 +1,60 @@
 This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
-The style file: splncs.bst
+The style file: SIGCHI-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: bibtxt.bib
-Warning--empty journal in Vanlehn2011
-Warning--empty journal in Koedinger1997
-Warning--empty journal in Mason2001
-Warning--can't use both author and editor fields in Razzaq2010
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--can't use both author and editor fields in Baker2004
+Warning--require articleno with numpages field in Baker2004Off-task
+Warning--require articleno with numpages field in Baker2005
+Warning--require articleno with numpages field in ElkherjFreund14
+Warning--no journal in Mason2001
+Warning--no journal in Koedinger1997
 Warning--can't use both author and editor fields in McLaren2006
+Warning--can't use both author and editor fields in Razzaq2010
+Warning--no journal in Vanlehn2011
+Warning--require articleno with numpages field in Vanlehn2005
 You've used 19 entries,
-            2087 wiz_defined-function locations,
-            642 strings with 8313 characters,
-and the built_in function-call counts, 6849 in all, are:
-= -- 720
-> -- 228
-< -- 18
-+ -- 83
-- -- 64
-* -- 510
-:= -- 881
-add.period$ -- 24
+            5283 wiz_defined-function locations,
+            1399 strings with 19547 characters,
+and the built_in function-call counts, 24815 in all, are:
+= -- 3579
+> -- 657
+< -- 0
++ -- 220
+- -- 655
+* -- 1690
+:= -- 2414
+add.period$ -- 95
 call.type$ -- 19
-change.case$ -- 16
-chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 365
-empty$ -- 604
-format.name$ -- 64
-if$ -- 1690
-int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 22
-newline$ -- 95
-num.names$ -- 19
-pop$ -- 49
+change.case$ -- 140
+chr.to.int$ -- 18
+cite$ -- 29
+duplicate$ -- 1579
+empty$ -- 1125
+format.name$ -- 278
+if$ -- 5735
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 73
+newline$ -- 203
+num.names$ -- 113
+pop$ -- 546
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 215
 quote$ -- 0
-skip$ -- 267
+skip$ -- 456
 stack$ -- 0
-substring$ -- 511
-swap$ -- 215
-text.length$ -- 18
+substring$ -- 3297
+swap$ -- 184
+text.length$ -- 864
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 6
-while$ -- 64
-width$ -- 21
-write$ -- 231
-(There were 6 warnings)
+type$ -- 159
+warning$ -- 10
+while$ -- 133
+width$ -- 0
+write$ -- 326
+(There were 10 warnings)

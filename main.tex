@@ -1,14 +1,61 @@
 %\documentclass{llncs2e/llncs}
 %\usepackage{llncs2e/llncsdoc}
 
-\documentclass{sigchi/sigchi}
+\documentclass{sigchi}
 
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{graphics, graphicx}
 \usepackage{caption}
 \usepackage{csquotes}
+\usepackage{balance}       % to better equalize the last page
+\usepackage{graphics}      % for EPS, load graphicx instead 
+\usepackage[T1]{fontenc}   % for umlauts and other diaeresis
+\usepackage{txfonts}
+\usepackage{mathptmx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{textcomp}
 
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{SIGCHI Conference Proceedings Format}
+\def\plainauthor{First Author, Second Author, Third Author,
+  Fourth Author, Fifth Author, Sixth Author}
+\def\emptyauthor{}
+\def\plainkeywords{Authors' choice; of terms; separated; by
+  semicolons; include commas, within terms only; required.}
+\def\plaingeneralterms{Documentation, Standardization}
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{
+    \def\UrlFont{\sf}
+  }{
+    \def\UrlFont{\small\bf\ttfamily}
+  }}
+\makeatother
+\urlstyle{leo}
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+
+
+% create a shortcut to typeset table headings
+% \newcommand\tabhead[1]{\small\textbf{#1}}
 
 \title{On the impact of Adaptive Hints}
 
@@ -26,15 +73,14 @@
 }
 
 \begin{document}
-
 \maketitle
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-We study the impact of an adaptive hint system we designed to help students as they are working on online assignments for a probability and statistics course.
 
-We describe the process of constructing and sending hints. We then describe a controlled experiment we performed to test whether receiving hints improves student performance. We conclude with the experimental results. Our main conclusion is that students the receive a hint for a problem in an assignment take significantly shorter time to solve problems they attempt later. We found no statistically significant change in the amount of time students take to solve the problem on which the hint was given. We also don't find a significant effect on performance in the final exam.
+We study the impact of an adaptive hint system that we designed to help students as they are working on online assignments for a probability and statistics course.
+
+We describe the process of constructing and sending hints. We then describe a controlled experiment we performed to test whether receiving hints improves student performance. We conclude with the support from our experimental results. Our main conclusion is that students who receive a hint for a problem in an assignment take significantly shorter time to solve problems they attempt later. We found no statistically significant change in the amount of time students take to solve the problem on which the hint was given. We also don't find a significant effect on performance in the final exam.
 
 \end{abstract}
 
@@ -43,6 +89,7 @@ We describe the process of constructing and sending hints. We then describe a co
 \iffalse
 \section*{Introduction}
 
+<<<<<<< HEAD
 \cite{ElkherjFreund14} described a system for delivering hints in the
 context of a web-based homework system. In the work presented here, we
 describe a controlled experiment that we have done in the context of
@@ -87,21 +134,21 @@ learn more as compared to proactive hints\cite{Razzaq2010}. Therefore,
 the adaptive hint system is designed that a student will only see a
 hint if they click the 'Show Hint' button.
 
+%\cite{ElkherjFreund14} described a system for delivering hints in the context of a web-based homework system. In the work presented here, we describe a controlled experiment that we have done in the context of an undergraduate course in probability and statistics. Our statistical analysis provides new evidence that adaptive hints are effective.
+
+
+\subsection*{Background}
+The goal of Intelligent tutoring systems (ITS)\cite{Anderson1995} is to imitate a human tutor.  ITS systems detect and classify student errors and provide instantaneous feedback intended to help students
+understand and correct their error. The goal is to improve
+student's understanding and improve their performance on {\em future} problems, rather than ``feeding'' them the answer to the current problem.  Previous research suggests that a computer tutor can nearly be as effective as a human tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been developed and introduced into classrooms. A few well developed ITS designed for algebra curriculum in middle school and high school mathematics has already been proven
+to be effective\cite{Koedinger1997, John2014}.
+
+Research has suggested that ``Formative'' feedback is essential to improving the learning process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback is feedback that aims to improve students learning and is presented in the form of a response to student incorrect answers\cite{Shute2008}. According to Shute~\cite{Shute2008}, formative feedback needs to be specific, clear and timely. Furthermore, formative feedback should provide learners with both verification and elaboration \cite{Mason2001} \cite{Bangert-Drowns1991}. Verification is to provide feedback to learners as to whether the answer is correct or not. Elaboration is to provide a short elaboration on the topic or discuss the learner's incorrect answer. The timing of the feedback is important as well, Kulhavy and Anderson suggest that delayed feedback is better than instance feedback\cite{Kulhavy1972}. The adaptive hint system delay hints by only providing hints to students who have spent a certain amount of time on the problem without solving it. This allows the hints only go to students who are struggling with a problem. Finally, studies show that hint-on-demand allow students to learn more as compared to proactive hints\cite{Razzaq2010}. Therefore, the adaptive hint system is designed that a student will only see a hint if they click the 'Show Hint' button.
+
 Homework is an essential part of students' learning
-process\cite{Cooper2006}. It gives students a chance to practice. Even
-more importantly, it allows them to identify their confusions and
-resolve them. There are many popular web-based homework systems for
-college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to
-help instructors to have a better management of a large enrollment
-class. These homework systems often provide feedback to students and
-provide analysis of student performance to instructors. Research has
-proven the web-based homework(WBH) systems to be helpful in
-learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies,
-the WBH systems, OWL and Andes, provide students with immediate
-feedback and hints following an incorrect
-attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and
-hints are the essential part of a WBH system, which is what our study
-focuses on.
+process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in
+learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect
+attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
 
 \subsection*{Gaming the hint system}
 
@@ -407,17 +454,22 @@ downstream problems for this session are $\{2, 6, 8, 9\}$.
 For each session, we compute the number of attempts (and the amount of
 time) spent on each of the downstream problems. We partition these
 measurements into two population depending on whether the student was
-in the case or the control. See Figure \ref{fig:prob_analysis}.
+in the case or the control. See Figure \ref{fig:prob_tries_analysis} and Figure \ref{fig:prob_time_analysis}.
 
 \begin{figure}[ht]
   \centering
-   \begin{tabular}{c c}
-		\includegraphics[width=0.25\textwidth]{image/problem_tries_downstream.png} &
-		\includegraphics[width=0.25\textwidth]{image/problem_time_downstream.png}
-	\end{tabular}
-   \caption{Both graphs show the analysis of downstream problems. The graph on the left shows the number of attempts for each problem and the graph on the right shows the length of time spent on each problem.}
-   \label{fig:prob_analysis}
+  \includegraphics[width=0.45\textwidth]{image/problem_tries_downstream.png}
+  \caption{The graph show the analysis of the number of attempts on downstream problems. Each problem has a control set and a case set. It is shown that case students spent less number of attempts on most of the problems. The axis label also shows the p-value. For some of the problems we don't have hints sent, and therefore the data is empty.}
+   \label{fig:prob_tries_analysis}
 \end{figure}
+
+\begin{figure}[ht]
+  \centering
+\includegraphics[width=0.45\textwidth]{image/problem_time_downstream.png}
+  \caption{The graph show the analysis of the length of time spent on downstream problems. Similar to Figure \ref{fig:prob_tries_analysis}, each problem has a control set and a case set. The axis label shows the p-value. For the problems without hint sent, the data is empty. Again, case students spent less amount of time on the problems overall.}
+   \label{fig:prob_time_analysis}
+\end{figure}
+
 
 We also did similar analysis on each assignment. We first calculate the average attempts(time) spent in control group as the baseline. Then, for each student in case, we compute the number of attempts (or the length of time) for all downstream problems and aggregate the measurement for each assignment. On the other hand, we sum the average number of attempts(or the length of time) of control group for these same downstream problems as the baseline. We then subtract the baseline from the measurement of the case student. As a result, we have a difference between the case student and the baseline. If the difference is positive, it means the case student spent more attempts(or time) on this assignment. We plot the distribution of the differences in Figure \ref{fig:downstream_tries_analysis} and Figure \ref{fig:downstream_time_analysis}. Each sub-figure represents the distribution of one assignment. The plots show that all assignment have a negative mean, meaning the case students spent less amount of tries (or time) on the downstream problems.
 
@@ -513,8 +565,10 @@ We can't tell which group of students perform better than the other. The p-value
 \section{Conclusion}
 We built an adaptive hint system for mathematics problems that can be embedded on any web-based homework platform. The system provides students with on-demand formative feedback to guide their learning process to achieve better learning outcome. Although we can't detect an improved in the final exam, our statistics show an improvement of students' performance on homework. We show that students with the help of the adaptive hints spent less time and less attempts on homework problems compared to students without the help of hints.
 
-\newpage
-\bibliographystyle{splncs}
+\balance{}
+
+%\bibliographystyle{splncs}
+\bibliographystyle{SIGCHI-Reference-Format}
 \bibliography{bibtxt}
 
 
