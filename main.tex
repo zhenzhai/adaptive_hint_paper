@@ -160,7 +160,8 @@ the concern of students gaming the system.
 \subsection*{Contribution}
 We extended and deployed the adaptive hint system described
 in~\cite{ElkherjFreund14}. The deployment required the carefull design
-of {\bf XXX} hints by the course instructors based on logs from a previous
+of 162 hints by the course staff consisting of an instructor, four
+TAs, and four tutors. The hints were designed based on logs from a previous
 deployment. As part of the deployment we carried out a controlled
 experiment to measure the effect of the hints.
 
@@ -218,31 +219,95 @@ Some students are not interestedin hints and will not read them even
 if they are presented to them. In order to identify whether the
 student is interested in reading the hint the system first displays on
 the web page a button saying ``Show Hint''. The hint is shown to the
-student only after clicking on the button, thereby identifying a level
-of interest.
+student only after clicking on the button, thereby showing interest in
+the hint. We use this button-press as a proxy for ``student read the hint''..
+
+Students can choose to whether or not to answer the hint question. If
+students choose to answer the hint question, the system provides
+instant feedback to let the students know whether their answers are
+correct or not. We make it clear to the students that hints will not
+affect their grade. In particular, they do not have to answer hint
+question.
 
 \subsection*{Hints}
 
-Hints are created before we release the homework assignments. This allows the system to have a pool of hints to start with at the time the assignment is released. To create useful hints, the teaching staff analyzes the incorrect student attempts from previous quarters and create hints accordingly. The hints created are consist of a short explanation followed by a short question for the student to answer.
+We support two types of hints, generic and specific. Generic hints
+point out a basic problem with the student's answer, while specific
+hints point a particular common type of error for a particular part of a
+particular problem, specific hints are usually based on finding an
+error in a mathematical expression using parsing, as will be explained below.
 
-For example, one question would be "How many strings contain $k$ digits and $j$ uppercase letters?". The correct answer is $10^k*26^j*C(k+j,k)$. Suppose a student answers $10^k*26^j*(k+j)!$, the system would identify the incorrect subexpression and generate the following hint
+Some of the generic hints point our simple errors such as ``The size
+of a set cannot be negative'' or ``A probability cannot be large than
+1''.   Another generic hint is sent when a student gives an incorrect answer,
+and that answer is a number, rather than an expression. This exposes
+more of the student's thinking process and allows specific hints to be sent.
+
+Specific hints are based on the parsing of a mathematical expression,
+we explain parsing expression in the next section.
+
+As an example of specific hint consider the problem ``How many strings
+contain $k$ digits and $j$ uppercase letters?''. The correct answer is
+$10^k*26^j*C(k+j,k)$. Suppose a student answers $10^k*26^j*(k+j)!$,
+the system would identify the incorrect subexpression and generate the
+following hint
 
 \begin{displayquote}
-The subexpression $10^k*26^j$ is correct, but not $(k+j)!$. How many ways are there to arrange 2 digits and 1 letter?
+The subexpression $10^k*26^j$ is correct, but not $(k+j)!$. How many
+ways are there to arrange 2 digits and 1 letter? 
 \end{displayquote}
 
+This specific hint identifies the correct part of the answer and
+directs the studen to focus on the incorrect part of their answers and
+solve a simpler version of it before attempting to solve the original
+problem. Moreover, as the hint is given in the form of a question, we
+guide the student to think about the same problem in a simplified
+setting and leave it to them to infer the correct answer to the
+original problem. 
 
-This way we encourage students to focus on the incorrect part of their answers and solve a simpler version of it before attempting to solve the original problem. Moreover, as the hint is given in the form of a question, we guide the student to think about the same problem in a simplified setting and leave it to them to infer the correct answer to the original problem. Note that students can choose to answer or not answer these hint questions. If students choose to answer the hint questions, we will provide instant feedback to let the students know whether their answers are correct or not. If students choose not to answer the hint questions, it won't hurt their grade.
+Creating good specific hints is labor intensive: the instructor needs
+to identify a common type of mistake find a trigger to detect that
+mistake, and write a hint and a question that will nudge the student
+in the right direction. However, as we show in the analysis, this
+effort pays off in imprved learning.
 
-Other than the problem specific hints, we also have generic hints. For example, when a student types in a number instead of an expression, our system will send a hint telling the student to type in an expression instead of the calculated result. Another example would be a hint pointing out that the question is asking for a positive number but the student typed in a negative number. These generic hints are designed to point out some very general mistakes students tend to make in a probability and statistics class. The system tends to send the generic hint before sending the specific hint.
+\subsection*{Triggers and Parsing}
+
+A typical problem contains several small constants
 
 
-\subsection*{Parse Trees}
-The adaptive hint system needs to parse student attempts. Since we are targeting mathematical expression, we can use parse trees to parse the expressions. The parse tree always has operators as tree parents and operands as children. Each tree node is marked by its position in the tree. The root node is node $R$. The left child node is indicated by $0$ and right child is $1$. Therefore, the left tree node of node $R$ is $R.0$, and right node is $R.1$. 
+The adaptive hint system needs to parse student attempts. Since we are
+targeting mathematical expression, we can use parse trees to parse the
+expressions. The parse tree always has operators as tree parents and
+operands as children. Each tree node is marked by its position in the
+tree. The root node is node $R$. The left child node is indicated by
+$0$ and right child is $1$. Therefore, the left tree node of node $R$
+is $R.0$, and right node is $R.1$.
 
-To figure out the mistake in an attempt, we compare the parse tree of the attempt with the parse tree of the correct answer. The tree comparison can tell us the subexpression that students make mistakes on. We can then classify student inputs based on the incorrect subexpressions and assign hints correspondingly. For example, a student who typed $5!-2*3$ and a student who typed $\frac{5!-2*3}{10}$ for a problem with solution $\frac{5!-2*3}{3+2}$, would be classified as the same group. Both of the students will have a mismatch of tree node $R.1$. This tells the system that the subtree of $R.1$ is wrong and the system will look for the corresponding hint.
+To figure out the mistake in an attempt, we compare the parse tree of
+the attempt with the parse tree of the correct answer. The tree
+comparison can tell us the subexpression that students make mistakes
+on. We can then classify student inputs based on the incorrect
+subexpressions and assign hints correspondingly. For example, a
+student who typed $5!-2*3$ and a student who typed $\frac{5!-2*3}{10}$
+for a problem with solution $\frac{5!-2*3}{3+2}$, would be classified
+as the same group. Both of the students will have a mismatch of tree
+node $R.1$. This tells the system that the subtree of $R.1$ is wrong
+and the system will look for the corresponding hint.
 
-One problem is that there are many different ways to write the same mathmatical expression. For example, $5!$ can also be written as $5*4*3*2*1$ or $5*4*3*2$. Therefore, we evaluate each subtree to a numerical result and use it in our comparison. The parse trees are evaluated bottom up. The operators at the bottom of the trees are evaluated first. The root operator is evaluated last. Each operator node will therefore has a numerical result attached. And both the parse tree and the evaluated results are used when we compare the attempt to the correct answer. We identify a subtree as incorrect only when neither of the evaluation nor the subtree doesn't match. Therefore, $5!$ and $5*4*3*2*1$ will be identified as the same subtree because it evaluates to the same result. See Fig. \ref{fig:parse_tree}
+One problem is that there are many different ways to write the same
+mathmatical expression. For example, $5!$ can also be written as
+$5*4*3*2*1$ or $5*4*3*2$. Therefore, we evaluate each subtree to a
+numerical result and use it in our comparison. The parse trees are
+evaluated bottom up. The operators at the bottom of the trees are
+evaluated first. The root operator is evaluated last. Each operator
+node will therefore has a numerical result attached. And both the
+parse tree and the evaluated results are used when we compare the
+attempt to the correct answer. We identify a subtree as incorrect only
+when neither of the evaluation nor the subtree doesn't
+match. Therefore, $5!$ and $5*4*3*2*1$ will be identified as the same
+subtree because it evaluates to the same result. See
+Fig. \ref{fig:parse_tree}
 
 \begin{figure}[ht]
   \centering
