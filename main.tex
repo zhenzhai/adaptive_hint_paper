@@ -275,8 +275,8 @@ We also extract the time students spent on each problem. We measure the time dif
 \begin{figure}[ht]
 \centering
    \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/new_tries_analysis.png} &
-		\includegraphics[width=0.5\textwidth]{image/new_times_analysis.png}
+		\includegraphics[width=0.25\textwidth]{image/new_tries_analysis.png} &
+		\includegraphics[width=0.25\textwidth]{image/new_times_analysis.png}
 	\end{tabular}
 \caption{On the left, the graph shows number of attempts for each problem average over control students vs case students. These problems are problems that at least one student received hints on. It shows that case students who ask for hints spent more attempts on these problems than the control students. On the right is the graph of time spent on each problem average over control students vs case students. Case students again spend more time on problems than the control students. Both graphs produce consistent results.}
     \label{fig:tries_times_analysis}
@@ -314,7 +314,7 @@ For each student in case, we compute the number of attempts (or the length of ti
 
 We then perform a one sample t-test with null hypothesis that the mean of the sum of attempts is the same as the average of attemtps. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment for both analysis of attempts and time. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
 
-
+\iffalse
 \begin{table}[th]
 \caption{The table listed the extra number of attempts that control students spent comparing to case students. For the each of the four weeks, the control students spent more attempts than the case students. We also perform a one sample t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the one sample t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
@@ -348,19 +348,19 @@ We then perform a one sample t-test with null hypothesis that the mean of the su
   \label{tab:no_hint_time}
   \end{center}
 \end{table}
+\fi
 
 \begin{figure}[ht]
-\centering
-   \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png} &
-		\includegraphics[width=0.5\textwidth]{image/assignment_time_downstream.png}
-	\end{tabular}
-\caption{On the left, the graph shows number of attempts for both control students and case student. The control students spent more attempts on each assignment comparing to the case students. On the right is the graph of time spent on each problem of control students and case students. Control students again spend more time on each assignment than the control students. Both graphs produce consistent results that adaptive hints improve students' homework performance.}
-    \label{fig:downstream_analysis}
+\includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png}
+\caption{The graphs show the distribution of the extra attempts that case student spent comparing to control students. Each subplot corresponds to the distribution of an assignment. The graphs show that the control students spent more attempts on each assignment comparing to the case students.}
+    \label{fig:downstream_tries_analysis}
 \end{figure}
 
-
-
+\begin{figure}[ht]
+\includegraphics[width=0.5\textwidth]{image/assignment_time_downstream.png}
+\caption{The graphs show the distribution of extra time (in seconds) that case students spent comparing to control students. All distribution have a negative mean. Control students again spend more time on each assignment than the case students. Each subplot corresponds to one assignment. The results are consistent with Figure \ref{fig:downstream_tries_analysis}}
+    \label{fig:downstream_time_analysis}
+\end{figure}
 
 \subsection{Long term effect}
 Final scores play an important role as to evaluate the learning outcome of students. We examine whether hints have effect on students' final score.
