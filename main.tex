@@ -10,7 +10,7 @@
 \usepackage{csquotes}
 
 
-\title{On the long term impact of Adaptive Hints}
+\title{On the impact of Adaptive Hints}
 
 %\author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
 %\institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
@@ -155,29 +155,47 @@ the concern of students gaming the system.
 \fi
 
 \subsection*{Contribution}
-We built and implemented an adaptive hint system to provide hints to
-students at the time they are struggling with homework. The adaptive
-hint system first studies a student's incorrect answer to identify the
-student's confusion. We target mathematics problems that require
-students to type in an expression, therefore the system generates a
-message to point out the incorrect subexpression in a student's
-answer. Then, based on the identified confusion, the system explains
-the identified confusion with a short sentence followed by a short
-question for the student to solve. This short question is specifically
-designed to target the student's confusion and it is simple enough
-that a student can easily understand and answer. Our goal is to let
-the student solve the smaller task before moving on to solve the
-bigger task. The goal of the adaptive hint system is to guides
-students in their learning process from understanding their confusions
-to resolve their confusions.
+We extended and deployed the adaptive hint system described
+in~\cite{ElkherjFreund14}. The deployment required the carefull design
+of {\bf XXX} hints by the course instructors based on logs from a previous
+deployment. As part of the deployment we carried out a controlled
+experiment to measure the effect of the hints.
 
-The system is adopted in a probability and statistic class of around 300 students and 245 students participated in this research. Each week we assign one assignment to students and we sent hints from the fourth week to the eighth week of the quarter. There are a total of 26 problems and each problem has between 1 to 10 questions. According to our record, students have received a total of 3621 hints during these five weeks. Our statistical result shows that students, with the help of the adaptive hints, learn to solve the problem and can solve similar problems more efficiently afterward. Our analysis demonstrates with statistical significant less than $1\%$ that students who receive a hint spent fewer attempts and also less amount of time on later problems in the same assignment compared to students who didn't receive a hint.
+The system wa deployed in a probability and statistic class of around
+300 students and 245 students participated in this research. The hint
+system was used for 4 out of the eight assignments in the course
+(other assignment were either too simple or did not lend themselves to
+our methodology).  There are a total of 26 problems and each problem
+has between 1 to 10 questions each requiring student response. In
+total, tudents have received a 3621 hints during these four weeks.
 
+The main contribution of this paper is a demonstration, with high
+statistical significance, that hints improve students
+learning. Specifically, we should that students that recieve a hint at
+a point of time are likely to perform better on problems attempted
+later. On the other hand, we could detect no significant effect on
+performance on the problem for which the hint was given (immediate
+effect) nor on the performance of the student in the final exam.
 
 \section*{Design of the adaptive hint system}
-The adaptive hint system is built on top of Open edX, an open source MOOC platform. We used Open edX as our homework system and embedded our adaptive hint system on top of Open edX. The edX homework system prompts students to answer problems by entering mathematical expressions and provides instant feedback on the correctness of the answer. The adaptive hint system provides additional feedback in the form of a hint. Students receive one assignment per week. Each assignment contains 5 to 10 problems and each problem has 1 to 10 parts. The problems in an assignment all target similar material that is covered in lecture. Students have an unlimited number of attempts for each problem, they can spend as many attempts as they want until they get to the correct answer.
+The adaptive hint system is built on top of Open edX, an open source
+MOOC platform. We used Open edX as our homework system and embedded
+our adaptive hint system on top of Open edX. The edX homework system
+prompts students to answer problems by entering mathematical
+expressions and provides instant feedback on the correctness of the
+answer. The adaptive hint system provides additional feedback in the
+form of a hint. Students receive one assignment per week. Each
+assignment contains 5 to 10 problems and each problem has 1 to 10
+parts. The problems in an assignment all target similar material that
+is covered in lecture. Students have an unlimited number of attempts
+for each problem, they can spend as many attempts as they want until
+they get to the correct answer.
 
-Our adaptive hint system is built by creating hints beforehand based on historical data. After we release the homework, the hint system starts to parse student attempts to figure out students' confusion. Then it looks for the appropriate hint in the hint database and sends to students.
+Our adaptive hint system is based on a database of hints that were beforehand based
+on historical data. After we release the homework, the hint system
+starts to parse student attempts to figure out students'
+confusion. Then it looks for the appropriate hint in the hint database
+and sends to students.
 
 
 \subsection*{Creating Hints}
