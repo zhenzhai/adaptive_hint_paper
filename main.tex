@@ -99,32 +99,13 @@ to be effective\cite{Koedinger1997, John2014}.
 
 Research has suggested that ``Formative'' feedback is essential to improving the learning process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback is feedback that aims to improve students learning and is presented in the form of a response to student incorrect answers\cite{Shute2008}. According to Shute~\cite{Shute2008}, formative feedback needs to be specific, clear and timely. Furthermore, formative feedback should provide learners with both verification and elaboration \cite{Mason2001} \cite{Bangert-Drowns1991}. Verification is to provide feedback to learners as to whether the answer is correct or not. Elaboration is to provide a short elaboration on the topic or discuss the learner's incorrect answer. The timing of the feedback is important as well, Kulhavy and Anderson suggest that delayed feedback is better than instance feedback\cite{Kulhavy1972}. The adaptive hint system delay hints by only providing hints to students who have spent a certain amount of time on the problem without solving it. This allows the hints only go to students who are struggling with a problem. Finally, studies show that hint-on-demand allow students to learn more as compared to proactive hints\cite{Razzaq2010}. Therefore, the adaptive hint system is designed that a student will only see a hint if they click the 'Show Hint' button.
 
-Homework is an essential part of students' learning
-process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in
-learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect
-attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
+Homework is an essential part of students' learning process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
 
 \subsection*{Gaming the hint system}
 
-There is a common concern about students gaming the system, especially
-on harmful gaming, where gaming the system leads to poor learning
-outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students
-game the system by tricking the tutoring systems into giving out
-correct answers\cite{Baker2004Off-task}. As a result, students succeed
-in homework but fail on learning. Another popular type of hint is a
-worked-out-examples~\cite{Atkinson2000}.  However,work by
-Mclaren~\cite{McLaren2006} finds no no significant effects of
-worked-ut-examples on learning in a web-based intelligent tutoring
-environment
+There is a common concern about students gaming the system, especially on harmful gaming, where gaming the system leads to poor learning outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students game the system by tricking the tutoring systems into giving out correct answers\cite{Baker2004Off-task}. As a result, students succeed in homework but fail on learning. Another popular type of hint is a worked-out-examples~\cite{Atkinson2000}.  However, work by Mclaren~\cite{McLaren2006} finds no significant effects of worked-out-examples on learning in a web-based intelligent tutoring environment.
 
-We avoid the gaming issue in by combining three design principles.
-First, the number of possible answers to each question is very large
-(more than 1000). Second, the information in the hint explains only
-why the current answer is incorrect, it does not identify the correct
-answer. Third, the hint contains a simple question designed to
-highlight the mistake made by the student, so that by correctly
-answering the hint the student would realize the error in their
-thinking and be able to apply that knowedge to the original questin.
+We avoid the gaming issue by combining three design principles. First, the number of possible answers to each question is very large (more than 1000). Second, the information in the hint explains only why the current answer is incorrect, it does not identify the correct answer. Third, the hint contains a simple question designed to highlight the mistake made by the student, so that by correctly answering the hint the student would realize the error in their thinking and be able to apply that knowledge to the original question.
 
 \iffalse
 our hints don't contain correct answers in any form. The adaptive hint
@@ -147,21 +128,7 @@ the concern of students gaming the system.
 \fi
 
 \subsection*{Contribution}
-We built and implemented an adaptive hint system to provide hints to
-students at the time they are struggling with homework. The adaptive
-hint system first studies a student's incorrect answer to identify the
-student's confusion. We target mathematics problems that require
-students to type in an expression, therefore the system generates a
-message to point out the incorrect subexpression in a student's
-answer. Then, based on the identified confusion, the system explains
-the identified confusion with a short sentence followed by a short
-question for the student to solve. This short question is specifically
-designed to target the student's confusion and it is simple enough
-that a student can easily understand and answer. Our goal is to let
-the student solve the smaller task before moving on to solve the
-bigger task. The goal of the adaptive hint system is to guides
-students in their learning process from understanding their confusions
-to resolve their confusions.
+We built and implemented an adaptive hint system to provide hints to students at the time they are struggling with homework. The adaptive hint system first studies a student's incorrect answer to identify the student's confusion. We target mathematics problems that require students to type in an expression, therefore the system generates a message to point out the incorrect subexpression in a student's answer. Then, based on the identified confusion, the system explains the identified confusion with a short sentence followed by a short question for the student to solve. This short question is specifically designed to target the student's confusion and it is simple enough that a student can easily understand and answer. Our goal is to let the student solve the smaller task before moving on to solve the bigger task. The goal of the adaptive hint system is to guides students in their learning process from understanding their confusions to resolve their confusions.
 
 The system is adopted in a probability and statistic class of around 300 students and 245 students participated in this research. Each week we assign one assignment to students and we sent hints from the fourth week to the eighth week of the quarter. There are a total of 26 problems and each problem has between 1 to 10 questions. According to our record, students have received a total of 3621 hints during these five weeks. Our statistical result shows that students, with the help of the adaptive hints, learn to solve the problem and can solve similar problems more efficiently afterward. Our analysis demonstrates with statistical significant less than $1\%$ that students who receive a hint spent fewer attempts and also less amount of time on later problems in the same assignment compared to students who didn't receive a hint.
 
@@ -330,10 +297,10 @@ We then perform a one sample t-test with null hypothesis that the mean of the su
     Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
     Number & of & attempts & attempts & two sided one & of total attempt spent\\
      & instances & differences & differences & sample t-test & on assignment   \\ \hline
-	4 & 43 & -22.234 & 26.825 & $3.16 * 10^{-6}$ & \\
-	5 & 81 & -43.128 & 35.508 & $2.058 * 10 ^{-17}$ & \\
-	6 & 64 & -19.955 & 29.943 & $1.641 * 10^{-6}$ &  \\
-	7 & 55 & -86.785 & 39.392 & $2.250 * 10^{-22}$ & \\
+	4 & 43 & -22.234 & 26.825 & $3.16 * 10^{-6}$ & 11.604\\
+	5 & 81 & -43.128 & 35.508 & $2.058 * 10 ^{-17}$ & 18.03\\
+	6 & 64 & -19.955 & 29.943 & $1.641 * 10^{-6}$ &  18.52\\
+	7 & 55 & -86.785 & 39.392 & $2.250 * 10^{-22}$ & 20.838\\
 	\hline
   \end{tabular}}
   \label{tab:no_hint}
@@ -349,10 +316,10 @@ We then perform a one sample t-test with null hypothesis that the mean of the su
     Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
     Number & of & time(seconds) & time(seconds) & two sided one & of total time spent\\
      & instances & differences & differences & sample t-test & on assignment   \\ \hline
-	4 & 41 & -833.087 & 2983.083 & 0.085 & \\
-	5 & 62 & -1989.48 &1887.724 & $1.761 * 10^{-11}$ & \\
-	6 & 58 & -1396.852 & 3850.474 & 0.0082 &  \\
-	7 & 53 & -5438.16 & 5671.409 & $6.77 * 10^{-9}$ & \\
+	4 & 41 & -833.087 & 2983.083 & 0.085 & 1035.228\\
+	5 & 62 & -1989.48 &1887.724 & $1.761 * 10^{-11}$ & 1035.228\\
+	6 & 58 & -1396.852 & 3850.474 & 0.0082 & 1610.531 \\
+	7 & 53 & -5438.16 & 5671.409 & $6.77 * 10^{-9}$ & 1886.64\\
 	\hline
   \end{tabular}}
   \label{tab:no_hint_time}
@@ -409,6 +376,10 @@ We can't tell which group of students perform better than the other. The p-value
 
 \section{Conclusion}
 We built an adaptive hint system for mathematics problems that can be embedded on any web-based homework platform. The system provides students with on-demand formative feedback to guide their learning process to achieve better learning outcome. Although we can't detect an improved in the final exam, our statistics show an improvement of students' performance on homework. We show that students with the help of the adaptive hints spent less time and less attempts on homework problems compared to students without the help of hints.
+
+hint takes more time
+
+summation: sum over all benefit 
 
 \balance{}
 
