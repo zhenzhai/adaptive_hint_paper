@@ -125,7 +125,7 @@ does not identify the correct answer. Third, the hint contains a
 simple question designed to highlight the mistake made by the student,
 so that by correctly answering the hint the student would realize the
 error in their thinking and be able to apply that knowedge to the
-original questin.
+original question.
 
 \iffalse
 our hints don't contain correct answers in any form. The adaptive hint
@@ -197,20 +197,27 @@ consists of the following three parts:
   wrong in the attempt.
 \item {\bf Question:} A simple question designed to help the student
   understand their mistake. Together with the correct answer to the
-  question.}    
+  question.   
 \end{enumerate}
 
-We want to make sure that students try to solve the problem on their
-own before presenting them with a hint. The system therefor delays
-sending the hint until the student spent on it XX minutes and
-made at least YY attempts.
+Following the work of Kulhavy and Anderson\cite{Kulhavy1972} we prefer
+not to give students the hint immediately and instead try to solve the
+problem on their own. to that end, the system delays sending the hint
+until the student spent on it 5 minutes or made at least 3 attempts.
 
-Some students are not interestedin hints and will not read them even
-if they are presented to them. In order to identify whether the
-student is interested in reading the hint the system first displays on
-the web page a button saying ``Show Hint''. The hint is shown to the
-student only after clicking on the button, thereby showing interest in
-the hint. We use this button-press as a proxy for ``student read the hint''..
+Furthermore, students need to demand hints by clicking the "Show
+Hints" button. Hint-on-demand is suggested to be more effective than
+proactive hints\cite{Razzaq2010}. Once a hint is assigned to a
+student, the student can choose to click or not click the "Show Hint"
+button. One can ignore the assigned hint by not clicking the "Show
+Hint" button. If a student wants to see the assigned hint, he/she
+needs to click the "Show Hint" button to see the hint. In other words,
+we only show hints to students who ask for hints. Students who don't
+click the "Show Hints" button will not see the assigned hints. This
+makes sure we give on-demand hints to students who want help and are
+likely to spend time reading and understanding the hint.  In our
+analysis we use this button-press to identify when the student read
+the hint.
 
 Students can choose to whether or not to answer the hint question. If
 students choose to answer the hint question, the system provides
@@ -221,9 +228,9 @@ question.
 
 \subsection*{Hints}
 
-We support two types of hints, generic and specific. Generic hints
-point out a basic problem with the student's answer, while specific
-hints point a particular common type of error for a particular part of a
+Our system supports two types of hints, generic and specific. Generic hints
+are triggered by an elementary problem with the student's answer, while specific
+hints point a particular common type of error that occurs in a
 particular problem, specific hints are usually based on finding an
 error in a mathematical expression using parsing, as will be explained below.
 
@@ -263,41 +270,36 @@ effort pays off in imprved learning.
 
 \subsection*{Triggers and Parsing}
 
-A typical problem contains several small constants
+A typical problem in our course contains a few relatively small numbers. The
+answer to the question can be represented as an algebraic expression
+connecting the small numbers. For the specific hints we assume that
+both the correct answer and the student attempt are represented by
+such expressions. By comparing these expressions we can identify which
+parts of the student answer are correct and which are incorrect. That
+information is then used to trigger specific hints.
 
+Mathematical expressions can be parsed and represented as trees (see
+Figure~\ref{fig:parse_tree}). Each node in the tree corresponds to an
+operator and the one or two children of the node correspond to
+subexpressions. The node is also associated with a value which is the
+result of applying the operator to the values of the two subtrees.
 
-The adaptive hint system needs to parse student attempts. Since we are
-targeting mathematical expression, we can use parse trees to parse the
-expressions. The parse tree always has operators as tree parents and
-operands as children. Each tree node is marked by its position in the
-tree. The root node is node $R$. The left child node is indicated by
-$0$ and right child is $1$. Therefore, the left tree node of node $R$
-is $R.0$, and right node is $R.1$.
+By using the values associaed with each node, we overcome the problem
+that the same value can be calculated in many ways, for example $2*3 =
+3*2$ and $2+3=5$. 
 
-To figure out the mistake in an attempt, we compare the parse tree of
-the attempt with the parse tree of the correct answer. The tree
-comparison can tell us the subexpression that students make mistakes
-on. We can then classify student inputs based on the incorrect
-subexpressions and assign hints correspondingly. For example, a
-student who typed $5!-2*3$ and a student who typed $\frac{5!-2*3}{10}$
-for a problem with solution $\frac{5!-2*3}{3+2}$, would be classified
-as the same group. Both of the students will have a mismatch of tree
-node $R.1$. This tells the system that the subtree of $R.1$ is wrong
-and the system will look for the corresponding hint.
-
-One problem is that there are many different ways to write the same
-mathmatical expression. For example, $5!$ can also be written as
-$5*4*3*2*1$ or $5*4*3*2$. Therefore, we evaluate each subtree to a
-numerical result and use it in our comparison. The parse trees are
-evaluated bottom up. The operators at the bottom of the trees are
-evaluated first. The root operator is evaluated last. Each operator
-node will therefore has a numerical result attached. And both the
-parse tree and the evaluated results are used when we compare the
-attempt to the correct answer. We identify a subtree as incorrect only
-when neither of the evaluation nor the subtree doesn't
-match. Therefore, $5!$ and $5*4*3*2*1$ will be identified as the same
-subtree because it evaluates to the same result. See
-Fig. \ref{fig:parse_tree}
+To create a specific trigger, the instructor/TA identifies a common
+mistake and then represents that mistake using value-based comparisons
+between sub-trees. For example,
+suppose the students attempt is $\frac{4!-3*2}{5}$
+for a problem with solution $\frac{5!-2*3}{3+2}$. Using match-by-value
+the system identifies that the only incorrect part is the $4!$ in the enumerator.
+The trigger is therefor the rule: ``match on $-6$ and $/5$, mismatch on $5!$''
+The hint triggered might have the form:
+\begin{displayquote}
+Your answer is almost correct! the only part you are getting wrong is
+the $4!$ in the enumerator. How many ways are there to arrange five objects?
+\end{displayquote}
 
 \begin{figure}[ht]
   \centering
@@ -305,15 +307,17 @@ Fig. \ref{fig:parse_tree}
 		\includegraphics[width=0.25\textwidth]{image/ParseTrees1.png} &
 		\includegraphics[width=0.25\textwidth]{image/ParseTrees2.png}
 	\end{tabular}
-   \caption{A parse tree is created for every mathematical expression. Operator node is always the parent of operands, and we have the evaluated result attached on each operator node.}
+   \caption{Two mathematical expressions and their parse
+     trees. Consider the left tree, which corresponds to the
+     expression $(5!-2*3)/(3+2)$. The root node corresponds to the
+     operation that is evaluated last, which is division : $/$. The
+     left subtree corresponds to the sub-expression $(5!-2*3)$ and the
+     right subtree corresponds to the sub-epression $(3+2)$. The
+     values written in parenthasis $(114)$,$(5)$ are the values of
+     subexpressions. By taking the ratio $114/5$ we get the value of
+     the root $(22.6)$}
    \label{fig:parse_tree}
 \end{figure}
-
-\subsection*{Assigning Hints}
-When TAs create hints, they are also asked to specify rules. Hint rules tell the system when to send certain hints and who the hints will go to. One example of hint rule for expression in Fig. \ref{fig:parse_tree} could be "$R.0.0$ is wrong" and the corresponding hint could be "You need to find the number of ways to arrange different poker cards. How many ways can you arrange 2 different cards?". When the hint system captures an attempt with an incorrect $R.0.0$ subtree, this hint will be sent. Such attempts could be $\frac{4!-2*3}{3+2}$ or $\frac{30-2*3}{3+2}$. The adaptive hint system will assign hints automatically based on the hint rules. This allows our hints to be sent automatically.
-
-Note that the system doesn't send hints to the student right away. Hints are only sent to students who have been working on the problem for more than 5 minutes or students who did more than 3 attempts. This is how the system sends delayed hint suggested by Kulhavy and Anderson\cite{Kulhavy1972}. This way hints only go to students who are working on the problem actively and are struggling. Furthermore, students need to demand hints by clicking the "Show Hints" button. Hint-on-demand is suggested to be more effective than proactive hints\cite{Razzaq2010}. Once a hint is assigned to a student, the student can choose to click or not click the "Show Hint" button. One can ignore the assigned hint by not clicking the "Show Hint" button. If a student wants to see the assigned hint, he/she needs to click the "Show Hint" button to see the hint. In other words, we only show hints to students who ask for hints. Students who don't click the "Show Hints" button will not see the assigned hints. This makes sure we give on-demand hints to students who need helps and actively ask for help. 
-
 
 \section{Statistical Study of the Effectiveness of hints}
 
