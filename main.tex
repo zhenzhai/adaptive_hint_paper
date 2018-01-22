@@ -50,6 +50,7 @@ effect on performance in the final exam.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \section*{Introduction}
 
 \cite{ElkherjFreund14} described a system for delivering hints in the
@@ -57,9 +58,9 @@ context of a web-based homework system. In the work presented here, we
 describe a controlled experiment that we have done in the context of
 an undergraduate course in probability and statistics. Our statical
 analysis provides new evidence that adaptive hints are effective.
+\fi
 
-
-\subsection*{Background}
+\section*{Background}
 The goal of Intelligent tutoring systems (ITS)\cite{Anderson1995} is
 to immitate a human tutor.  ITS systems detect and classify student
 errors and provide instantaneous feedback intended to help students
@@ -114,25 +115,27 @@ focuses on.
 
 \subsection*{Gaming the hint system}
 
-There is a common concern about students gaming the system, especially
-on harmful gaming, where gaming the system leads to poor learning
-outcome\cite{Baker2004}\cite{Baker2005}. In previous studies, students
-game the system by tricking the tutoring systems into giving out
-correct answers\cite{Baker2004Off-task}. As a result, students succeed
-in homework but fail on learning. Another popular type of hint is a
-worked-out-examples~\cite{Atkinson2000}.  However,work by
-Mclaren~\cite{McLaren2006} finds no no significant effects of
-worked-ut-examples on learning in a web-based intelligent tutoring
-environment
+A common concern regarding hint systems is the ability of students to
+game the system and extract the correct answer without understanding
+it.  \cite{Baker2004}\cite{Baker2005}. In previous studies, students
+have been shown to game the system by manipulating the tutoring system
+into giving out correct answers\cite{Baker2004Off-task}. As a result,
+students succeed in homework but fail on learning. Another popular
+type of hint is a worked-out-examples~\cite{Atkinson2000}.
+However,work by Mclaren~\cite{McLaren2006} finds no no significant
+effects of worked-ut-examples on learning in a web-based intelligent
+tutoring environment
 
 We avoid the gaming issue in by combining three design principles.
 First, the number of possible answers to each question is very large
-(more than 1000). Second, the information in the hint explains only
-why the current answer is incorrect, it does not identify the correct
-answer. Third, the hint contains a simple question designed to
-highlight the mistake made by the student, so that by correctly
-answering the hint the student would realize the error in their
-thinking and be able to apply that knowedge to the original questin.
+(typicalle more than 1000) making guessing the correct answer
+imprtactical.  Second, the information contained in the hint
+identifies only the reason that the current answer is incorrect, it
+does not identify the correct answer. Third, the hint contains a
+simple question designed to highlight the mistake made by the student,
+so that by correctly answering the hint the student would realize the
+error in their thinking and be able to apply that knowedge to the
+original questin.
 
 \iffalse
 our hints don't contain correct answers in any form. The adaptive hint
@@ -191,14 +194,34 @@ is covered in lecture. Students have an unlimited number of attempts
 for each problem, they can spend as many attempts as they want until
 they get to the correct answer.
 
-Our adaptive hint system is based on a database of hints that were beforehand based
-on historical data. After we release the homework, the hint system
-starts to parse student attempts to figure out students'
-confusion. Then it looks for the appropriate hint in the hint database
-and sends to students.
+Our adaptive hint system is based on a database of hints populated
+manually before each assignment is released, based
+on historical data~\footnote{It is possible to add hints in
+real-time, however, doing so in practice proved hard.}. Each hint
+consists of the following three parts:
+\begin{enumerate}
+\item {\bf Trigger:} a condition on the student's attempt that will
+  cause the hint to be sent.
+\item {\bf Message:} A message to the student identifying what is
+  wrong in the attempt.
+\item {\bf Question:} A simple question designed to help the student
+  understand their mistake. Together with the correct answer to the
+  question.}    
+\end{enumerate}
 
+We want to make sure that students try to solve the problem on their
+own before presenting them with a hint. The system therefor delays
+sending the hint until the student spent on it XX minutes and
+made at least YY attempts.
 
-\subsection*{Creating Hints}
+Some students are not interestedin hints and will not read them even
+if they are presented to them. In order to identify whether the
+student is interested in reading the hint the system first displays on
+the web page a button saying ``Show Hint''. The hint is shown to the
+student only after clicking on the button, thereby identifying a level
+of interest.
+
+\subsection*{Hints}
 
 Hints are created before we release the homework assignments. This allows the system to have a pool of hints to start with at the time the assignment is released. To create useful hints, the teaching staff analyzes the incorrect student attempts from previous quarters and create hints accordingly. The hints created are consist of a short explanation followed by a short question for the student to answer.
 
