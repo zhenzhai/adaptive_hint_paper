@@ -1,7 +1,7 @@
-\documentclass{llncs2e/llncs}
-\usepackage{llncs2e/llncsdoc}
+%\documentclass{llncs2e/llncs}
+%\usepackage{llncs2e/llncsdoc}
 
-%\documentclass{sigchi/sigchi}
+\documentclass{sigchi/sigchi}
 
 \usepackage{hyperref}
 \usepackage{url}
@@ -12,18 +12,18 @@
 
 \title{On the long term impact of Adaptive Hints}
 
-\author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
-\institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
+%\author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
+%\institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
 
-%\numberofauthors{2}
-%author{
-%  \alignauthor{Zhen Zhai\\
-%    \affaddr{UC San Diego}\\
-%    \email{zzhai@eng.ucsd.edu}}\\
-%  \alignauthor{Yoav Freund\\
-%    \affaddr{UC San Diego}\\
-%    \email{yfreund@eng.ucsd.edu}}\\
-%}
+\numberofauthors{2}
+\author{
+  \alignauthor{Zhen Zhai\\
+    \affaddr{UC San Diego}\\
+    \email{zzhai@eng.ucsd.edu}}\\
+  \alignauthor{Yoav Freund\\
+    \affaddr{UC San Diego}\\
+    \email{yfreund@eng.ucsd.edu}}\\
+}
 
 \begin{document}
 
@@ -197,42 +197,27 @@ Other than the problem specific hints, we also have generic hints. For example, 
 
 
 \subsection*{Parse Trees}
-The adaptive hint system needs to parse student attempts. Since we are targeting math expression problems, we can use parse trees to parse the math expressions. The parse tree always has operators as tree parents and operands as children. See Fig. \ref{fig:parse_tree}. Each tree node is marked by its position in the tree. The root node is node $R$. The left child node is indicated by $0$ and right child is $1$. Therefore, the left tree node of node $R$ is $R.0$, and right node is $R.1$. 
+The adaptive hint system needs to parse student attempts. Since we are targeting mathematical expression, we can use parse trees to parse the expressions. The parse tree always has operators as tree parents and operands as children. Each tree node is marked by its position in the tree. The root node is node $R$. The left child node is indicated by $0$ and right child is $1$. Therefore, the left tree node of node $R$ is $R.0$, and right node is $R.1$. 
+
+To figure out the mistake in an attempt, we compare the parse tree of the attempt with the parse tree of the correct answer. The tree comparison can tell us the subexpression that students make mistakes on. We can then classify student inputs based on the incorrect subexpressions and assign hints correspondingly. For example, a student who typed $5!-2*3$ and a student who typed $\frac{5!-2*3}{10}$ for a problem with solution $\frac{5!-2*3}{3+2}$, would be classified as the same group. Both of the students will have a mismatch of tree node $R.1$. This tells the system that the subtree of $R.1$ is wrong and the system will look for the corresponding hint.
+
+One problem is that there are many different ways to write the same mathmatical expression. For example, $5!$ can also be written as $5*4*3*2*1$ or $5*4*3*2$. Therefore, we evaluate each subtree to a numerical result and use it in our comparison. The parse trees are evaluated bottom up. The operators at the bottom of the trees are evaluated first. The root operator is evaluated last. Each operator node will therefore has a numerical result attached. And both the parse tree and the evaluated results are used when we compare the attempt to the correct answer. We identify a subtree as incorrect only when neither of the evaluation nor the subtree doesn't match. Therefore, $5!$ and $5*4*3*2*1$ will be identified as the same subtree because it evaluates to the same result. See Fig. \ref{fig:parse_tree}
 
 \begin{figure}[ht]
-   \centering
-   \includegraphics[width=.5\textwidth]{image/Parse_Trees.png}
-   \caption{The parse tree mark each tree node by position. "R" stands for root node, "0" stands for left child node and "1" stands for right child node. Therefore, "R.0.1" stands for the right child node of the root's left child.}
+  \centering
+   \begin{tabular}{c c}
+		\includegraphics[width=0.25\textwidth]{image/ParseTrees1.png} &
+		\includegraphics[width=0.25\textwidth]{image/ParseTrees2.png}
+	\end{tabular}
+   \caption{A parse tree is created for every mathematical expression. Operator node is always the parent of operands, and we have the evaluated result attached on each operator node.}
    \label{fig:parse_tree}
 \end{figure}
-
-To figure out the mistake in an attempt, we compare the parse tree of the attempt with the parse tree of the correct answer. The tree comparison can tell us the subexpression that students make mistakes on. We can then classify student inputs based on the incorrect subexpressions and assign hints correspondingly. For example, the student who typed $5!-2*3$ and the student who typed $\frac{5!-2*3}{10}$ for a problem with solution $\frac{5!-2*3}{3+2}$, as in Fig. \ref{fig:parse_tree}, would be classified as the same group. Both of the students will have a mismatch of tree node $R.1$. This tells the system that the subtree of $R.1$ is wrong and the system will look for the corresponding hint.
-
-One problem is that there are many different ways to write the same math expression. For example, $5!$ can also be written as $5*4*3*2*1$ or $5*4*3*2$. Therefore, we evaluate each subtree to a numerical result and use it in our comparison. The parse trees are evaluated bottom up. The operators at the bottom of the trees are evaluated first. The root operator is evaluated last. See Fig. \ref{fig:eval_tree}. 
-
-\begin{figure}[ht]
-   \centering
-   \caption{The parse tree is evaluated bottom up. We first evaluate the lowest level of the tree then pass the evaluated results to the upper level. Then use the lower level results to evaluate the upper level of the tree until we reach the top node of the tree, the root, which will give us the final numerical result of the expression.}
-   \includegraphics[width=0.8\textwidth]{image/Eval_Trees.png}
-   \label{fig:eval_tree}
-\end{figure}
-
-Both the parse tree and the evaluation tree are used when we compare the attempt to the correct answer. We identify a subtree as incorrect only when neither of the evaluation and the subtree doesn't match. Therefore, $5!$ and $5*4*3*2*1$ will be identified as the same subtree because it evaluates to the same result.
-
 
 \subsection*{Assigning Hints}
 When TAs create hints, they are also asked to specify rules. Hint rules tell the system when to send certain hints and who the hints will go to. One example of hint rule for expression in Fig. \ref{fig:parse_tree} could be "$R.0.0$ is wrong" and the corresponding hint could be "You need to find the number of ways to arrange different poker cards. How many ways can you arrange 2 different cards?". When the hint system captures an attempt with an incorrect $R.0.0$ subtree, this hint will be sent. Such attempts could be $\frac{4!-2*3}{3+2}$ or $\frac{30-2*3}{3+2}$. The adaptive hint system will assign hints automatically based on the hint rules. This allows our hints to be sent automatically.
 
-Note that the system doesn't send hints to the student right away. Hints are only sent to students who have been working on the problem for more than 5 minutes or students who did more than 3 attempts. This is how the system sends delayed hint suggested by Kulhavy and Anderson\cite{Kulhavy1972}. This way hints only go to students who are working on the problem actively and are struggling. Furthermore, students need to demand hints by clicking the "Show Hints" button. Hint-on-demand is suggested to be more effective than proactive hints\cite{Razzaq2010}. Once a hint is assigned to a student, the student can choose to click or not click the "Show Hint" button. One can ignore the assigned hint by not clicking the "Show Hint" button. If a student wants to see the assigned hint, he/she needs to click the "Show Hint" button to see the hint. See Fig. \ref{fig:show_hint} In other words, we only show hints to students who ask for hints. Students who don't click the "Show Hints" button will not see the assigned hints. This makes sure we give on-demand hints to students who need helps and actively ask for help. 
+Note that the system doesn't send hints to the student right away. Hints are only sent to students who have been working on the problem for more than 5 minutes or students who did more than 3 attempts. This is how the system sends delayed hint suggested by Kulhavy and Anderson\cite{Kulhavy1972}. This way hints only go to students who are working on the problem actively and are struggling. Furthermore, students need to demand hints by clicking the "Show Hints" button. Hint-on-demand is suggested to be more effective than proactive hints\cite{Razzaq2010}. Once a hint is assigned to a student, the student can choose to click or not click the "Show Hint" button. One can ignore the assigned hint by not clicking the "Show Hint" button. If a student wants to see the assigned hint, he/she needs to click the "Show Hint" button to see the hint. In other words, we only show hints to students who ask for hints. Students who don't click the "Show Hints" button will not see the assigned hints. This makes sure we give on-demand hints to students who need helps and actively ask for help. 
 
-\iffalse
-\begin{figure}[ht]
-   \centering
-   \caption{First the system decides whether to assign hints to a student. Then the system search through the hint database to see whether there is a hint condition satisfied. Finally, the student gets to decide whether to see the assigned hint. A student will see a hint only if the system decides to assign the hint, a hint condition is satisfied, and the student clicked the ``Show Hint'' button.}
-   \includegraphics[width=0.7\textwidth]{image/Show_Hint.png}
-   \label{fig:show_hint}
-\end{figure}
-\fi
 
 \section{Statistical Study of the Effectiveness of hints}
 
@@ -297,16 +282,6 @@ to detect a difference between the case and the control.
 \iffalse
 We also extract the time students spent on each problem. We measure the time differences between each attempt and filter time gaps that are longer than 10 minutes. Time gaps larger than 10 minutes are considered as a break instead of time spent on homework. Then we sum up all the time gaps between attempts as the total time a student spent on the problem. We again compare average time spent of case students with control students, see the graph on the right of Fig. \ref{fig:tries_times_analysis}. The graph of the number of attempts is consistent with the graph of time spent. We can't detect the effectiveness of hints on the problems where students receive and read hints and try to do the short questions in hints. Note that students who received hints are likely to spend more time on these problems because all our hints are short questions designed for students to answer. Students will likely to spend the time to read and do the hint questions.
 
-\begin{figure}[ht]
-\centering
-   \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/new_tries_analysis.png} &
-		\includegraphics[width=0.5\textwidth]{image/new_times_analysis.png}
-	\end{tabular}
-\caption{On the left, the graph shows number of attempts for each problem average over control students vs case students. These problems are problems that at least one student received hints on. It shows that case students who ask for hints spent more attempts on these problems than the control students. On the right is the graph of time spent on each problem average over control students vs case students. Case students again spend more time on problems than the control students. Both graphs produce consistent results.}
-    \label{fig:tries_times_analysis}
-\end{figure}
-\fi
 
 \subsection{Within assignment effect}
 
@@ -327,36 +302,18 @@ problem with hint. We call these problems the ``downstream'' problems.
 For example, suppose the student solved an assignment of 9 problems in the
 following order $\{ 1, 4, 3, 2, 6, 5, 7, 8, 9\}$. This student
 received at least one hint on problems $\{3, 5, 7\}$. Therefore, the
-downstream problems for this session are $\{2, 6, 8, 9\}$. See
-Figure~\ref{fig:pro_no_hint}.
+downstream problems for this session are $\{2, 6, 8, 9\}$.
 
 For each session, we compute the number of attempts (and the amount of
 time) spent on each of the downstream problems. We partition these
 measurements into two population depending on whether the student was
 in the case or the control.
 
-{\bf Yoav:} Zhen, I am confused about how you combined the information
-from the different problems in an assignment. for each problem we have
-two sets of numbers - one for the case, and one for the control. The
-sizes of the two sets varies depending on when the hints were
-given. If you were comparing one problem at a time, then a
-two-population t-test can be used. But you are using something like
-the total number of attempts for all of the problems in the
-assignment... not sure how you are doing that. What are you summing?
-{\bf Zhen:} I included the detail here https://www.overleaf.com/13310110vzkywdhhmcxd
+
 
 For each student in case, we compute the number of attempts (or the length of time) for all downstream problems and aggregate the measurement for each assignment. On the other hand, we sum the average number of attempts( or the length of time) of control group for these same downstream problems. As a result, we have a sum of attempts (or time) and also an average of attemtps(or time) for each case student in each assignment. We compare the average of attemtps (or the length of time) on each assignment between control students and case students. See Fig \ref{fig:downstream_analysis}, both graphs show that students in the case group spent less attempts and also less amount of time on homework problems comparing to control students.
 
 We then perform a one sample t-test with null hypothesis that the mean of the sum of attempts is the same as the average of attemtps. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment for both analysis of attempts and time. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
-\iffalse
-\begin{figure}[ht]
-   \centering
-   \caption{We filter out the problems that come before the first problem with hints. We only look at problems that come after problem 3 in the above example. We then sum up the attempts and compare the sum of attempts for student A and our baseline.}
-   \includegraphics[width=0.8\textwidth]{image/Filter_problems.png}
-   \label{fig:pro_no_hint}
-\end{figure}
-\fi
-
 \begin{table}[th]
 \caption{The table listed the extra number of attempts that control students spent comparing to case students. For the each of the four weeks, the control students spent more attempts than the case students. We also perform a one sample t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the one sample t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
@@ -390,18 +347,19 @@ We then perform a one sample t-test with null hypothesis that the mean of the su
   \label{tab:no_hint_time}
   \end{center}
 \end{table}
-
-\iffalse
-\begin{figure}[ht]
-\centering
-   \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png} &
-		\includegraphics[width=0.5\textwidth]{image/assignment_time_downstream.png}
-	\end{tabular}
-\caption{On the left, the graph shows number of attempts for both control students and case student. The control students spent more attempts on each assignment comparing to the case students. On the right is the graph of time spent on each problem of control students and case students. Control students again spend more time on each assignment than the control students. Both graphs produce consistent results that adaptive hints improve students' homework performance.}
-    \label{fig:downstream_analysis}
-\end{figure}
 \fi
+
+\begin{figure}[ht]
+\includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png}
+\caption{The graphs show the distribution of the extra attempts that case student spent comparing to control students. Each subplot corresponds to the distribution of an assignment. The graphs show that the control students spent more attempts on each assignment comparing to the case students.}
+    \label{fig:downstream_tries_analysis}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[width=0.5\textwidth]{image/assignment_time_downstream.png}
+\caption{The graphs show the distribution of extra time (in seconds) that case students spent comparing to control students. All distribution have a negative mean. Control students again spend more time on each assignment than the case students. Each subplot corresponds to one assignment. The results are consistent with Figure \ref{fig:downstream_tries_analysis}}
+    \label{fig:downstream_time_analysis}
+\end{figure}
 
 \subsection{Long term effect}
 Final scores play an important role as to evaluate the learning outcome of students. We examine whether hints have effect on students' final score.
