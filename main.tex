@@ -32,19 +32,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-  We study the impact of an adaptive hint system we designed to help
-  students as they are working on online assignments for a probability
-  and statistics course.
+We study the impact of an adaptive hint system we designed to help students as they are working on online assignments for a probability and statistics course.
 
-We describe the process of constructing and sending hints. We then
-describe a controlled experiment we performed to test whether
-recieving hints improves student performance. We conclude with the
-experimental results. Our main conclusion is that students the recieve
-a hint for a problem in an assignment take significantly shorter time
-to solve problems they attempt later. We found no statistically
-significant change in the amount of time students take to solve the
-problem on which the hint was given. We also don't find a significant
-effect on performance in the final exam.
+We describe the process of constructing and sending hints. We then describe a controlled experiment we performed to test whether receiving hints improves student performance. We conclude with the experimental results. Our main conclusion is that students the receive a hint for a problem in an assignment take significantly shorter time to solve problems they attempt later. We found no statistically significant change in the amount of time students take to solve the problem on which the hint was given. We also don't find a significant effect on performance in the final exam.
 
 \end{abstract}
 
@@ -387,7 +377,7 @@ to detect a difference between the case and the control.
 
 \iffalse
 We also extract the time students spent on each problem. We measure the time differences between each attempt and filter time gaps that are longer than 10 minutes. Time gaps larger than 10 minutes are considered as a break instead of time spent on homework. Then we sum up all the time gaps between attempts as the total time a student spent on the problem. We again compare average time spent of case students with control students, see the graph on the right of Fig. \ref{fig:tries_times_analysis}. The graph of the number of attempts is consistent with the graph of time spent. We can't detect the effectiveness of hints on the problems where students receive and read hints and try to do the short questions in hints. Note that students who received hints are likely to spend more time on these problems because all our hints are short questions designed for students to answer. Students will likely to spend the time to read and do the hint questions.
-
+\fi
 
 \subsection{Within assignment effect}
 
@@ -413,26 +403,38 @@ downstream problems for this session are $\{2, 6, 8, 9\}$.
 For each session, we compute the number of attempts (and the amount of
 time) spent on each of the downstream problems. We partition these
 measurements into two population depending on whether the student was
-in the case or the control.
+in the case or the control. See Figure \ref{fig:prob_analysis}.
 
+\begin{figure}[ht]
+  \centering
+   \begin{tabular}{c c}
+		\includegraphics[width=0.25\textwidth]{image/problem_tries_downstream.png} &
+		\includegraphics[width=0.25\textwidth]{image/problem_time_downstream.png}
+	\end{tabular}
+   \caption{Both graphs show the analysis of downstream problems. The graph on the left shows the number of attempts for each problem and the graph on the right shows the length of time spent on each problem.}
+   \label{fig:prob_analysis}
+\end{figure}
 
-
-For each student in case, we compute the number of attempts (or the length of time) for all downstream problems and aggregate the measurement for each assignment. On the other hand, we sum the average number of attempts( or the length of time) of control group for these same downstream problems. As a result, we have a sum of attempts (or time) and also an average of attemtps(or time) for each case student in each assignment. We compare the average of attemtps (or the length of time) on each assignment between control students and case students. See Fig \ref{fig:downstream_analysis}, both graphs show that students in the case group spent less attempts and also less amount of time on homework problems comparing to control students.
+We also did similar analysis on each assignment. We first calculate the average attempts(time) spent in control group as the baseline. Then, for each student in case, we compute the number of attempts (or the length of time) for all downstream problems and aggregate the measurement for each assignment. On the other hand, we sum the average number of attempts(or the length of time) of control group for these same downstream problems as the baseline. We then subtract the baseline from the measurement of the case student. As a result, we have a difference between the case student and the baseline. If the difference is positive, it means the case student spent more attempts(or time) on this assignment. We plot the distribution of the differences in Figure \ref{fig:downstream_tries_analysis} and Figure \ref{fig:downstream_time_analysis}. Each sub-figure represents the distribution of one assignment. The plots show that all assignment have a negative mean, meaning the case students spent less amount of tries (or time) on the downstream problems.
 
 We then perform a one sample t-test with null hypothesis that the mean of the sum of attempts is the same as the average of attemtps. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment for both analysis of attempts and time. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance. This analysis shows that the adaptive hint system helps students to learn to solve similar problems that come later in the assignment. 
+
+
 \begin{table}[th]
 \caption{The table listed the extra number of attempts that control students spent comparing to case students. For the each of the four weeks, the control students spent more attempts than the case students. We also perform a one sample t-test with the null hypothesis that control students should have the same amount of attempts on problems as case students. The final p-value of the one sample t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
+\scalebox{0.6}{
   \begin{tabular}{| c | c | c | c | c | c |}
   \hline
-    Week & Size of & Mean of & Std of &  P-Value of & Extra Attempts \\
-    Number & Case & Attempts in Case & Attempts in Case & Two-Tail T-Test & Control Spent  \\ \hline
-	4 & 43 & 47.674 & 23.125 & $0.000146$ & 22.235\\
-	5 & 81 & 32.691 & 25.924 & $3.723 * 10 ^{-14}$ & 43.128\\
-	6 & 64 & 47.438 & 37.967 & $0.00232$ & 19.956 \\
-	7 & 55 & 93.636 & 37.451 & $1.3101 * 10^{-16}$ & 86.785\\
+    Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
+    Number & of & attempts & attempts & two sided one & of total attempt spent\\
+     & instances & differences & differences & sample t-test & on assignment   \\ \hline
+	4 & 43 & -22.234 & 26.825 & $3.16 * 10^{-6}$ & \\
+	5 & 81 & -43.128 & 35.508 & $2.058 * 10 ^{-17}$ & \\
+	6 & 64 & -19.955 & 29.943 & $1.641 * 10^{-6}$ &  \\
+	7 & 55 & -86.785 & 39.392 & $2.250 * 10^{-22}$ & \\
 	\hline
-  \end{tabular}
+  \end{tabular}}
   \label{tab:no_hint}
   \end{center}
 \end{table}
@@ -440,20 +442,22 @@ We then perform a one sample t-test with null hypothesis that the mean of the su
 \begin{table}
 \caption{The table listed the extra minutes that control spent comparing to case. We first compare the time spent for each assignment, then we look at all assignments at the end. We perform a two tailed t-test with the null hypothesis that control students spent the same amount of time on problems as case students. The final p-value of the two tailed t-test for all assignments is small enough that we can reject the null hypothesis.}
 \begin{center}
+\scalebox{0.6}{
   \begin{tabular}{| c | c | c | c | c | c |}
     \hline
-    Week & Size of & Mean of & Std of &  P-Value of & Extra Minutes \\
-    Number & Case & Minutes in Case & Minutes in Case & Two-Tail T-Test & Control Spent  \\ \hline
-	4 & 41 & 81.141 & 48.998 & 0.168 & 13.885\\
-	5 & 62 & 32.155 & 32.006 & $1.517 * 10^{-6}$ & 33.158\\
-	6 & 58 & 73.519 & 77.389 & 0.0609 & 23.281 \\
-	7 & 53 & 140.654 & 97.816 & $1.72 * 10^{-5}$ & 90.636 \\
+    Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
+    Number & of & time(seconds) & time(seconds) & two sided one & of total time spent\\
+     & instances & differences & differences & sample t-test & on assignment   \\ \hline
+	4 & 41 & -833.087 & 2983.083 & 0.085 & \\
+	5 & 62 & -1989.48 &1887.724 & $1.761 * 10^{-11}$ & \\
+	6 & 58 & -1396.852 & 3850.474 & 0.0082 &  \\
+	7 & 53 & -5438.16 & 5671.409 & $6.77 * 10^{-9}$ & \\
 	\hline
-  \end{tabular}
+  \end{tabular}}
   \label{tab:no_hint_time}
   \end{center}
 \end{table}
-\fi
+
 
 \begin{figure}[ht]
 \includegraphics[width=0.5\textwidth]{image/assignment_tries_downstream.png}
