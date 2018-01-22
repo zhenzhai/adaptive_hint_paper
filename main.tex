@@ -1,7 +1,5 @@
-%\documentclass{llncs2e/llncs}
-%\usepackage{llncs2e/llncsdoc}
-
-\documentclass{sigchi}
+\documentclass{llncs2e/llncs}
+\usepackage{llncs2e/llncsdoc}
 
 \usepackage{hyperref}
 \usepackage{url}
@@ -18,59 +16,11 @@
 \usepackage{textcomp}
 
 
-% Paper metadata (use plain text, for PDF inclusion and later
-% re-using, if desired).  Use \emtpyauthor when submitting for review
-% so you remain anonymous.
-\def\plaintitle{SIGCHI Conference Proceedings Format}
-\def\plainauthor{First Author, Second Author, Third Author,
-  Fourth Author, Fifth Author, Sixth Author}
-\def\emptyauthor{}
-\def\plainkeywords{Authors' choice; of terms; separated; by
-  semicolons; include commas, within terms only; required.}
-\def\plaingeneralterms{Documentation, Standardization}
-
-% llt: Define a global style for URLs, rather that the default one
-\makeatletter
-\def\url@leostyle{%
-  \@ifundefined{selectfont}{
-    \def\UrlFont{\sf}
-  }{
-    \def\UrlFont{\small\bf\ttfamily}
-  }}
-\makeatother
-\urlstyle{leo}
-
-% To make various LaTeX processors do the right thing with page size.
-\def\pprw{8.5in}
-\def\pprh{11in}
-\special{papersize=\pprw,\pprh}
-\setlength{\paperwidth}{\pprw}
-\setlength{\paperheight}{\pprh}
-\setlength{\pdfpagewidth}{\pprw}
-\setlength{\pdfpageheight}{\pprh}
-
-% Make sure hyperref comes last of your loaded packages, to give it a
-% fighting chance of not being over-written, since its job is to
-% redefine many LaTeX commands.
-
-
-% create a shortcut to typeset table headings
-% \newcommand\tabhead[1]{\small\textbf{#1}}
 
 \title{On the impact of Adaptive Hints}
 
-%\author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
-%\institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
-
-\numberofauthors{2}
-\author{
-  \alignauthor{Zhen Zhai\\
-    \affaddr{UC San Diego}\\
-    \email{zzhai@eng.ucsd.edu}}\\
-  \alignauthor{Yoav Freund\\
-    \affaddr{UC San Diego}\\
-    \email{yfreund@eng.ucsd.edu}}\\
-}
+\author{Zhen Zhai\inst{1} \and Yoav Freund\inst{2}}
+\institute{UC San Diego \email{zzhai@eng.ucsd.edu} \and UC San Diego \email{yfreund@eng.ucsd.edu}}
 
 \begin{document}
 \maketitle
@@ -96,7 +46,7 @@ We describe the process of constructing and sending hints. We then describe a co
 The goal of Intelligent tutoring systems (ITS)\cite{Anderson1995} is to imitate a human tutor.  ITS systems detect and classify student errors and provide instantaneous feedback intended to help students
 understand and correct their error. The goal is to improve
 student's understanding and improve their performance on {\em future} problems, rather than ``feeding'' them the answer to the current problem.  Previous research suggests that a computer tutor can nearly be as effective as a human tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been developed and introduced into classrooms. A few well developed ITS designed for algebra curriculum in middle school and high school mathematics has already been proven
-to be effective\cite{Koedinger1997, John2014}.
+to be effective\cite{Koedinger1997,John2014}.
 
 Research has suggested that ``Formative'' feedback is essential to improving the learning process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback is feedback that aims to improve students learning and is presented in the form of a response to student incorrect answers\cite{Shute2008}. According to Shute~\cite{Shute2008}, formative feedback needs to be specific, clear and timely. Furthermore, formative feedback should provide learners with both verification and elaboration \cite{Mason2001} \cite{Bangert-Drowns1991}. Verification is to provide feedback to learners as to whether the answer is correct or not. Elaboration is to provide a short elaboration on the topic or discuss the learner's incorrect answer. The timing of the feedback is important as well, Kulhavy and Anderson suggest that delayed feedback is better than instance feedback\cite{Kulhavy1972}. The adaptive hint system delay hints by only providing hints to students who have spent a certain amount of time on the problem without solving it. This allows the hints only go to students who are struggling with a problem. Finally, studies show that hint-on-demand allow students to learn more as compared to proactive hints\cite{Razzaq2010}. Therefore, the adaptive hint system is designed that a student will only see a hint if they click the 'Show Hint' button.
 
@@ -209,8 +159,8 @@ the $4!$ in the enumerator. How many ways are there to arrange five different ob
 \begin{figure}[ht]
   \centering
    \begin{tabular}{c c}
-		\includegraphics[width=0.25\textwidth]{image/ParseTrees1.png} &
-		\includegraphics[width=0.25\textwidth]{image/ParseTrees2.png}
+		\includegraphics[width=0.5\textwidth]{image/ParseTrees1.png} &
+		\includegraphics[width=0.5\textwidth]{image/ParseTrees2.png}
 	\end{tabular}
    \caption{Two mathematical expressions and their parse
      trees. Consider the left tree, which corresponds to the
@@ -262,22 +212,19 @@ working on a problem helps the student solve the problem faster than otherwise.
 We consider each problem within the four weeks of our evaluation. For each problem, we compute the number of attempts and the length of time each student spent on the problem. We compare the number of attempts and the length of time for each problem between the case students who
 received at least one hint and the control students that would have received a hint were they in the case group.
 
-The results are summarized in Figure~\ref{fig:tries_analysis} and Figure \ref{fig:time_analysis}. Application of a t-test fails
+The results are summarized in Figure~\ref{fig:tries_analysis}. Application of a t-test fails
 to detect a difference between the case and the control.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.48\textwidth]{image/problem_tries.png}
-  \caption{Box plot of the number of attempts on each problem with hints. The problems with no hint written have no data present. Problem (4,3), for example, has no hint sent, and therefore has no data on graph. Each problem has a control set and a case set. It is hard to tell which group of students spent more attempts than the other. The axis label also shows the p-value of the two sided t-test. Most of the problems have very high p-value and therefore the result is not significant to draw conclusion.}
+   \begin{tabular}{c c}
+  \includegraphics[width=0.48\textwidth]{image/problem_tries.png} & 
+  \includegraphics[width=0.48\textwidth]{image/problem_time.png}
+  \end{tabular}
+  \caption{Two box plots of the number of attempts and number of seconds spent on each problem with hints. The problems with no hint written have no data present. Problem (4,3), for example, has no hint sent, and therefore has no data on graph. Each problem has a control set and a case set. It is hard to tell which group of students spent more attempts or more time than the other. The axis label also shows the p-value of the two sided t-test. Most of the problems have very high p-value and therefore the result is not significant to draw conclusion.}
    \label{fig:tries_analysis}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-\includegraphics[width=0.48\textwidth]{image/problem_time.png}
-  \caption{Box plot of the number seconds student spent on each problem. Students are group into control group and case group. Similar to Figure \ref{fig:tries-analysis}, it is difficult to draw conclusion as which group of student spent less amount of time on hoomework than the other group. Most of the p-value of the two sided t-test shown on the axis label are very high.}
-   \label{fig:time_analysis}
-\end{figure}
 
 \iffalse
 We also extract the time students spent on each problem. We measure the time differences between each attempt and filter time gaps that are longer than 10 minutes. Time gaps larger than 10 minutes are considered as a break instead of time spent on homework. Then we sum up all the time gaps between attempts as the total time a student spent on the problem. We again compare average time spent of case students with control students, see the graph on the right of Fig. \ref{fig:tries_times_analysis}. The graph of the number of attempts is consistent with the graph of time spent. We can't detect the effectiveness of hints on the problems where students receive and read hints and try to do the short questions in hints. Note that students who received hints are likely to spend more time on these problems because all our hints are short questions designed for students to answer. Students will likely to spend the time to read and do the hint questions.
@@ -297,33 +244,30 @@ problem with hint. We call these problems the ``downstream'' problems.
 
 For example, suppose the student solved an assignment of 9 problems in the following order $\{ 1, 4, 3, 2, 6, 5, 7, 8, 9\}$. This student received at least one hint on problems $\{3, 5, 7\}$. Therefore, the downstream problems for this session are $\{2, 6, 8, 9\}$.
 
-For each session, we compute the number of attempts (and the amount of time) spent on each of the downstream problems. We partition these measurements into two population depending on whether the student was in the case or the control. See Figure \ref{fig:prob_tries_analysis} and Figure \ref{fig:prob_time_analysis}. We perform a two sided t-test on each of the problem. We observed that 20 out of 25 problems have p-value less than $5\%$ and 4 problems have no hints sent.
+For each session, we compute the number of attempts (and the amount of time) spent on each of the downstream problems. We partition these measurements into two population depending on whether the student was in the case or the control. See Figure \ref{fig:prob_tries_analysis}. We perform a two sided t-test on each of the problem. We observed that 20 out of 25 problems have p-value less than $5\%$ and 4 problems have no hints sent.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.48\textwidth]{image/problem_tries_downstream.png}
-  \caption{Box plot of the number of attempts on downstream problems for control students and case students. The problems with no hint sent is left blank on the graph. It is clearly shown that the control group spent more attempts than case students on almost all problems with hint sent. The axis label also shows the p-value being very small. Only five problems have p-value more than $5\%$. For some of the problems we don't have hints sent, and therefore the data is empty.}
+  \begin{tabular}{c c}
+  \includegraphics[width=0.5\textwidth]{image/problem_tries_downstream.png} & 
+  \includegraphics[width=0.5\textwidth]{image/problem_time_downstream.png}
+  \end{tabular}
+  \caption{Box plots of the number of attempts and length of time spent on downstream problems for control students and case students. The problems with no hint sent is left blank on the graph. It is clearly shown that the control group spent more attempts and more time than case students on almost all problems with hint sent. The axis label also shows the p-value being very small. Only a few problems have p-value more than $5\%$. For some of the problems we don't have hints sent, and therefore the data is empty.}
    \label{fig:prob_tries_analysis}
 \end{figure}
-
-\begin{figure}[ht]
-  \centering
-\includegraphics[width=0.48\textwidth]{image/problem_time_downstream.png}
-  \caption{The graph show the analysis of the length of time spent on downstream problems. Similar to Figure \ref{fig:prob_tries_analysis}, each problem has a control set and a case set. The axis label shows the p-value. For the problems without hint sent, the data is empty. Again, case students spent less amount of time on the problems overall.}
-   \label{fig:prob_time_analysis}
-\end{figure}
-
 
 We also did similar analysis on each assignment. We measure the average attempts(or length of time) spent in control group as the baseline. Then, for each student in the case group, we measure the sum of attempts (or length of time) for the downstream problems for an assignment. We subtract the measured sum from the sum of baseline attempts of control group for the same set of downstream problems. As a result, we have an attempt difference between the case student and the baseline. If the difference is positive, it means the case student spent more attempts on the assignment, less otherwise. We plot the distribution of the differences in Figure \ref{fig:downstream_tries_analysis} and Figure \ref{fig:downstream_time_analysis}. Both plots show that all assignments have negative means of the distribution, meaning the case students spent less amount of tries (or time) on the downstream problems comparing to control students.
 
 \begin{figure}[ht]
-\includegraphics[width=0.48\textwidth]{image/assignment_tries_downstream.png}
+\centering
+\includegraphics[width=0.9\textwidth]{image/assignment_tries_downstream.png}
 \caption{The distribution of the attempt differences between case student and the control students. Each subplot corresponds to the distribution of an assignment. All four graphs have distribution with negative means, which means that the control students spent more attempts comparing to the case students.}
     \label{fig:downstream_tries_analysis}
 \end{figure}
 
 \begin{figure}[ht]
-\includegraphics[width=0.48\textwidth]{image/assignment_time_downstream.png}
+\centering
+\includegraphics[width=0.9\textwidth]{image/assignment_time_downstream.png}
 \caption{The distribution of time (in seconds) differences between case students and control students. All distribution have negative means, showing that control students spend more time on each assignment than the case students. The results are consistent with Figure \ref{fig:downstream_tries_analysis}}
     \label{fig:downstream_time_analysis}
 \end{figure}
@@ -334,7 +278,6 @@ We perform a one sample t-test with null hypothesis that the mean of the attempt
 \begin{table}[th]
 \caption{The table listed the attempt differences between control students and case students. For each of the four weeks, the control students spent more attempts than the case students. The p-value of the one sample t-test is also presented in the table. The p-values are all extremly small that we can reject the null hypothesis and conclude that the performance of case students and control students are significantly different.}
 \begin{center}
-\scalebox{0.65}{
   \begin{tabular}{| c | c | c | c | c | c |}
   \hline
     Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
@@ -345,7 +288,7 @@ We perform a one sample t-test with null hypothesis that the mean of the attempt
 	6 & 64 & -19.955 & 29.943 & $1.641 * 10^{-6}$ &  18.52\\
 	7 & 55 & -86.785 & 39.392 & $2.250 * 10^{-22}$ & 20.838\\
 	\hline
-  \end{tabular}}
+  \end{tabular}
   \label{tab:no_hint}
   \end{center}
 \end{table}
@@ -353,7 +296,6 @@ We perform a one sample t-test with null hypothesis that the mean of the attempt
 \begin{table}
 \caption{The table listed the time differences (in minutes) between the control students and the case students. Similar to Table \ref{tab:no_hint}, case students spent less time on all assignments comparing to control students. The p-values of the one sample t-test are also very small. Only assignment 4 has p-value a little over $5\%$.}
 \begin{center}
-\scalebox{0.65}{
   \begin{tabular}{| c | c | c | c | c | c |}
     \hline
     Week & Number& Mean of total & Std of total &  P-Value of a &Average amount \\
@@ -364,7 +306,7 @@ We perform a one sample t-test with null hypothesis that the mean of the attempt
 	6 & 58 & -1396.852 & 3850.474 & 0.0082 & 1610.531 \\
 	7 & 53 & -5438.16 & 5671.409 & $6.77 * 10^{-9}$ & 1886.64\\
 	\hline
-  \end{tabular}}
+  \end{tabular}
   \label{tab:no_hint_time}
   \end{center}
 \end{table}
@@ -392,7 +334,7 @@ The problems in the final exam aim to examine students understanding of differen
   \end{center}
 \end{table}
 
-For each final problem, we look at the corresponding assignment. The control and case students of the corresponding assignment will then be the control and case students of the final problem. We compare control and case students on their final score for each final problem. See Figure \ref{fig:final_compare_all}.
+For each final problem, we look at the corresponding assignment. We split students based on the control and case group of the corresponding assignment. We compare control and case students on their final score for each final problem. See Figure \ref{fig:final_compare_all}. It is hard to tell which group of students perform better than the other. The p-values are not small enough and we conclude that the effect of hints on final scores is non-detectable.
 
 \iffalse
 \begin{figure}[h]
@@ -403,20 +345,13 @@ For each final problem, we look at the corresponding assignment. The control and
 \end{figure}
 \fi
 
-We can't tell which group of students perform better than the other. The p-values are not small enough and we conclude that the effect of hints on final scores is non-detectable.
-
 
 \section{Conclusion}
 
 
-hint takes more time
 
-summation: sum over all benefit 
-
-\balance{}
-
-%\bibliographystyle{splncs}
-\bibliographystyle{SIGCHI-Reference-Format}
+\newpage
+\bibliographystyle{splncs}
 \bibliography{bibtxt}
 
 

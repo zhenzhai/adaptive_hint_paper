@@ -1,239 +1,115 @@
-%%% -*-BibTeX-*-
-%%% Do NOT edit. File created by BibTeX with style
-%%% ACM-Reference-Format-Journals [18-Jan-2012].
-
-\begin{thebibliography}{00}
-
-%%% ====================================================================
-%%% NOTE TO THE USER: you can override these defaults by providing
-%%% customized versions of any of these macros before the \bibliography
-%%% command.  Each of them MUST provide its own final punctuation,
-%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
-%%% do not use final punctuation, in order to avoid confusing it with
-%%% the Web address.
-%%%
-%%% To suppress output of a particular field, define its macro to expand
-%%% to an empty string, or better, \unskip, like this:
-%%%
-%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
-%%%
-%%% \def \showDOI #1{\unskip}           % plain TeX syntax
-%%%
-%%% ====================================================================
-
-\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
-\ifx \showDOI      \undefined \def \showDOI       #1{{\tt DOI:}\penalty0{#1}\ }
-  \fi
-\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
-\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
-\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
-\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
-\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
-\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
-\ifx \showURL      \undefined \def \showURL       #1{#1}          \fi
+\begin{thebibliography}{10}
 
 \bibitem{Anderson1995}
-{John~R. Anderson}, {Albert~T. Corbett}, {Kenneth~R. Koedinger}, {and} {Ray.
-  Pelletier}. 1995.
-\newblock \showarticletitle{Cognitive Tutors: Lessons Learned}.
-\newblock {\em Journal of the Learning Sciences\/} {4}, 2 (1995), 167--207.
-\newblock
-\showDOI{%
-\url{http://dx.doi.org/10.1207/s15327809jls0402\_2}}
-
-
-\bibitem{Atkinson2000}
-{Robert~K. Atkinson}, {Sharon~J. Derry}, {Alexander Renkl}, {and} {Donald
-  Wortham}. 2000.
-\newblock \showarticletitle{Learning from Examples: Instructional Principles
-  from the Worked Examples Research}.
-\newblock {\em Review of Educational Research\/} {70}, 2 (2000), 181--214.
-\newblock
-\showURL{%
-\url{https://doi.org/10.3102/00346543070002181}}
-
-
-\bibitem{Azevedo1995}
-{Roger Azevedo} {and} {Robert~M. Bernard}. 1995.
-\newblock \showarticletitle{A Meta-Analysis of the Effects of Feedback in
-  Computer-Based Instruction}.
-\newblock {\em Journal of Educational Computing Research\/} {13}, 2 (1995),
-  111--127.
-\newblock
-\showURL{%
-\url{https://doi.org/10.2190/9LMD-3U28-3A0G-FTQT}}
-
-
-\bibitem{Baker2004}
-{Ryan~Shaun Baker}, {Albert~T. Corbett}, {and} {Kenneth~R. Koedinger}. 2004a.
-\newblock {\em Detecting Student Misuse of Intelligent Tutoring Systems}.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 531--540.
-\newblock
-\showURL{%
-\url{https://doi.org/10.1007/978-3-540-30139-4_50}}
-
-
-\bibitem{Baker2004Off-task}
-{Ryan~Shaun Baker}, {Albert~T. Corbett}, {Kenneth~R. Koedinger}, {and}
-  {Angela~Z. Wagner}. 2004b.
-\newblock \showarticletitle{Off-task Behavior in the Cognitive Tutor Classroom:
-  When Students "Game the System"}. In {\em Proceedings of the SIGCHI
-  Conference on Human Factors in Computing Systems} {\em (CHI '04)}. ACM, New
-  York, NY, USA, 383--390.
-\newblock
-\showISBNx{1-58113-702-8}
-\showDOI{%
-\url{http://dx.doi.org/10.1145/985692.985741}}
-
-
-\bibitem{Baker2005}
-{Ryan~Shaun Baker}, {Ido Roll}, {Albert~T. Corbett}, {and} {Kenneth~R.
-  Koedinger}. 2005.
-\newblock \showarticletitle{Do Performance Goals Lead Students to Game the
-  System?}. In {\em Proceedings of the 2005 Conference on Artificial
-  Intelligence in Education: Supporting Learning Through Intelligent and
-  Socially Informed Technology}. IOS Press, Amsterdam, The Netherlands, The
-  Netherlands, 57--64.
-\newblock
-\showISBNx{1-58603-530-4}
-\showURL{%
-\url{http://dl.acm.org/citation.cfm?id=1562524.1562538}}
-
-
-\bibitem{Bangert-Drowns1991}
-{Robert~L. Bangert-Drowns}, {Chen-Lin~C. Kulik}, {James~A. Kulik}, {and}
-  {MaryTeresa Morgan}. 1991.
-\newblock \showarticletitle{The Instructional Effect of Feedback in Test-Like
-  Events}.
-\newblock {\em Review of Educational Research\/} {61}, 2 (1991), 213--238.
-\newblock
-\showURL{%
-\url{https://doi.org/10.3102/00346543061002213}}
-
-
-\bibitem{Cooper2006}
-{Harris Cooper}, {Jorgianne~Civey Robinson}, {and} {Erika~A Patall}. 2006.
-\newblock \showarticletitle{Does Homework Improve Academic Achievement? A
-  Synthesis of Research, 1987–2003}.
-\newblock {\em Review of Educational Research\/} {76}, 1 (2006), 1--62.
-\newblock
-\showURL{%
-\url{https://doi.org/10.3102/00346543076001001}}
-
-
-\bibitem{ElkherjFreund14}
-{Matthew Elkherj} {and} {Yoav Freund}. 2014.
-\newblock \showarticletitle{A System for Sending the Right Hint at the Right
-  Time}. In {\em Proceedings of the First ACM Conference on Learning @ Scale
-  Conference} {\em (L@S '14)}. ACM, New York, NY, USA, 219--220.
-\newblock
-\showISBNx{978-1-4503-2669-8}
-\showDOI{%
-\url{http://dx.doi.org/10.1145/2556325.2567864}}
-
-
-\bibitem{Mason2001}
-{B J.~Mason} {and} {Roger Bruning}. 2001.
-\newblock \showarticletitle{Providing Feedback in Computer-based Instruction:
-  What the Research Tells Us}.
-\newblock   {15} (01 2001).
-\newblock
-
-
-\bibitem{Koedinger1997}
-{Kenneth Koedinger}, {John R~Anderson}, {William H.~Hadley}, {and} {Mary
-  A.~Mark}. 1997.
-\newblock \showarticletitle{Intelligent Tutoring Goes To School in the Big
-  City}.
-\newblock   {8} (02 1997), 30--43.
-\newblock
-
-
-\bibitem{Kulhavy1972}
-{{Raymond W.} Kulhavy} {and} {{Richard C.} Anderson}. 1972.
-\newblock \showarticletitle{Delay-retention effect with multiple-choice tests}.
-\newblock {\em Journal of Educational Psychology\/} {63}, 5 (10 1972),
-  505--512.
-\newblock
-\showISSN{0022-0663}
-\showDOI{%
-\url{http://dx.doi.org/10.1037/h0033243}}
-
-
-\bibitem{McLaren2006}
-{Bruce~M. McLaren}, {Sung-Joo Lim}, {France Gagnon}, {David Yaron}, {and}
-  {Kenneth~R. Koedinger}. 2006.
-\newblock {\em Studying the Effects of Personalized Language and Worked
-  Examples in the Context of a Web-Based Intelligent Tutor}.
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 318--328.
-\newblock
-\showISBNx{978-3-540-35160-3}
-\showDOI{%
-\url{http://dx.doi.org/10.1007/11774303_32}}
-
-
-\bibitem{MestHartRath2002}
-{Jose Mestre}, {David~M. Hart}, {Kenneth~A. Rath}, {and} {Robert Dufresne}.
-  2002.
-\newblock \showarticletitle{The Effect of Web-Based Homework on Test
-  Performance in Large Enrollment Introductory Physics Courses}.
-\newblock {\em Journal of Computers in Mathematics and Science Teaching\/}
-  {21}, 3 (2002), 229--251.
-\newblock
-\showISSN{0731-9258}
-\showURL{%
-\url{https://www.learntechlib.org/p/9259}}
-
-
-\bibitem{John2014}
-{John~F. Pane}, {Beth~Ann Griffin}, {Daniel~F. McCaffrey}, {and} {Rita Karam}.
-  2014.
-\newblock \showarticletitle{Effectiveness of Cognitive Tutor Algebra I at
-  Scale}.
-\newblock {\em Educational Evaluation and Policy Analysis\/} {36}, 2 (2014),
-  127--144.
-\newblock
-\showDOI{%
-\url{http://dx.doi.org/10.3102/0162373713507480}}
-
-
-\bibitem{Razzaq2010}
-{Leena Razzaq} {and} {Neil~T. Heffernan}. 2010.
-\newblock {\em Hints: Is It Better to Give or Wait to Be Asked?}
-\newblock Springer Berlin Heidelberg, Berlin, Heidelberg, 349--358.
-\newblock
-\showURL{%
-\url{https://doi.org/10.1007/978-3-642-13388-6_39}}
-
-
-\bibitem{Shute2008}
-{Valerie~J. Shute}. 2008.
-\newblock \showarticletitle{Focus on Formative Feedback}.
-\newblock {\em Review of Educational Research\/} {78}, 1 (2008), 153--189.
-\newblock
-\showURL{%
-\url{https://doi.org/10.3102/0034654307313795}}
-
+Anderson, J.R., Corbett, A.T., Koedinger, K.R., Pelletier, R.:
+\newblock Cognitive tutors: Lessons learned.
+\newblock Journal of the Learning Sciences \textbf{4}(2) (1995)  167--207
 
 \bibitem{Vanlehn2011}
-{Kurt Vanlehn}. 2011.
-\newblock \showarticletitle{The Relative Effectiveness of Human Tutoring,
-  Intelligent Tutoring Systems, and Other Tutoring Systems}.
-\newblock   {46} (10 2011), 197--221.
-\newblock
+Vanlehn, K.:
+\newblock The relative effectiveness of human tutoring, intelligent tutoring
+  systems, and other tutoring systems.
+\newblock \textbf{46} (10 2011)  197--221
 
+\bibitem{Koedinger1997}
+Koedinger, K., R~Anderson, J., H.~Hadley, W., A.~Mark, M.:
+\newblock Intelligent tutoring goes to school in the big city.
+\newblock \textbf{8} (02 1997)  30--43
+
+\bibitem{John2014}
+Pane, J.F., Griffin, B.A., McCaffrey, D.F., Karam, R.:
+\newblock Effectiveness of cognitive tutor algebra i at scale.
+\newblock Educational Evaluation and Policy Analysis \textbf{36}(2) (2014)
+  127--144
+
+\bibitem{Azevedo1995}
+Azevedo, R., Bernard, R.M.:
+\newblock A meta-analysis of the effects of feedback in computer-based
+  instruction.
+\newblock Journal of Educational Computing Research \textbf{13}(2) (1995)
+  111--127
+
+\bibitem{Bangert-Drowns1991}
+Bangert-Drowns, R.L., Kulik, C.L.C., Kulik, J.A., Morgan, M.:
+\newblock The instructional effect of feedback in test-like events.
+\newblock Review of Educational Research \textbf{61}(2) (1991)  213--238
+
+\bibitem{Shute2008}
+Shute, V.J.:
+\newblock Focus on formative feedback.
+\newblock Review of Educational Research \textbf{78}(1) (2008)  153--189
+
+\bibitem{Mason2001}
+J.~Mason, B., Bruning, R.:
+\newblock Providing feedback in computer-based instruction: What the research
+  tells us.
+\newblock \textbf{15} (01 2001)
+
+\bibitem{Kulhavy1972}
+Kulhavy, R., Anderson, R.:
+\newblock Delay-retention effect with multiple-choice tests.
+\newblock Journal of Educational Psychology \textbf{63}(5) (10 1972)  505--512
+
+\bibitem{Razzaq2010}
+Razzaq, L., Heffernan, N.T.
+\newblock In: Hints: Is It Better to Give or Wait to Be Asked? Springer Berlin
+  Heidelberg, Berlin, Heidelberg (2010)  349--358
+
+\bibitem{Cooper2006}
+Cooper, H., Robinson, J.C., Patall, E.A.:
+\newblock Does homework improve academic achievement? a synthesis of research,
+  1987–2003.
+\newblock Review of Educational Research \textbf{76}(1) (2006)  1--62
+
+\bibitem{MestHartRath2002}
+Mestre, J., Hart, D.M., Rath, K.A., Dufresne, R.:
+\newblock The effect of web-based homework on test performance in large
+  enrollment introductory physics courses.
+\newblock Journal of Computers in Mathematics and Science Teaching
+  \textbf{21}(3) (2002)  229--251
 
 \bibitem{Vanlehn2005}
-{Kurt Vanlehn}, {Collin Lynch}, {Kay Schulze}, {Joel~A. Shapiro}, {Robert
-  Shelby}, {Linwood Taylor}, {Don Treacy}, {Anders Weinstein}, {and} {Mary
-  Wintersgill}. 2005.
-\newblock \showarticletitle{The Andes Physics Tutoring System: Lessons
-  Learned}.
-\newblock {\em Int. J. Artif. Intell. Ed.\/} {15}, 3 (Aug. 2005), 147--204.
-\newblock
-\showISSN{1560-4292}
-\showURL{%
-\url{http://dl.acm.org/citation.cfm?id=1434930.1434932}}
+Vanlehn, K., Lynch, C., Schulze, K., Shapiro, J.A., Shelby, R., Taylor, L.,
+  Treacy, D., Weinstein, A., Wintersgill, M.:
+\newblock The andes physics tutoring system: Lessons learned.
+\newblock Int. J. Artif. Intell. Ed. \textbf{15}(3) (August 2005)  147--204
 
+\bibitem{Baker2004}
+Baker, R.S., Corbett, A.T., Koedinger, K.R.
+\newblock In: Detecting Student Misuse of Intelligent Tutoring Systems.
+  Springer Berlin Heidelberg, Berlin, Heidelberg (2004)  531--540
+
+\bibitem{Baker2005}
+Baker, R.S., Roll, I., Corbett, A.T., Koedinger, K.R.:
+\newblock Do performance goals lead students to game the system?
+\newblock In: Proceedings of the 2005 Conference on Artificial Intelligence in
+  Education: Supporting Learning Through Intelligent and Socially Informed
+  Technology, Amsterdam, The Netherlands, The Netherlands, IOS Press (2005)
+  57--64
+
+\bibitem{Baker2004Off-task}
+Baker, R.S., Corbett, A.T., Koedinger, K.R., Wagner, A.Z.:
+\newblock Off-task behavior in the cognitive tutor classroom: When students
+  "game the system".
+\newblock In: Proceedings of the SIGCHI Conference on Human Factors in
+  Computing Systems. CHI '04, New York, NY, USA, ACM (2004)  383--390
+
+\bibitem{ElkherjFreund14}
+Elkherj, M., Freund, Y.:
+\newblock A system for sending the right hint at the right time.
+\newblock In: Proceedings of the First ACM Conference on Learning @ Scale
+  Conference. L@S '14, New York, NY, USA, ACM (2014)  219--220
+
+\bibitem{Atkinson2000}
+Atkinson, R.K., Derry, S.J., Renkl, A., Wortham, D.:
+\newblock Learning from examples: Instructional principles from the worked
+  examples research.
+\newblock Review of Educational Research \textbf{70}(2) (2000)  181--214
+
+\bibitem{McLaren2006}
+McLaren, B.M., Lim, S.J., Gagnon, F., Yaron, D., Koedinger, K.R.
+\newblock In: Studying the Effects of Personalized Language and Worked Examples
+  in the Context of a Web-Based Intelligent Tutor. Springer Berlin Heidelberg,
+  Berlin, Heidelberg (2006)  318--328
 
 \end{thebibliography}
