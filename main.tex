@@ -159,8 +159,8 @@ the $4!$ in the enumerator. How many ways are there to arrange five different ob
 \begin{figure}[ht]
   \centering
    \begin{tabular}{c c}
-		\includegraphics[width=0.5\textwidth]{image/ParseTrees1.png} &
-		\includegraphics[width=0.5\textwidth]{image/ParseTrees2.png}
+		\includegraphics[width=0.45\textwidth]{image/ParseTrees1.png} &
+		\includegraphics[width=0.45\textwidth]{image/ParseTrees2.png}
 	\end{tabular}
    \caption{Two mathematical expressions and their parse
      trees. Consider the left tree, which corresponds to the
@@ -252,7 +252,7 @@ For each session, we compute the number of attempts (and the amount of time) spe
   \includegraphics[width=0.5\textwidth]{image/problem_tries_downstream.png} & 
   \includegraphics[width=0.5\textwidth]{image/problem_time_downstream.png}
   \end{tabular}
-  \caption{Box plots of the number of attempts and length of time spent on downstream problems for control students and case students. The problems with no hint sent is left blank on the graph. It is clearly shown that the control group spent more attempts and more time than case students on almost all problems with hint sent. The axis label also shows the p-value being very small. Only a few problems have p-value more than $5\%$. For some of the problems we don't have hints sent, and therefore the data is empty.}
+  \caption{Box plots of the number of attempts and length of time spent on downstream problems for control students and case students. The problems with no hint sent is left blank on the graph. It is clearly shown that the control group spent more attempts and more time than case students on almost all problems with hint sent. The axis label also shows the p-value being very small. Only a few problems have p-value more than $5\%$. For some of the problems we don't have hints sent, there is no box plots presented.}
    \label{fig:prob_tries_analysis}
 \end{figure}
 
@@ -336,21 +336,22 @@ The problems in the final exam aim to examine students understanding of differen
 
 For each final problem, we look at the corresponding assignment. We split students based on the control and case group of the corresponding assignment. We compare control and case students on their final score for each final problem. See Figure \ref{fig:final_compare_all}. It is hard to tell which group of students perform better than the other. The p-values are not small enough and we conclude that the effect of hints on final scores is non-detectable.
 
-\iffalse
+
 \begin{figure}[h]
 \centering
-\caption{The graph shows average final scores of each final problem. The data points are labeled with p-value of a two-tailed t-test. We don't see a very clear advantage on either of the control or case.}
-\includegraphics[width=0.8\linewidth, height=5cm]{image/final_compare.png}
+\caption{Box plot of final score of both control group and case group for each final problem. The data points are labeled with p-value of a two-tailed t-test. We don't see a very clear advantage on either of the control or case. The p-values are also not small enough for us to reject the null hypothesis.}
+\includegraphics[width=0.9\linewidth, height=5cm]{image/final_boxPlot.png}
 \label{fig:final_compare_all}
 \end{figure}
-\fi
+
 
 
 \section{Conclusion}
 
+We designed and deployed an adaptive hint system for web-based homework. Our controlled study shows students have better performance on homework problems after they are exposed to adaptive hints. When we look at the after hint effect problem wise, we found that students with hints outperform students without hints on most of the problems with high significance. However, there are a few problems that don't have strong statistical significant present. When we look at student performance assignment-wise, the result strongly indicates that students who received hints have better performance than other students. However, we couldn't detect significant differences between control and case students on problems with hints and on final exams. We, therefore, draw the conclusion that the adaptive hint system improves students learning on homework problems.\\
 
 
-\newpage
+
 \bibliographystyle{splncs}
 \bibliography{bibtxt}
 
