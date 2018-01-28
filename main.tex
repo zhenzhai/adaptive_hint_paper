@@ -125,15 +125,44 @@ Our system supports two types of hints, generic and specific. Generic hints are 
 
 Some of the generic hints point out simple errors such as ``The size of a set cannot be negative'' or ``A probability cannot be large than 1''. Another generic hint is sent when a student gives an incorrect answer, and that answer is a number, rather than an expression. The system will ask students to write an expression instead of a number. Expression exposes more of the student's thinking process and allows specific hints to be sent.
 
-Specific hints are sent based on the parsing of a mathematical expression, we will explain parsing expression in the next section. As an example of a specific hint, consider the problem ``How many strings contain $k$ digits and $j$ uppercase letters?''. The correct answer is $10^k*26^j*C(k+j,k)$. Suppose a student answers $10^k*26^j*(k+j)!$, the system would identify the incorrect subexpression and generate the following hint
+Specific hints are sent based on the parsing of a mathematical expression, we will explain parsing expression in the next section. The specific hint identifies the correct part of the answer and directs the student to focus on the incorrect part of their answers and solve a simpler version of it before attempting to solve the original problem. Moreover, as the hint is given in the form of a question, we guide the student to think about the same problem in a simplified setting and leave it to them to infer the correct answer to the original problem. 
+
+As an example of a specific hint, consider a problem about the probability of a specific hand in a Texas Hold'em poker. Figure \ref{fig:hint_prob} shows the problem, and Table \ref{tab:hints_sent} shows some of the hints sent for this problem.
+
+\begin{figure}[ht]
+  \centering
+	\includegraphics[width=0.95\textwidth]{image/problem_screenshot.png} \\
+	\includegraphics[width=0.95\textwidth]{image/part_screenshot.png}
+   \caption{This is a problem(problem 5) assigned to students in week4. The problem ask students to find the probability of a specific hand in Texas Hold'em poker. This problem has four parts that students need to answer. The picture shows the second part of the problem.}
+   \label{fig:hint_prob}
+\end{figure}
+
+\begin{table}[th]
+\caption{The table listed some student attempts for one question of problem 5 in week 4 assignment. The problem is shown in Figure \ref{fig:hint_prob} along with the question of part 2 and solution. The first three hints are generic hints. The fourth attempt has no matching to any part of the solution, therefore the hint asks the student to first focus on the first part of the solution, which is $C(52-2,2)$. This hint gives a simpler question to teach student how to calculate the number of combinations of choosing 2 cards. The last attempt match the first part of the solution. However, the student didn't realize that the question is actually asking for a complement and the second part of the solution is completely missing. Therefore, the hint points it out and asks the student to think about how to get a complement.}
+\begin{center}
+  \begin{tabular}{ p{2.5cm}  p{1.5cm}  p{6cm} }
+    Attempts & Hint Type & Hints \\ \hline
+    8/52 & Generic & Can the answer be fractional? \\ \hline
+    184 & Generic & Please write an expression, not the final numerical result. \\ \hline
+    4*($C(47,1)$-$C(43,1)$*$C(4,1)$) & Generic & Can the answer be negative? \\ \hline
+   4*46 & Specific & How do you pick 2 cards from a deck?if you are going to pick 2 cards from a 4-card deck, how many combinations are there? \\ \hline
+   $C(47,2)$ & Specific & What is the complement of at least a 3 shows in turn and river? what is the complement of at least one? \\
+  \end{tabular}
+  \label{tab:hints_sent}
+  \end{center}
+\end{table}
+
+
+
+\iffalse 
+As an example of a specific hint, consider the problem ``How many strings contain $k$ digits and $j$ uppercase letters?''. The correct answer is $10^k*26^j*C(k+j,k)$. Suppose a student answers $10^k*26^j*(k+j)!$, the system would identify the incorrect subexpression and generate the following hint
 
 \begin{displayquote}
 The subexpression $10^k*26^j$ is correct, but not $(k+j)!$. How many
 ways are there to arrange 2 digits and 1 letter? 
 \end{displayquote}
+\fi
 
-This specific hint identifies the correct part of the answer and
-directs the student to focus on the incorrect part of their answers and solve a simpler version of it before attempting to solve the original problem. Moreover, as the hint is given in the form of a question, we guide the student to think about the same problem in a simplified setting and leave it to them to infer the correct answer to the original problem. 
 
 Creating good specific hints is labor intensive: the instructor needs to identify a common type of mistake, find a trigger to detect the mistake, and write a hint and a question that will nudge the student in the right direction. However, as we show in the analysis, this effort pays off in improved learning.
 
