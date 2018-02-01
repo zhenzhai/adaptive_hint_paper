@@ -234,22 +234,16 @@ For each session, we compute the number of attempts (and the amount of time) spe
    \label{fig:prob_tries_analysis}
 \end{figure}
 
-We also did a similar analysis of student effort on each assignment as a whole. We consider problems that have been attempted after the first problem on which the student received a hint. We call these problems ``downstream'' problems. We define the average number of attempts(or length of time) spent by control group on each problem in the assignment as the {\em baseline}. Then, for each student in the case group, we measure the sum of attempts (or length of time) for the downstream problems. We compute the difference between this sum and the sum of the corresponding baselines. The result is the difference in the number of attempts between the case student and the average control. If the difference is negative, it means the case student solved the downstream problems within a smaller number of attempts. We show the histograms of the differences in Figure \ref{fig:downstream_tries_analysis} and Figure \ref{fig:downstream_time_analysis}. The plots show that in most cases the result of getting a hint is a reduction in number of attempts, or amount of time spent, on the downstream problems comparing to control
+We also did a similar analysis of student effort on each assignment as a whole. We consider problems that have been attempted after the first problem on which the student received a hint. We call these problems ``downstream'' problems. We define the average number of attempts(or length of time) spent by control group on each problem in the assignment as the {\em baseline}. Then, for each student in the case group, we measure the sum of attempts (or length of time) for the downstream problems. We compute the difference between this sum and the sum of the corresponding baselines. The result is the difference in the number of attempts between the case student and the average control. If the difference is negative, it means the case student solved the downstream problems within a smaller number of attempts. We show the histograms of the differences in Figure \ref{fig:downstream_analysis}. The plots show that in most cases the result of getting a hint is a reduction in number of attempts, or amount of time spent, on the downstream problems comparing to control
 students.
 
-\begin{figure}
-\begin{minipage}{\linewidth}
+\begin{figure}[th]
 \centering
-\includegraphics[width=0.75\textwidth]{image/assignment_tries_downstream.png}
-\captionof{figure}{The distribution of the attempt differences between case student and the control students. Each subplot corresponds to the distribution of an assignment. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
-    \label{fig:downstream_tries_analysis}
+	\includegraphics[width=0.95\textwidth]{image/assignment_time_downstream.png}\\
+	\includegraphics[width=0.95\textwidth]{image/assignment_time_downstream.png}
+\captionof{figure}{The distribution of difference of attempts (seconds spent) between case student and the control students. Each subplot corresponds to the distribution of an assignment. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
+\label{fig:downstream_analysis}
 
-
-\centering
-\includegraphics[width=0.75\textwidth]{image/assignment_time_downstream.png}
-\captionof{figure}{The distribution of time (in seconds) differences between case students and control students. All distribution have negative means, showing that control students spend more time on each assignment than the case students. The results are consistent with Figure \ref{fig:downstream_tries_analysis}}
-    \label{fig:downstream_time_analysis}
-\end{minipage}
 \end{figure}
 
 We perform a one sample t-test with the null hypothesis that the mean of the attempt differences (or the time differences) should be zero. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance and that case students spend fewer attempts and less time on homework problems comparing to control students. This analysis shows that the adaptive hint system helps students perform better in homework problems that come after the hints.
