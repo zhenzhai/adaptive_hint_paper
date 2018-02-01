@@ -204,9 +204,8 @@ simplified setting. This design is based on the
 ``Verification-elaboration'' directive of Shute~\cite{Shute2008}.
 
 As an example of a specific hint, consider a problem about the
-probability of a specific hand in a Texas Hold'em poker. Figure
-\ref{fig:hint_prob} shows the problem, and Table \ref{tab:hints_sent}
-shows some of the hints designed for this problem. The first three hints
+probability of a specific hand in a Texas Hold'em poker. Figure \ref{fig:hints_sent}
+shows the problem and also some of the hints designed for this problem. The first three hints
 in the table are generic. The fourth attempt has no matching to
 any part of the solution, therefore the hint asks the student to focus
 on the first part of the solution, which is $C(52-2,2)$. The last
@@ -218,13 +217,7 @@ think about how to calculate a complement.
 
 \begin{figure}[t!]
   \centering
-	\includegraphics[width=0.95\textwidth]{image/problem_screenshot.png} \\
-	\includegraphics[width=0.95\textwidth]{image/part_screenshot.png}
-   \captionof{figure}{This is a problem(problem 5) assigned to students in week 4. The problem is to find the probability of a specific hand in Texas Hold'em poker. This problem has four parts that students need to answer. The picture shows the second part of the problem.}
-   \label{fig:hint_prob}
-
-
-\captionof{table}{The table lists a few student attempts for part two of problem 5 in week 4 assignment. The problem is shown in Figure \ref{fig:hint_prob} along with the question and the solution of part 2.}
+	\includegraphics[width=0.99\textwidth]{image/problem.png}
 \begin{center}
   \begin{tabular}{ p{2.5cm}  p{1.5cm}  p{7.5cm} }
     Attempts & Hint Type & Hints \\ \hline
@@ -234,7 +227,8 @@ think about how to calculate a complement.
    4*46 & Specific & How do you pick 2 cards from a deck?if you are going to pick 2 cards from a 4-card deck, how many combinations are there? \\ \hline
    $C(47,2)$ & Specific & What is the complement of at least a 3 shows in turn and river? what is the complement of at least one? \\
   \end{tabular}
-  \label{tab:hints_sent}
+  \captionof{figure}{This is problem 5 assigned to students in week 4. The problem is to find the probability of a specific hand in Texas Hold'em poker. This problem has four parts that students need to answer. The picture shows the second part of the problem along with the solution. The table at the bottom lists a few student attempts and the hints that they received. There are three generic hints and two specific hints listed in the table.}
+  \label{fig:hints_sent}
   \end{center}
 \end{figure}
 
@@ -352,9 +346,9 @@ students.
 
 \begin{figure}[th]
 \centering
-	\includegraphics[width=0.95\textwidth]{image/assignment_time_downstream.png}\\
-	\includegraphics[width=0.95\textwidth]{image/assignment_time_downstream.png}
-\captionof{figure}{The distribution of difference of attempts (seconds spent) between case student and the control students. Each subplot corresponds to the distribution of an assignment. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
+	\includegraphics[width=0.99\textwidth]{image/assignment_tries_downstream.png}\\
+	\includegraphics[width=0.99\textwidth]{image/assignment_time_downstream.png}
+\captionof{figure}{The distribution of difference of attempts (seconds spent) between case student and the control students. Each subplot corresponds to the distribution of an assignment. The black lines in the graphs indicate the zero mean. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
 \label{fig:downstream_analysis}
 
 \end{figure}
