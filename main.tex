@@ -45,11 +45,51 @@ We report on a controlled experiment we performed to test whether receiving hint
 
 
 \subsection*{Background}
-The goal of Intelligent tutoring systems (ITS)\cite{Anderson1995} is to imitate a human tutor.  ITS systems detect and classify student errors and provide instantaneous feedback intended to help students understand and correct their error. The goal is to improve student's understanding and improve their performance on {\em future} problems, rather than ``feeding'' them the answer to the current problem.  Previous research suggests that a computer tutor can nearly be as effective as a human tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been developed and introduced into classrooms. A few well developed ITS designed for algebra curriculum in middle school and high school mathematics has already been proven to be effective\cite{Koedinger1997,John2014}.
+Intelligent tutoring systems (ITS)\cite{Anderson1995} attempt to
+imitate a human tutor.  ITS detect and classify student errors and
+provide students with personalized corrective feedback. The goal is to
+improve student understanding and thereby improve their performance on
+{\em future} problems. This is in contrast with ``feeding'' the
+student the answer to the current problem.  Previous research suggests
+that a computer tutor can be nearly as effective as a human
+tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been
+developed and introduced into classrooms. A few well developed ITS
+designed for algebra curriculum in middle school and high school
+mathematics has already been proven to be
+effective\cite{Koedinger1997,John2014}.
 
-Research has suggested that ``Formative'' feedback is essential to improving the learning process\cite{Azevedo1995}\cite{Bangert-Drowns1991}. Formative feedback is feedback that aims to improve students learning and is presented in the form of a response to student incorrect answers\cite{Shute2008}. According to Shute~\cite{Shute2008}, formative feedback needs to be specific, clear and timely. Furthermore, formative feedback should provide learners with both verification and elaboration \cite{Mason2001} \cite{Bangert-Drowns1991}. Verification is to provide feedback to learners as to whether the answer is correct or not. Elaboration is to provide a short elaboration on the topic or discuss the learner's incorrect answer. The timing of the feedback is important as well, Kulhavy and Anderson suggest that delayed feedback is better than instance feedback\cite{Kulhavy1972}. The adaptive hint system delay hints by only providing hints to students who have spent a certain amount of time on the problem without solving it. This allows the hints only go to students who are struggling with a problem. Finally, studies show that hint-on-demand allow students to learn more as compared to proactive hints\cite{Razzaq2010}. Therefore, the adaptive hint system is designed that a student will only see a hint if they click the 'Show Hint' button.
+Homework is an essential part of students' learning
+process\cite{Cooper2006}. It gives students a chance to practice,
+identify their confusions and resolve them. There are many popular
+web-based homework systems (WBHS) for college students(e.g.,
+WebAssign, WebWork, OWL, Andes). Web-based homework systems give
+student greater flexibility in completing their homework. They also
+provide powerful analytical tools that give the instructor insights
+into the progress of the students. Research shows that WBHS improve
+learning learning\cite{MestHartRath2002}\cite{Vanlehn2005}. Some WBHS,
+such as OWL and Andes, provide students with immediate feedback and
+hints after incorrect
+attempts\cite{MestHartRath2002}\cite{Vanlehn2005}. This work focuses
+on adaptive hints in the context of the edX WBHS system.
 
-Homework is an essential part of students' learning process\cite{Cooper2006}. It gives students a chance to practice. Even more importantly, it allows them to identify their confusions and resolve them. There are many popular web-based homework systems for college students(e.g., WebAssign, WebWork, OWL, Andes). The goal is to help instructors to have a better management of a large enrollment class. These homework systems often provide feedback to students and provide analysis of student performance to instructors. Research has proven the web-based homework(WBH) systems to be helpful in learning\cite{MestHartRath2002}\cite{Vanlehn2005}. In these studies, the WBH systems, OWL and Andes, provide students with immediate feedback and hints following an incorrect attempt\cite{MestHartRath2002}\cite{Vanlehn2005}. The feedback and hints are the essential part of a WBH system, which is what our study focuses on.
+Past research provides useful guidelines for the design of adaptive
+hints.  Azevedo~\cite{Azevedo1995} and Bagert-Drowns et
+al.~\cite{Bangert-Drowns1991} suggest using ``Formative'' hints that
+are specific, clear and timely. Shute~\cite{Shute2008} suggests that
+hints should provide {\em verification}, i.e. identify whether the
+answer is correct or not, and {\em elaboration} is an expansion on the
+topic at hand that is relevant to correcting the student's mistake.
+
+The timing of the feedback is important as well, Kulhavy and
+Anderson\cite{Kulhavy1972} suggest that delayed feedback is better
+than immediate feedback.  Delay hints until the students makes a few
+attempts encourages the student to think about the problem and be
+ready to absorb the hint.  Finally, Razzaq~\cite{Razzaq2010} shows
+that providing a hint only when the student actively indicates their
+interest (On-Demand Hints) is better than providing the hint without
+any requiring any indication of interest by the student (Proactive
+Hints).
+
 
 \subsection*{Gaming the hint system}
 
@@ -60,37 +100,41 @@ identifies only the reason that the current answer is incorrect, it does not ide
 simple question designed to highlight the mistake made by the student, so that by correctly answering the hint the student would realize the error in their thinking and be able to apply that knowledge to the original question.
 
 
-\iffalse
-our hints don't contain correct answers in any form. The adaptive hint
-system generates short simple questions as hints instead of
- Therefore, we
-replaced worked examples with short questions that are designed to
-promote thinking and guide student's learning process. This resolve
-the concern of students gaming the system because our system gives
-students hints on how to learn instead of how to answer a specific
-question. The only way for a student to obtain correct answers is by
-learning how to solve the problem. Therefore, we not only prevent any
-system gaming, but our hints also help students in long
-term. Furthermore, our hint system targets mathematic problems, which
-require students to type in mathematic expressions. Therefore, unlike
-multiple choice problems, it would be nearly impossible to guess the
-answer by looking at hints. There is infinity many ways one can type
-in a mathematic expression and it is very hard for students to simply
-guess it correctly with the help of hints. Therefore, we don't have
-the concern of students gaming the system.
-\fi
-
 \subsection*{Contribution}
 
-The main contribution of this paper is a demonstration, with high statistical significance, that hints improve students learning. Specifically, we show that students who receive a hint at a point of time are likely to perform better on problems attempted later. On the other hand, we detect no significant effect on performance on the problem for which the hint was given (immediate effect) nor on the performance of the student in the final exam.
+The main contributions of the work presented here are
+\begin{enumerate}
+\item
+A design of an adaptive hint system for an undergraduate course in
+probability an statistics.
+\item
+Deployment of the hint system as part of a 300 student class, and a
+controlled experiment based on this deployment.
+\item
+Statistical analysis of the experimental results showing that hints
+improve learning. Specifically, we show, with a high level of
+confidence, that students who receive a hint at a point of time are
+likely to perform better on problems attempted later for the same
+assignment for which they received no hints.
+\end{enumerate}
 
 \section{Setup}
 
-We extended and deployed the adaptive hint system described in~\cite{ElkherjFreund14}.
+We extended and deployed the adaptive hint system described
+in~\cite{ElkherjFreund14}.  The adaptive hint system is built on top
+of Open edX, an open source MOOC platform. We used Open edX as our
+homework system and embedded the adaptive hint system on top. The edX
+homework system prompts students to answer problems by entering
+mathematical expressions and provides instant feedback on the
+correctness of the answer. The adaptive hint system provides
+additional feedback in the form of a hint. Students receive one
+assignment per week. Each assignment contains 5 to 10 problems and
+each problem has 1 to 10 parts. The problems in an assignment all
+target similar material that is covered in lecture. Students have an
+unlimited number of attempts for each problem, they can spend as many
+attempts as they want until they get to the correct answer.
 
-The adaptive hint system is built on top of Open edX, an open source MOOC platform. We used Open edX as our homework system and embedded the adaptive hint system on top. The edX homework system prompts students to answer problems by entering mathematical expressions and provides instant feedback on the correctness of the answer. The adaptive hint system provides additional feedback in the form of a hint. Students receive one assignment per week. Each assignment contains 5 to 10 problems and each problem has 1 to 10 parts. The problems in an assignment all target similar material that is covered in lecture. Students have an unlimited number of attempts for each problem, they can spend as many attempts as they want until they get to the correct answer.
-
-The system was deployed in an undergraduate probability and statistic class of around 300 students of which 245 participated in the study. The hint system was used for four out of the eight assignments in the course (other assignment were either too simple or did not lend themselves to our methodology). There were a total of 26 problems and each problem has between 1 to 10 questions each requiring student response.
+The system was deployed in an undergraduate probability and statistics class of around 300 students of which 245 participated in the study. The hint system was used for four out of the eight assignments in the course (other assignment were either too simple or did not lend themselves to our methodology). There were a total of 26 problems and each problem has between 1 to 10 questions each requiring student response.
 
 Significant work went into the careful design of 162 hints by the course staff consisting of an instructor, four TAs, and four tutors. The hints were designed based on historical data. Students received a total of 3621 hints during these four weeks.
 
@@ -104,24 +148,73 @@ Our adaptive hint system is based on a database of hints populated manually befo
 \end{enumerate}
 
 
-Following the work of Kulhavy and Anderson\cite{Kulhavy1972} we prefer not to give students the hint immediately and instead allow them to try to solve the problem on their own. to that end, the system delays sending the hint until the student spent on it 5 minutes or made at least 3 attempts.
+Following the work of Kulhavy and Anderson\cite{Kulhavy1972} we chose
+not to give students the hint immediately and instead allow them to
+try to solve the problem on their own. to that end, the system delays
+sending the hint until the student spent on it 5 minutes or made at
+least 3 attempts.
 
-Furthermore, students need to demand hints by clicking the "Show Hints" button. Hint-on-demand is suggested to be more effective than proactive hints\cite{Razzaq2010}. Once a hint is assigned to a student, the student can choose to click or not click the "Show Hint" button. One can ignore the assigned hint by not clicking the "Show Hint" button. If a student wants to see the assigned hint, he/she needs to click the "Show Hint" button to see the hint. In other words, we only show hints to students who ask for hints. Students who don't click the "Show Hints" button will not see the assigned hints. This makes sure we give on-demand hints to students who want help and are likely to spend time reading and understanding the hint.  In our analysis, we use this button-press to identify when the student read the hint.
+Furthermore, students need to demand hints by clicking the "Show
+Hints" button. Hint-on-demand is suggested to be more effective than
+proactive hints\cite{Razzaq2010}. Once a hint is assigned to a
+student, the student can choose whether to click on the ``Show Hint''
+button and see the hint, or ignore the fact that there is a hint.
+Research shows that this ``on demand'' approach leads to better
+learning results. Logging when ``show hint'' was pressed gives us
+greater power in our statistical analysis by providing a better
+indication of whether the student read the hint.
 
-A popular type of hint is a worked-out-examples~\cite{Atkinson2000}. However, work by Mclaren~\cite{McLaren2006} finds no significant effects of worked-out-examples on learning in a web-based intelligent tutoring environment. Therefore, the adaptive hint system gives students a simple question to work on, instead of giving out worked-examples. Students can choose whether or not to answer the hint question. If students choose to answer the hint question, the system provides instant feedback to let the students know whether their answers are correct or not. We make it clear to the students that hints will not affect their grade. In particular, the student does not have to click on ``Show Hint'' or to answer the question associated with the hint.
+A popular type of hint is a
+worked-out-examples~\cite{Atkinson2000}. However, work by
+Mclaren~\cite{McLaren2006} finds no significant effects of
+worked-out-examples on learning in a web-based intelligent tutoring
+environment. Therefore, the adaptive hint system gives students a
+simple question to work on, instead of giving out
+worked-examples. Students can choose whether or not to answer the hint
+question. If students choose to answer the hint question, the system
+provides instant feedback to let the students know whether their
+answers are correct or not. We make clear to the students that hints
+will not affect their HW grade. In particular, students are not
+penalized for failing to select ``Show Hint'' or for failing to answer
+the question associated with the hint.
 
 \subsection*{Hints}
 
-Our system supports two types of hints, generic and specific. Generic hints are triggered by an elementary problem with common error, while specific hints point to a particular type of error that occurs in a particular problem. Specific hints are usually based on finding an error in a mathematical expression using parsing, as will be explained below.
+Our system supports two types of hints, generic and specific. A
+generic hint is triggered by a common error, while a specific hint is
+triggered by particular type of error when it occurs in a particular
+problem. Specific hints are usually based on finding an error in a
+mathematical expression using {\em parsing}, as explained in the next section.
 
-Some of the generic hints point out simple errors such as ``The size of a set cannot be negative'' or ``A probability cannot be large than 1''. Another generic hint is sent when a student gives an incorrect answer, and that answer is a number, rather than an expression. The system will ask students to write an expression instead of a number. Expression exposes more of the student's thinking process and allows specific hints to be sent.
+Some generic hints correspond to simple errors such as ``The size of a
+set cannot be negative'' or ``A probability cannot be large than
+1''. Another common generic hint corresponds to an incorrect answer
+that is not in the form of an expression. The hint asks the student to
+re-write the answer as an expression.  Expressions expose more of the
+student's thinking process and enables the triggering of specific hints.
 
-Specific hints are sent based on the parsing of a mathematical expression, as explained in the next section. The specific hint
-directs the student to focus on the incorrect part of her answer.  In addition, the hint usually includes a question. Answering this
-question, while not compulsory, is designed to help the student think about a similar problem in a simplified setting.
+Specific hints are sent based on identifying the correct and incorrect
+parts of the expression entered by the student. Identifying the
+correct parts encourages the student by showing them that they have
+made progress. Identifying the incorrect part(s) helps the student
+focus on the part they got wrong. In addition, the hint usually
+includes a question. Answering this question, while not compulsory, is
+designed to help the student think about a similar problem in a
+simplified setting. This design is based on the
+``Verification-elaboration'' directive of Shute~\cite{Shute2008}.
 
-As an example of a specific hint, consider a problem about the probability of a specific hand in a Texas Hold'em poker. Figure
-\ref{fig:hint_prob} shows the problem, and Table \ref{tab:hints_sent} shows some of the hints sent for this problem. The first three hints in the table are generic hints. The fourth attempt has no matching to any part of the solution, therefore the hint asks the student to focus on the first part of the solution, which is $C(52-2,2)$. The last attempt matches the first part of the solution. However, the student didn't realize that the question is actually asking for a complement and therefore the second part of the solution is completely missing. In this case, the hint points it out and asks the student to think about how to calculate a complement.
+As an example of a specific hint, consider a problem about the
+probability of a specific hand in a Texas Hold'em poker. Figure
+\ref{fig:hint_prob} shows the problem, and Table \ref{tab:hints_sent}
+shows some of the hints designed for this problem. The first three hints
+in the table are generic. The fourth attempt has no matching to
+any part of the solution, therefore the hint asks the student to focus
+on the first part of the solution, which is $C(52-2,2)$. The last
+attempt matches the first part of the solution. However, the student
+didn't realize that the question is actually asking for a complement
+and therefore the second part of the solution is completely
+missing. In this case, the hint points it out and asks the student to
+think about how to calculate a complement.
 
 \begin{figure}[t!]
   \centering
@@ -150,11 +243,20 @@ Creating effective specific hints is labor intensive: the instructor needs to id
 
 \subsection*{Triggers and Parsing}
 
-A typical problem in our course contains a few relatively small numbers. The answer to the question can be represented as an algebraic expression connecting the small numbers and producing a large number as the result. For the specific hints, we assume that both the correct answer and the student attempt are represented by such expressions. By comparing these expressions we can identify which parts of the student answer are correct and which are incorrect. That information is then used to trigger specific hints.
+A typical question in our course contains a few relatively small
+numbers and or variable. The answer to the question can be represented
+as an algebraic expression connecting the small numbers and producing
+a large number as the result. For the specific hints, we assume that
+both the correct answer and the student attempt are represented by
+such expressions. By comparing these expressions we can identify which
+parts of the student answer are correct and which are incorrect. That
+information is then used to trigger specific hints.
 
-Mathematical expressions can be parsed and represented as trees (see Figure~\ref{fig:parse_tree}). Each node in the tree corresponds to an operator and the one or two children of the node correspond to subexpressions. The node is also associated with a value which is the result of applying the operator to the values of the two subtrees.
+Mathematical expressions can be parsed and represented as trees (see Figure~\ref{fig:parse_tree}). Each node in the tree corresponds to an operator and the one or two children of the node correspond to sub-expressions. The node is also associated with a value which is the result of applying the operator to the values of the two subtrees.
 
-By using the values associated with each node, we overcome the problem that the same value can be calculated in many ways, for example, $2*3 = 3*2$ and $2+3=5$. 
+By using the values associated with each node, we overcome the problem
+that the same value can be expressed in several ways, for example,
+$2*3 = 3*2$, $2+3=5$ and $2*a+6 = 2*(a+3)$. 
 
 To create a specific trigger, the instructor/TA identifies a common mistake and then represents that mistake using value-based comparisons between sub-trees. For example, suppose the student's attempt is $\frac{4!-3*2}{5}$ for a problem with solution $\frac{5!-2*3}{3+2}$(see Figure~\ref{fig:parse_tree}). Using match-by-value the system identifies that the only incorrect part is the $4!$ in the enumerator. The trigger is therefor the rule: ``match on $-6$ and $/5$, mismatch on $5!$''. The hint triggered might have the form:
 \begin{displayquote}
@@ -169,15 +271,26 @@ the $4!$ in the enumerator. How many ways are there to arrange five different ob
 		\includegraphics[width=0.45\textwidth]{image/ParseTrees1.png} &
 		\includegraphics[width=0.45\textwidth]{image/ParseTrees2.png}
 	\end{tabular}
-   \caption{Two mathematical expressions and their parse trees. Consider the left tree, which corresponds to the expression $(5!-2*3)/(3+2)$. The root node corresponds to the operation that is evaluated last, which is division: $/$. The left subtree corresponds to the sub-expression $(5!-2*3)$ and the right subtree corresponds to the sub-expression $(3+2)$. The values written in parenthesis $(114)$,$(5)$ are the values of subexpressions. By taking the ratio $114/5$ we get the value of the root $(22.6)$}
+   \caption{Two mathematical expressions and their parse trees. Consider the left tree, which corresponds to the expression $(5!-2*3)/(3+2)$. The root node corresponds to the operation that is evaluated last, which is division: $/$. The left subtree corresponds to the sub-expression $(5!-2*3)$ and the right subtree corresponds to the sub-expression $(3+2)$. The values written in parenthesis $(114)$,$(5)$ are the values of sub-expressions. By taking the ratio $114/5$ we get the value of the root $(22.6)$}
    \label{fig:parse_tree}
 \end{figure}
 
 \section{Statistical Study of the Effectiveness of hints}
 
-We used a controlled study methodology to quantify the effect of our hints on student performance. For four of the weekly assignments, we randomly placed each student with equal odds into a case group or a control group. We refer to those students as case students and control students.  We use the term {\em session} to refer to the record of a single student working on a single problem. We use the term {\em attempt} to refer to a single attempted answer a student sends to the edX system.
+We used a controlled study methodology to quantify the effect of our
+hints on student performance. For four of the weekly assignments, we
+randomly placed each student with equal odds into a case group or a
+control group. We refer to those students as case students and control
+students.  We use the term {\em session} to refer to the record of a
+single student working on a single weekly assignment. We use the term
+{\em attempt} to refer to a single attempted answer by a student.
 
-We filter out case student sessions in which the student did not receive a hint, either because her attempt did not trigger a hint or because she did not click on the ``show hint'' button.  To make the control set as similar as possible, we filter out control student sessions whose attempts would not have triggered a hint had they been in the case set.
+We filter out case student sessions in which the student did not
+receive a hint, either because her attempt did not trigger a hint or
+because she did not click on the ``show hint'' button.  To make the
+control set as similar as possible, we filter out control student
+sessions whose attempts would not have triggered a hint had they been
+in the case set.
 
 To quantify the effect we use three measures:
 \begin{itemize}
@@ -337,19 +450,32 @@ See Figure \ref{fig:final_compare_all}. It is hard to tell which group of studen
 
 We designed and deployed an adaptive hint system for web-based homework. Our controlled study shows that adaptive hints have a significant positive effect on student performance.
 
-The effect for which we have strong evidence is the effect of receiving a hint while solving a problem on the performance of the student on the cumulative effort of the student on the following problems in the same assignment. We interpret this effect to mean that the hint gave the student a better understanding of the problem domain and that this better understanding manifested itself when they were working on other problems in the same domain, even though they did not receive hints on those problems.
+The effect for which we have strong evidence is the effect of
+receiving a hint while solving a problem on the performance of the
+student on the cumulative effort of the student on the following
+problems in the same assignment. We interpret this effect to mean that
+the hint gave the student a better understanding of the problem domain
+and that this better understanding manifested itself when they were
+working on other problems in the same domain, even though they did not
+receive hints on those problems.
 
-We found some evidence that receiving a hint effects student performance on a single problem. This evidence is much weaker than the evidence for the cumulative effort. This is not surprising because we expect a strong correlation between the effects on different problems, and this correlation is not captured when analyzing individual problems.
+We found some evidence that receiving a hint effects student
+performance on a single problem. This evidence is much weaker than the
+evidence for the cumulative effort. This is not surprising because we
+expect a strong correlation between the effects of a hint different
+problems in the same assignment even when the effect on each single
+problem is weak.
 
 We performed other tests for which we found no significant effect:
 \begin{enumerate}
 \item There was no significant effect of receiving a hint on the
-  performance of the student on the **same** problem.
+  performance of the student on the {\em same} problem.
 \item We could find no significant effect of receiving effects on
   performance on the final exam.
 \end{enumerate}
 
-We are encouraged by the results of this study and plan to reuse and refine the system in future offerings of the course, both in our
+We are encouraged by the results of this study and plan to reuse and
+refine the system in future offerings of the course, both in our
 university and as an online offering on edX.
 
 \bibliographystyle{splncs}
