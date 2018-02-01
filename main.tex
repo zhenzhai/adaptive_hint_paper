@@ -45,50 +45,17 @@ We report on a controlled experiment we performed to test whether receiving hint
 
 
 \subsection*{Background}
-Intelligent tutoring systems (ITS)\cite{Anderson1995} attempt to
-imitate a human tutor.  ITS detect and classify student errors and
-provide students with personalized corrective feedback. The goal is to
-improve student understanding and thereby improve their performance on
-{\em future} problems. This is in contrast with ``feeding'' the
-student the answer to the current problem.  Previous research suggests
-that a computer tutor can be nearly as effective as a human
-tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been
-developed and introduced into classrooms. A few well developed ITS
-designed for algebra curriculum in middle school and high school
-mathematics has already been proven to be
-effective\cite{Koedinger1997,John2014}.
+Intelligent tutoring systems (ITS)\cite{Anderson1995} attempt to imitate a human tutor.  ITS detect and classify student errors and
+provide students with personalized corrective feedback. The goal is to improve student understanding and thereby improve their performance on {\em future} problems. This is in contrast with ``feeding'' the student the answer to the current problem. Previous research suggests that a computer tutor can be nearly as effective as a human tutor\cite{Vanlehn2011}. Hence, many intelligent tutors have been developed and introduced into classrooms. A few well developed ITS designed for algebra curriculum in middle school and high school mathematics has already been proven to be effective\cite{Koedinger1997,John2014}.
 
-Homework is an essential part of students' learning
-process\cite{Cooper2006}. It gives students a chance to practice,
-identify their confusions and resolve them. There are many popular
-web-based homework systems (WBHS) for college students(e.g.,
-WebAssign, WebWork, OWL, Andes). Web-based homework systems give
-student greater flexibility in completing their homework. They also
-provide powerful analytical tools that give the instructor insights
-into the progress of the students. Research shows that WBHS improve
-learning learning\cite{MestHartRath2002}\cite{Vanlehn2005}. Some WBHS,
-such as OWL and Andes, provide students with immediate feedback and
-hints after incorrect
-attempts\cite{MestHartRath2002}\cite{Vanlehn2005}. This work focuses
-on adaptive hints in the context of the edX WBHS system.
+Homework is an essential part of students' learning process\cite{Cooper2006}. It gives students a chance to practice,
+identify their confusions and resolve them. There are many popular web-based homework systems (WBHS) for college students(e.g., WebAssign, WebWork, OWL, Andes). Web-based homework systems give student greater flexibility in completing their homework. They also provide powerful analytical tools that give the instructor insights into the progress of the students. Research shows that WBHS improve learning\cite{MestHartRath2002}\cite{Vanlehn2005}. Some WBHS,
+such as OWL and Andes, provide students with immediate feedback and hints after incorrect attempts\cite{MestHartRath2002}\cite{Vanlehn2005}. This work focuses on adaptive hints in the context of the edX web-based homework system.
 
 Past research provides useful guidelines for the design of adaptive
-hints.  Azevedo~\cite{Azevedo1995} and Bagert-Drowns et
-al.~\cite{Bangert-Drowns1991} suggest using ``Formative'' hints that
-are specific, clear and timely. Shute~\cite{Shute2008} suggests that
-hints should provide {\em verification}, i.e. identify whether the
-answer is correct or not, and {\em elaboration} is an expansion on the
-topic at hand that is relevant to correcting the student's mistake.
+hints.  Azevedo~\cite{Azevedo1995} and Bagert-Drowns et al.~\cite{Bangert-Drowns1991} suggest using ``Formative'' hints that are specific, clear and timely. Shute~\cite{Shute2008} suggests that hints should provide {\em verification}, i.e. identify whether the answer is correct or not, and {\em elaboration}, i.e. an expansion on the topic at hand that is relevant to correcting the student's mistake.
 
-The timing of the feedback is important as well, Kulhavy and
-Anderson\cite{Kulhavy1972} suggest that delayed feedback is better
-than immediate feedback.  Delay hints until the students makes a few
-attempts encourages the student to think about the problem and be
-ready to absorb the hint.  Finally, Razzaq~\cite{Razzaq2010} shows
-that providing a hint only when the student actively indicates their
-interest (On-Demand Hints) is better than providing the hint without
-any requiring any indication of interest by the student (Proactive
-Hints).
+The timing of the feedback is important as well, Kulhavy and Anderson\cite{Kulhavy1972} suggest that delayed feedback is better than immediate feedback.  Delay hints until the students make a few attempts encourages the student to think about the problem and be ready to absorb the hint.  Finally, Razzaq~\cite{Razzaq2010} shows that providing a hint only when the student actively indicates their interest (On-Demand Hints) is better than providing the hint without any requiring any indication of interest by the student (Proactive Hints).
 
 
 \subsection*{Gaming the hint system}
@@ -105,34 +72,16 @@ simple question designed to highlight the mistake made by the student, so that b
 The main contributions of the work presented here are
 \begin{enumerate}
 \item
-A design of an adaptive hint system for an undergraduate course in
-probability an statistics.
+A design of an adaptive hint system for an undergraduate course in probability an statistics.
 \item
-Deployment of the hint system as part of a 300 student class, and a
-controlled experiment based on this deployment.
+Deployment of the hint system as part of a 300 student class, and a controlled experiment based on this deployment.
 \item
-Statistical analysis of the experimental results showing that hints
-improve learning. Specifically, we show, with a high level of
-confidence, that students who receive a hint at a point of time are
-likely to perform better on problems attempted later for the same
-assignment for which they received no hints.
+Statistical analysis of the experimental results showing that hints improve learning. Specifically, we show, with a high level of confidence, that students who receive a hint at a point in time are likely to perform better on problems attempted later for the same assignment for which they received no hints.
 \end{enumerate}
 
 \section{Setup}
 
-We extended and deployed the adaptive hint system described
-in~\cite{ElkherjFreund14}.  The adaptive hint system is built on top
-of Open edX, an open source MOOC platform. We used Open edX as our
-homework system and embedded the adaptive hint system on top. The edX
-homework system prompts students to answer problems by entering
-mathematical expressions and provides instant feedback on the
-correctness of the answer. The adaptive hint system provides
-additional feedback in the form of a hint. Students receive one
-assignment per week. Each assignment contains 5 to 10 problems and
-each problem has 1 to 10 parts. The problems in an assignment all
-target similar material that is covered in lecture. Students have an
-unlimited number of attempts for each problem, they can spend as many
-attempts as they want until they get to the correct answer.
+We extended and deployed the adaptive hint system described in~\cite{ElkherjFreund14}.  The adaptive hint system is built on top of Open edX, an open source MOOC platform. We used Open edX as our homework system and embedded the adaptive hint system on top. The edX homework system prompts students to answer problems by entering mathematical expressions and provides instant feedback on the correctness of the answer. The adaptive hint system provides additional feedback in the form of a hint. Students receive one assignment per week. Each assignment contains 5 to 10 problems and each problem has 1 to 10 parts. The problems in an assignment all target similar material that is covered in lecture. Students have an unlimited number of attempts for each problem, they can spend as many attempts as they want until they get to the correct answer.
 
 The system was deployed in an undergraduate probability and statistics class of around 300 students of which 245 participated in the study. The hint system was used for four out of the eight assignments in the course (other assignment were either too simple or did not lend themselves to our methodology). There were a total of 26 problems and each problem has between 1 to 10 questions each requiring student response.
 
@@ -148,72 +97,22 @@ Our adaptive hint system is based on a database of hints populated manually befo
 \end{enumerate}
 
 
-Following the work of Kulhavy and Anderson\cite{Kulhavy1972} we chose
-not to give students the hint immediately and instead allow them to
-try to solve the problem on their own. to that end, the system delays
-sending the hint until the student spent on it 5 minutes or made at
-least 3 attempts.
+Following the work of Kulhavy and Anderson\cite{Kulhavy1972} we chose not to give students the hint immediately and instead allow them to try to solve the problem on their own. to that end, the system delays sending the hint until the student spent at least 5 minutes or made at least 3 attempts.
 
-Furthermore, students need to demand hints by clicking the "Show
-Hints" button. Hint-on-demand is suggested to be more effective than
-proactive hints\cite{Razzaq2010}. Once a hint is assigned to a
-student, the student can choose whether to click on the ``Show Hint''
-button and see the hint, or ignore the fact that there is a hint.
-Research shows that this ``on demand'' approach leads to better
-learning results. Logging when ``show hint'' was pressed gives us
-greater power in our statistical analysis by providing a better
-indication of whether the student read the hint.
+Furthermore, students need to demand hints by clicking the "Show Hints" button. Hint-on-demand is suggested to be more effective than proactive hints\cite{Razzaq2010}. Once a hint is assigned to a student, the student can choose whether to click on the ``Show Hint'' button to see the hint or ignore the fact that there is a hint. Research shows that this ``on demand'' approach leads to better learning results. Logging when ``show hint'' was pressed gives us greater power in our statistical analysis by providing a better indication of whether the student read the hint.
 
-A popular type of hint is a
-worked-out-examples~\cite{Atkinson2000}. However, work by
-Mclaren~\cite{McLaren2006} finds no significant effects of
-worked-out-examples on learning in a web-based intelligent tutoring
-environment. Therefore, the adaptive hint system gives students a
-simple question to work on, instead of giving out
-worked-examples. Students can choose whether or not to answer the hint
-question. If students choose to answer the hint question, the system
-provides instant feedback to let the students know whether their
-answers are correct or not. We make clear to the students that hints
-will not affect their HW grade. In particular, students are not
-penalized for failing to select ``Show Hint'' or for failing to answer
-the question associated with the hint.
+A popular type of hint is a worked-out-examples ~\cite{Atkinson2000}. However, work by
+Mclaren~\cite{McLaren2006} finds no significant effects of worked-out-examples on learning in a web-based intelligent tutoring environment. Therefore, the adaptive hint system gives students a simple question to work on, instead of giving out worked-examples. Students can choose whether or not to answer the hint question. If students choose to answer the hint question, the system provides instant feedback to let the students know whether their answers are correct or not. We make clear to the students that hints will not affect their HW grade. In particular, students are not penalized for failing to select ``Show Hint'' or for failing to answer the question associated with the hint.
 
 \subsection*{Hints}
 
-Our system supports two types of hints, generic and specific. A
-generic hint is triggered by a common error, while a specific hint is
-triggered by particular type of error when it occurs in a particular
-problem. Specific hints are usually based on finding an error in a
-mathematical expression using {\em parsing}, as explained in the next section.
+Our system supports two types of hints, generic and specific. A generic hint is triggered by a common error, while a specific hint is triggered by a particular type of error when it occurs in a particular problem. Specific hints are usually based on finding an error in a mathematical expression using {\em parsing}, as explained in the next section.
 
-Some generic hints correspond to simple errors such as ``The size of a
-set cannot be negative'' or ``A probability cannot be large than
-1''. Another common generic hint corresponds to an incorrect answer
-that is not in the form of an expression. The hint asks the student to
-re-write the answer as an expression.  Expressions expose more of the
-student's thinking process and enables the triggering of specific hints.
+Some generic hints correspond to simple errors such as ``The size of a set cannot be negative'' or ``A probability cannot be large than 1''. Another common generic hint corresponds to an incorrect answer that is not in the form of an expression. The hint asks the student to re-write the answer as an expression.  Expressions expose more of the student's thinking process and enable the triggering of specific hints.
 
-Specific hints are sent based on identifying the correct and incorrect
-parts of the expression entered by the student. Identifying the
-correct parts encourages the student by showing them that they have
-made progress. Identifying the incorrect part(s) helps the student
-focus on the part they got wrong. In addition, the hint usually
-includes a question. Answering this question, while not compulsory, is
-designed to help the student think about a similar problem in a
-simplified setting. This design is based on the
-``Verification-elaboration'' directive of Shute~\cite{Shute2008}.
+Specific hints are sent based on identifying the correct and incorrect parts of the expression entered by the student. Identifying the correct parts encourages the student by showing them that they have made progress. Identifying the incorrect part(s) helps the student focus on the part they got wrong. In addition, the hint usually includes a question. Answering this question, while not compulsory, is designed to help the student think about a similar problem in a simplified setting. This design is based on the ``Verification-elaboration'' directive of Shute~\cite{Shute2008}.
 
-As an example of a specific hint, consider a problem about the
-probability of a specific hand in a Texas Hold'em poker. Figure \ref{fig:hints_sent}
-shows the problem and also some of the hints designed for this problem. The first three hints
-in the table are generic. The fourth attempt has no matching to
-any part of the solution, therefore the hint asks the student to focus
-on the first part of the solution, which is $C(52-2,2)$. The last
-attempt matches the first part of the solution. However, the student
-didn't realize that the question is actually asking for a complement
-and therefore the second part of the solution is completely
-missing. In this case, the hint points it out and asks the student to
-think about how to calculate a complement.
+As an example of a specific hint, consider a problem about the probability of a specific hand in a Texas Hold'em poker. Figure \ref{fig:hints_sent} shows the problem and also some of the hints designed for this problem. The first three hints in the table are generic. The fourth attempt has no matching to any part of the solution, therefore the hint asks the student to focus on the first part of the solution, which is $C(52-2,2)$. The last attempt matches the first part of the solution. However, the student didn't realize that the question is actually asking for a complement and therefore the second part of the solution is completely missing. In this case, the hint points it out and asks the student to think about how to calculate a complement.
 
 \begin{figure}[t!]
   \centering
@@ -237,20 +136,11 @@ Creating effective specific hints is labor intensive: the instructor needs to id
 
 \subsection*{Triggers and Parsing}
 
-A typical question in our course contains a few relatively small
-numbers and or variable. The answer to the question can be represented
-as an algebraic expression connecting the small numbers and producing
-a large number as the result. For the specific hints, we assume that
-both the correct answer and the student attempt are represented by
-such expressions. By comparing these expressions we can identify which
-parts of the student answer are correct and which are incorrect. That
-information is then used to trigger specific hints.
+A typical question in our course contains a few relatively small numbers and or variable. The answer to the question can be represented as an algebraic expression connecting the small numbers and producing a large number as the result. For the specific hints, we assume that both the correct answer and the student attempt are represented by such expressions. By comparing these expressions we can identify which parts of the student answer are correct and which are incorrect. That information is then used to trigger specific hints.
 
 Mathematical expressions can be parsed and represented as trees (see Figure~\ref{fig:parse_tree}). Each node in the tree corresponds to an operator and the one or two children of the node correspond to sub-expressions. The node is also associated with a value which is the result of applying the operator to the values of the two subtrees.
 
-By using the values associated with each node, we overcome the problem
-that the same value can be expressed in several ways, for example,
-$2*3 = 3*2$, $2+3=5$ and $2*a+6 = 2*(a+3)$. 
+By using the values associated with each node, we overcome the problem that the same value can be expressed in several ways, for example, $2*3 = 3*2$, $2+3=5$ and $2*a+6 = 2*(a+3)$. 
 
 To create a specific trigger, the instructor/TA identifies a common mistake and then represents that mistake using value-based comparisons between sub-trees. For example, suppose the student's attempt is $\frac{4!-3*2}{5}$ for a problem with solution $\frac{5!-2*3}{3+2}$(see Figure~\ref{fig:parse_tree}). Using match-by-value the system identifies that the only incorrect part is the $4!$ in the enumerator. The trigger is therefor the rule: ``match on $-6$ and $/5$, mismatch on $5!$''. The hint triggered might have the form:
 \begin{displayquote}
@@ -271,20 +161,9 @@ the $4!$ in the enumerator. How many ways are there to arrange five different ob
 
 \section{Statistical Study of the Effectiveness of hints}
 
-We used a controlled study methodology to quantify the effect of our
-hints on student performance. For four of the weekly assignments, we
-randomly placed each student with equal odds into a case group or a
-control group. We refer to those students as case students and control
-students.  We use the term {\em session} to refer to the record of a
-single student working on a single weekly assignment. We use the term
-{\em attempt} to refer to a single attempted answer by a student.
+We used a controlled study methodology to quantify the effect of our hints on student performance. For four of the weekly assignments, we randomly placed each student with equal odds into a case group or a control group. We refer to those students as case students and control students.  We use the term {\em session} to refer to the record of a single student working on a single weekly assignment. We use the term {\em attempt} to refer to a single attempted answer by a student.
 
-We filter out case student sessions in which the student did not
-receive a hint, either because her attempt did not trigger a hint or
-because she did not click on the ``show hint'' button.  To make the
-control set as similar as possible, we filter out control student
-sessions whose attempts would not have triggered a hint had they been
-in the case set.
+We filter out case student sessions in which the student did not receive a hint, either because her attempt did not trigger a hint or because she did not click on the ``show hint'' button.  To make the control set as similar as possible, we filter out control student sessions whose attempts would not have triggered a hint had they been in the case set.
 
 To quantify the effect we use three measures:
 \begin{itemize}
@@ -297,7 +176,7 @@ To quantify the effect we use three measures:
 
 Our goal is to establish that the hints we produce have a positive effect on learning. The null hypothesis that we aim to reject is that hints have no effect. We consider the potential effect at three different time scales. The {\em within problem effect} is the effect of receiving a hint when attempting to answer a problem on the performance of students {\em on the same problem}. The {\em within assignment effect} is the effect of receiving a hint when attempting to solve a problem on the performance of students on later problem {\em within the same assignment}. Finally, the {\em long-term effect} is the effect of receiving hints during an assignment on the performance of the student on questions on the same material in the final exam.
 
-We found no statistically significant effect for either the within problem or the long-term effect. On the other hand, we found a significant effect on the same assignment. We present the analysis and then discuss.
+We found no statistically significant effect for either the within problem or the long-term effect. On the other hand, we found a significant effect within the same assignment. We present the analysis and then discuss.
 
 \subsection{Within problem effect}
 
@@ -314,7 +193,7 @@ Analysis of the results using a t-test failed to detect a statistically signific
   \includegraphics[width=0.48\textwidth]{image/problem_tries.png} & 
   \includegraphics[width=0.48\textwidth]{image/problem_time.png}
   \end{tabular}
-  \caption{Two box plots of the number of attempts and number of seconds spent on each problem with hints. The problems with no hint written have no data present. Problem (4,3), for example, has no hint sent, and therefore has no data on graph. Each problem has a control group and a case group. It is hard to tell which group of students spent more attempts or more time than the other. The axis label also shows the p-value of the two sided t-test. Most of the problems have very high p-value and therefore the result is not significant to draw conclusion.}
+  \caption{Two box plots of the number of attempts and number of seconds spent on each problem with hints. The problems with no hint written have no data present. Problem (4,3), for example, has no hint sent and therefore has no data on the graph. Each problem has a control group and a case group. It is hard to tell which group of students spent more attempts or more time than the other. The axis label also shows the p-value of the two-sided t-test. Most of the problems have very high p-value and therefore the result is not significant to draw a conclusion.}
    \label{fig:tries_analysis}
 \end{figure}
 \fi
@@ -329,7 +208,7 @@ We consider only sessions that have at least one problem with hint. For each suc
 
 For example, suppose the student solved an assignment of 9 problems in the following order $\{ 1, 4, 3, 2, 6, 5, 7, 8, 9\}$. This student received at least one hint on problems $\{3, 5, 7\}$. Therefore, the downstream problems for this session are $\{2, 6, 8, 9\}$.
 
-For each session, we compute the number of attempts (and the amount of time) spent on each of the downstream problems. We partition these measurements into two populations depending on whether the student was in the case or the control. See Figure \ref{fig:prob_tries_analysis}. We perform a two-sided t-test on each of the problems. We observed that 20 out of 25 problems have p-value less than $5\%$ and 4 problems have no hints sent.
+For each session, we compute the number of attempts (and the total attempt time) spent on each of the downstream problems. We partition these measurements into two populations depending on whether the student was in the case or the control. See Figure \ref{fig:prob_tries_analysis}. We perform a two-sided t-test on each of the problems. We observed that 4 out of 29 problems have no hints sent. Out of the 25 problems with hints, 20 problems have p-values less than $5\%$, and among these 20 problems 15 problems have p-values less than $1\%$.
 
 \begin{figure}[ht]
   \centering
@@ -337,27 +216,26 @@ For each session, we compute the number of attempts (and the amount of time) spe
   \includegraphics[width=0.5\textwidth]{image/problem_tries_downstream.png} & 
   \includegraphics[width=0.5\textwidth]{image/problem_time_downstream.png}
   \end{tabular}
-  \caption{Box plots of the number of attempts and length of time spent on downstream problems for control students and case students. The problems with no hint sent are left blank on the graph. It is clearly shown that the control group spent more attempts and more time than case students on almost all problems with hint sent. The axis label also shows the p-value. Only a few problems have p-value more than $5\%$. Most of the p-values are very small. For some of the problems we don't have hints sent, there are no box plots presented.}
+  \caption{Box plots of the number of attempts and total attempt time spent on downstream problems for control students and case students. The problems with no hint sent are left blank on the graph. It is shown that the control group spent more attempts and more time than case students on almost all problems with hint sent. The axis label also shows the p-values. Only a few problems have p-values larger than $5\%$. Most of the p-values are very small. For some of the problems we don't have hints sent, there are no box plots presented.}
    \label{fig:prob_tries_analysis}
 \end{figure}
 
-We also did a similar analysis of student effort on each assignment as a whole. We consider problems that have been attempted after the first problem on which the student received a hint. We call these problems ``downstream'' problems. We define the average number of attempts(or length of time) spent by control group on each problem in the assignment as the {\em baseline}. Then, for each student in the case group, we measure the sum of attempts (or length of time) for the downstream problems. We compute the difference between this sum and the sum of the corresponding baselines. The result is the difference in the number of attempts between the case student and the average control. If the difference is negative, it means the case student solved the downstream problems within a smaller number of attempts. We show the histograms of the differences in Figure \ref{fig:downstream_analysis}. The plots show that in most cases the result of getting a hint is a reduction in number of attempts, or amount of time spent, on the downstream problems comparing to control
-students.
+We also did a similar analysis of student effort on each assignment as a whole. We only consider downstream problems in each assignment. We define the average number of attempts(or total attempt time) spent by control group on each problem in the assignment as the {\em baseline}. Then, for each student in the case group, we measure the sum of attempts (or the sum of time) for the downstream problems. We compute the difference between this sum and the sum of the corresponding baselines. The result is the difference in the number of attempts between the case student and the average control. If the difference is negative, it means the case student solved the downstream problems within a smaller number of attempts. We show the histograms of the differences in Figure \ref{fig:downstream_analysis}. The plots show that in most cases the result of getting a hint is a reduction in number of attempts, or total attempt time, on the downstream problems comparing to control students.
 
 \begin{figure}[th]
 \centering
 	\includegraphics[width=0.99\textwidth]{image/assignment_tries_downstream.png}\\
 	\includegraphics[width=0.99\textwidth]{image/assignment_time_downstream.png}
-\captionof{figure}{The distribution of difference of attempts (seconds spent) between case student and the control students. Each subplot corresponds to the distribution of an assignment. The black lines in the graphs indicate the zero mean. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
+\captionof{figure}{The distribution of the difference of attempts (or time spent) between case student and the control students. Each subplot corresponds to the distribution of an assignment. The black lines in the graphs indicate the zero mean. All four graphs have distribution with negative means, which means that the control students spent more attempts compared to the case students.}
 \label{fig:downstream_analysis}
 
 \end{figure}
 
-We perform a one sample t-test with the null hypothesis that the mean of the attempt differences (or the time differences) should be zero. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance and that case students spend fewer attempts and less time on homework problems comparing to control students. This analysis shows that the adaptive hint system helps students perform better in homework problems that come after the hints.
+We perform a one sample t-test with the null hypothesis that the mean of the attempt differences (or the time differences) should be zero. Table \ref{tab:no_hint} and Table \ref{tab:no_hint_time} show that we have small p-value for each of the assignment. Therefore, we reject the null hypothesis and conclude that case students and control students have significantly different performance and that case students spend fewer attempts and less time on downstream problems comparing to control students. This analysis shows that the adaptive hint system helps students perform better in homework problems that come after the hints.
 
 
 \begin{table}[th]
-\caption{The table lists the attempt differences between control students and case students. For each of the four weeks, the control students spent more attempts than the case students. The p-value of the one sample t-test is also presented in the table. The p-values are all extremely small that we can reject the null hypothesis and conclude that the performance of case students and control students are significantly different.}
+\caption{The table lists the attempt differences between control students and case students. For each of the four weeks, the control students spent more attempts than the case students. The p-values of the one sample t-test are also presented in the table. The p-values are all extremely small that we can reject the null hypothesis and conclude that the performance of case students and control students are significantly different.}
 \begin{center}
   \begin{tabular}{| c | c | c | c | c | c |}
   \hline
@@ -375,7 +253,7 @@ We perform a one sample t-test with the null hypothesis that the mean of the att
 \end{table}
 
 \begin{table}
-\caption{The table lists the time differences (in minutes) between the control students and the case students. Similar to Table \ref{tab:no_hint}, case students spent less time on all assignments comparing to control students. The p-values of the one sample t-test are also very small. Only assignment 4 has p-value a little over $5\%$.}
+\caption{The table lists the time differences (in minutes) between the control students and the case students. Similar to Table \ref{tab:no_hint}, case students spent less time on all assignments comparing to control students. The p-values of the one sample t-test are also very small. Only assignment 4 has p-value a little over $5\%$. Other three assignments have p-values less than $1\%$.}
 \begin{center}
   \begin{tabular}{| c | c | c | c | c | c |}
     \hline
@@ -438,32 +316,18 @@ See Figure \ref{fig:final_compare_all}. It is hard to tell which group of studen
 
 We designed and deployed an adaptive hint system for web-based homework. Our controlled study shows that adaptive hints have a significant positive effect on student performance.
 
-The effect for which we have strong evidence is the effect of
-receiving a hint while solving a problem on the performance of the
-student on the cumulative effort of the student on the following
-problems in the same assignment. We interpret this effect to mean that
-the hint gave the student a better understanding of the problem domain
-and that this better understanding manifested itself when they were
-working on other problems in the same domain, even though they did not
-receive hints on those problems.
+The effect of which we have strong evidence is the effect of receiving a hint while solving a problem on the student performance of the cumulative effort on the following problems in the same assignment. We interpret this effect to mean that the hint gave the student a better understanding of the problem domain and that this better understanding manifested itself when they were working on other problems in the same domain, even though they did not receive hints on those problems.
 
-We found some evidence that receiving a hint effects student
-performance on a single problem. This evidence is much weaker than the
-evidence for the cumulative effort. This is not surprising because we
-expect a strong correlation between the effects of a hint different
-problems in the same assignment even when the effect on each single
-problem is weak.
+We found some evidence that receiving a hint affects student
+performance on a single problem. This evidence is much weaker than the evidence of the cumulative effort. This is not surprising because we expect a strong correlation between the effects of a hint on different problems in the same assignment even when the effect on each problem is weak.
 
 We performed other tests for which we found no significant effect:
 \begin{enumerate}
-\item There was no significant effect of receiving a hint on the
-  performance of the student on the {\em same} problem.
-\item We could find no significant effect of receiving effects on
-  performance on the final exam.
+\item There was no significant effect of receiving a hint on the performance of the student on the {\em same} problem.
+\item We could not find a significant effect of receiving hints on performance on the final exam.
 \end{enumerate}
 
-We are encouraged by the results of this study and plan to reuse and
-refine the system in future offerings of the course, both in our
+We are encouraged by the results of this study and plan to reuse and refine the system in future offerings of the course, both in our
 university and as an online offering on edX.
 
 \bibliographystyle{splncs}
